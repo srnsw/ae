@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Authority xmlns="http://www.records.nsw.gov.au/schemas/RDA">
+  <DateRange>
+    <Start>1976</Start>
+  </DateRange>
+  <Status>
+    <Draft version="1">
+      <Agency>Fire Fighting Organisation</Agency>
+      <Date>2009-06-25</Date>
+    </Draft>
+  </Status>
+  <Comment author="SRNSW">
+    <Paragraph>This example document is made up of a combination of two examples from State Records' <Source url="http://www.records.nsw.gov.au/recordkeeping/government-recordkeeping-manual/rules/procedures/disposal-authorisation/disposal-authorisation">Procedures for disposal authorisation</Source>:<List><Item>appendix 2 (example supporting documentation) and </Item><Item>appendix 4 (example of a functional retention and disposal authority).</Item></List></Paragraph>
+    <Paragraph>
+      <Source>This is why the supporting documentation does not relate to the agency responsible for this draft (the fictional Fire Fighting Organisation).</Source>
+    </Paragraph>
+  </Comment>
+  <Context type="supporting documentation">
+    <ContextTitle>About the organisation</ContextTitle>
+    <ContextContent>
+      <Paragraph>The Building and Construction Industry Long Service Payments Corporation is a statutory body established under the <Source>Building and Construction Industry Long Service Payments (Amendment) Act 1982</Source>.</Paragraph>
+      <Paragraph>The effect of the Act was to transfer the administration of a portable long service payments scheme for building and construction workers in NSW from the Builders Licensing Board to the Corporation. Between 1975 and 1982, the long service payments scheme was a division within the former Builders Licensing Board (now part of the Office of Fair Trading).</Paragraph>
+      <Paragraph>The purpose of the Corporation is to manage an independent and impartial worker benefit scheme providing industry-based portability of long service benefits for designated members of the building and construction industry in NSW. The Corporation:<List><Item>registers building and construction industry workers</Item><Item>collects service details from employers and workers, and issues notices of service to workers annually, and</Item><Item>provides long service payments to eligible members.</Item></List></Paragraph>
+      <Paragraph>The Corporation also collects levies on building and construction work to fund the scheme.</Paragraph>
+      <Paragraph>Prior to 1986 the scheme was funded by a charge on employers. From July 1986, the Building and Construction Industry Long Service Payments Act 1986 provided that the funding would come from a levy on building and construction work. The levy is currently 0.2% on building and construction work costing $25 000 or more, with most local councils acting as agents to collect the levy for the Corporation.</Paragraph>
+      <Paragraph>The Corporation consists of two branches. The Operations branch is responsible for:<List><Item>scheme compliance</Item><Item>customer services, and</Item><Item>register maintenance.</Item></List></Paragraph>
+      <Paragraph>The Support branch is responsible for:<List><Item>information technology</Item><Item>levy collection, finance and compliance</Item><Item>support services, and</Item><Item>records management.</Item></List></Paragraph>
+      <Paragraph>There is also a Policy, Development and Committee Support section.</Paragraph>
+      <Paragraph>The Corporation currently employs approximately 65 staff (full time equivalent).</Paragraph>
+      <Paragraph>The Corporation is responsible for the administration of the <Source>Building and Construction Industry Long Service Payments Act 1986</Source>, which requires it to deliver a long service payments scheme to the building and construction industry of NSW. This Act also defines how the scheme is to be administered and how it is to be managed.</Paragraph>
+    </ContextContent>
+  </Context>
+  <Context type="supporting documentation">
+    <ContextTitle>About relationships with other organisations and stakeholders</ContextTitle>
+    <ContextContent>
+      <Paragraph>The Corporation's operations depend on the services of local councils for the collection of levies. The Corporation has no subsidiaries, and has not entered into joint ventures or partnerships with other organisations.</Paragraph>
+      <Paragraph>The Corporation provides a service to over 251,000 registered active building and construction workers, and liaises with more than 32,500 registered employers.</Paragraph>
+    </ContextContent>
+  </Context>
+  <Context type="supporting documentation">
+    <ContextTitle>About committees</ContextTitle>
+    <ContextContent>
+      <Paragraph>The <Source>Building and Construction Industry Long Service Payments Act 1986</Source> provides for a Building and Construction Industry Long Service Payments Committee (the 'Industry Committee'), which acts as an advisory and appellate body. The Industry Committee consists of ten part-time members appointed by the Minister.</Paragraph>
+      <Paragraph>The Industry Committee is empowered under s.9 of the Act to advise the Corporation on administration of the Act, including matters concerning publicity, the investment of funds and the rate of the long service levy. The Industry Committee decides worker's appeals lodged against decisions of the Corporation, and decides appeals lodged by levy payers. It also acts as a 'Customer Council' in relation to customer service standards and helps to ensure that the quality and effectiveness of services meet customers' needs.</Paragraph>
+      <Paragraph>The Corporation is able to provide the building and construction industry with regular updates on its services/achievements and consult with industry representatives on any issues affecting its operations via the Industry Committee.</Paragraph>
+    </ContextContent>
+  </Context>
+  <Context type="supporting documentation">
+    <ContextTitle>About the records held by the organisation</ContextTitle>
+    <ContextContent>
+      <Paragraph>The Corporation has implemented an electronic document and records management system. The system integrates with other business solutions, and facilitates the management of paper and electronic communications records.</Paragraph>
+      <Paragraph>The Corporation has also started a major redevelopment of its computerised Worker Registry System. This redevelopment will replace a 20 year-old system and accords with Government Requirements for open platform systems. It will provide greater flexibility and will also allow for more streamlined lodgement of information by employers and will include Internet transacting.</Paragraph>
+      <Paragraph>The Corporation's oldest records date back to the beginning of the scheme in 1975, and were created by the Builders Licensing Board.</Paragraph>
+      <Paragraph>The Corporation manages records relating to the registration of and administration of payments to employers and workers as case files, and currently has approximately 380 000 worker files and 83 000 employer files.</Paragraph>
+      <Paragraph>A number of disposal recommendations have been issued to the Corporation in the past: DR2886, DR3001, DR3060, DR3092, DR3267, DR3345, DR3458, DR3556, DR3794, DR4309, DR4380, DR4499, DR4542, DR5104, DR5406 and DR5500. These covered the disposal of records relating to both the Corporation's core and administrative functions.</Paragraph>
+    </ContextContent>
+  </Context>
+  <Context type="supporting documentation">
+    <ContextTitle>About any external stakeholder consultation undertaken</ContextTitle>
+    <ContextContent>
+      <Paragraph>Justifications for each retention period and disposal action are included in the Corporation's draft functional retention and disposal authority.</Paragraph>
+    </ContextContent>
+  </Context>
+  <Term itemno="3.0.0" type="function">
+    <TermTitle>FIRE MANAGEMENT</TermTitle>
+    <TermDescription>
+      <Paragraph>The function of managing fire prone land, including the use of fire to achieve land management objectives. Also includes the prevention and control of fires in areas managed by the Agency.</Paragraph>
+    </TermDescription>
+    <Term type="activity" itemno="3.3.0">
+      <TermTitle>Fire planning</TermTitle>
+      <TermDescription>
+        <Paragraph>The activity of developing and implementing fire plans for an area or district which describe natural resources and proposals for managing fires.</Paragraph>
+        <SeeReference>
+          <TermTitleRef>FIRE MANAGEMENT</TermTitleRef>
+          <TermTitleRef>Incidents</TermTitleRef>
+          <SeeText>for records relating to specific fire incidents.</SeeText>
+        </SeeReference>
+      </TermDescription>
+      <Class itemno="3.3.1">
+        <ClassDescription>
+          <Paragraph>Fire management plans for individual reserves.</Paragraph>
+        </ClassDescription>
+        <Disposal>
+          <RetentionPeriod unit="years">1</RetentionPeriod>
+          <DisposalTrigger>plan is superseded</DisposalTrigger>
+          <DisposalAction>Destroy</DisposalAction>
+        </Disposal>
+        <Justification>
+          <Paragraph>Plans are maintained as up to date working documents to instruct staff on risks, priorities and actions required. Once superseded, old plans have limited internal reference use.</Paragraph>
+        </Justification>
+      </Class>
+    </Term>
+    <Term type="activity" itemno="3.6.0">
+      <TermTitle>Regeneration</TermTitle>
+      <TermDescription>
+        <Paragraph>The activity of analysing and developing specific programs to facilitate the reestablishment or rehabilitation of native vegetation.</Paragraph>
+      </TermDescription>
+      <Class itemno="3.6.1">
+        <ClassDescription>
+          <Paragraph>Summary reports and analysis of the level of fire damage and regeneration or rehabilitation of burnt areas, including evaluations of regeneration programs.</Paragraph>
+        </ClassDescription>
+        <Disposal>
+          <RetentionPeriod unit="years">10</RetentionPeriod>
+          <DisposalTrigger>action completed</DisposalTrigger>
+          <DisposalAction>Required as State archives</DisposalAction>
+        </Disposal>
+        <Justification>
+          <Paragraph>Records provide a summary report of revegetation strategies, including assessment of their effectiveness. Such records contribute to the cumulative record of environmental management of a particular area, and provide a research resource for investigations into the impact of fire incidents on the Australian environment.</Paragraph>
+        </Justification>
+      </Class>
+      <Class itemno="3.6.2">
+        <ClassDescription>
+          <Paragraph>Records relating to programs for regeneration of native vegetation by planting and restrictions on use and access to a burnt area.</Paragraph>
+        </ClassDescription>
+        <Disposal>
+          <RetentionPeriod unit="years">10</RetentionPeriod>
+          <DisposalTrigger>action completed</DisposalTrigger>
+          <DisposalAction>Destroy</DisposalAction>
+        </Disposal>
+        <Justification>
+          <Paragraph>Records provide the base analysis for summary reports on revegetation which are recommended for retention as State archives (class 3.2.1). While of long term value for internal reference, they are not considered essential to understanding the information contained in the summary reports. Retention period is based on these considerations and confirmed as appropriate in interview with section Manager.</Paragraph>
+        </Justification>
+      </Class>
+    </Term>
+  </Term>
+</Authority>

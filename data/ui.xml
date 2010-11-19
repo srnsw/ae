@@ -1,0 +1,58 @@
+<ui>
+ <menubar>
+   <menu action="File">
+     <menuitem action="New" />
+     <menuitem action="Open" />
+     <menuitem action="Save" />
+     <menuitem action="SaveAs" />
+     <separator/>
+     <menuitem action="Close" />
+     <separator/>
+     <menuitem action="Quit" />
+   </menu>
+   <menu action="View">
+     <menuitem action="Form"/>
+     <menuitem action="Review"/>
+     <menuitem action="Source"/>
+     <separator/>
+     <menuitem action="Search"/>
+     <menuitem action="Details"/>
+     <menuitem action="GoForward"/>
+     <menuitem action="GoBackward"/>
+     <menuitem action="ExpandTree"/>
+     <menuitem action="CollapseTree"/>
+     <separator/>
+      <menuitem action="Preferences"/>
+   </menu>
+   <menu action="Transform">
+     <menuitem action="Edit"/>
+     <menuitem action="Preview"/>
+     <menuitem action="Word"/>
+     <menuitem action="Export"/>
+   </menu>
+   <menu action="HelpMenu">
+     <menuitem action="About"/>
+     <menuitem action="Help"/>
+    </menu>
+ </menubar>
+ <toolbar>
+     <toolitem action="New"/>
+     <toolitem action="Open"/>
+     <toolitem action="Save"/>
+     <separator/>
+     <toolitem action="Close"/>
+     <separator/>
+     <toolitem action="Form"/>
+     <toolitem action="Review"/>
+     <separator/>
+     <toolitem action="Search"/>
+     <toolitem action="Details"/>
+     <toolitem action="GoBackward"/>
+     <toolitem action="GoForward"/>
+     <separator/>
+     <toolitem action="Help"/>
+     <separator/>
+     <toolitem action="Quit"/>
+   </toolbar>
+</ui>
+

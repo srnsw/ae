@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<samplejustifications>
+  <category name="Regulatory requirements">
+    <justification>Retention period meets requirements of [name of Act/Regulation, section no.], which requires [brief description of records] to be retained for [period of time].</justification>
+    <justification>Retention period meets requirements of [name of code/standard/rules etc], which specifies that [brief description of records] must be retained for [period of time] ([reference no.]).</justification>
+   </category>
+   <category name="Accountability requirements">
+   <justification>Evidence of [policy / procedures / processes] in place at a particular time may be required for [future claims / legal action involving the organisation].</justification>
+   <justification>Retention period encompasses limitation periods for potential [legal action / disputes] concerning [fulfilment / terms and conditions] of [agreement / contract].</justification>
+   <justification>Records provide supporting evidence of expenditure required for accountability purposes.</justification>
+   <justification>Records document basis of payments for…, and should therefore be retained in accordance with other financial records.</justification>
+   <justification>Records may be required to demonstrate that [due care / action] was taken to [eliminate or detect deficient practices / rectify faults / improve services].</justification>
+   <justification>Records provide evidence of the organisation’s compliance with….</justification>
+   <justification>Records may be relevant to compensation claims for [property damage / personal injury].</justification>
+   <justification>Records document authorisations for use of the organisation’s resources.</justification>
+   <justification>Records may be required as evidence of [decision making / actions].</justification>
+   <justification>Retention period ensures that records are available for reference in the event that [further complaints are received / investigation is re-opened].</justification>
+   <justification>Records document advice given regarding compliance with legislation.</justification>
+   </category>
+   <category name="Business needs">
+   <justification>Retention period based on potential use of records for administrative and reference purposes while [agreement / plan / policy / procedures / guidelines / publication / process] is current and potential use for reference as part of review processes.</justification>
+   <justification>Retention period based on potential use of records for reference purposes while [services / standards / processes] are in place and for use in development of future [services / standards / processes].</justification>
+   <justification>[Advice / information] provided is of a general or routine nature only. Records do not document substantive [commitments / dealings / agreements] and have limited use for administrative or reference purposes.</justification>
+   <justification>Retention period based on requirement for information for end of financial year reporting.</justification>
+   <justification>Retention period based on use of information for [planning / evaluation / reporting / reviewing] cycles. Records may be required for analysis of trends over time.</justification>
+   <justification>[Reports / statements / summaries] are generated on a regular basis and consolidated into final reports to [board / executive / committee], which are retained for [period of time] (see [class no.]).</justification>
+   <justification>Records relating to administrative arrangements for conduct of [audits / meetings / consultation] have limited use for reference or other purposes after finalisation of arrangements. Significant information pertaining to [results / outcomes / recommendations] will be documented in [final reports / minutes of meetings], which will be retained for [period of time] (see [class no.]).</justification>
+   <justification>Records are only of value to the organisation while current.</justification>
+   <justification>Records are facilitative in nature and likely to have limited ongoing use for administrative, accountability or reference purposes.</justification>
+   <justification>Retention period based on short-term requirement for records for data entry. Records in [name of database] form the primary record and will be retained for [period of time] (see [class no.]).</justification>
+   <justification>Retention period based on potential use of records for ongoing [administrative / accountability / reference] purposes.</justification>
+   <justification>Retention period based on potential use of records for [administrative / reference] purposes, which is likely to be short term.</justification>
+   </category>
+   <category name="Community expectations">
+   <justification>[Name of stakeholder group] expect that the organisation will be able to re-issue [qualification / licence / permit] if required, so sufficient information must be retained [for potential working life / while licence is current].</justification>
+   </category>
+   <category name="Consistency with previous disposal decisions">
+   <justification>Retention period consistent with that identified for records relating to… ([class no.]).</justification>
+   <justification>Retention period consistent with that identified for [brief description of records] in [name of retention and disposal authority], and assessed and confirmed by [name of business unit etc] staff as appropriate to meet [operational / business] needs.</justification>
+   <justification>Retention period consistent with approach in other Australian jurisdiction ([name of disposal authority], [class number]), and assessed and confirmed by [name of business unit etc] staff as appropriate to meet [operational / business] needs.</justification>
+   </category>
+   <category name="State archives (Appraisal objective 1)">
+   <justification>Records document the establishment, structure and functions of the [Government / organisation].</justification>
+   <justification>Records establish the nature and extent of the [Government’s / organisation’s] [jurisdiction / obligations / responsibilities / powers].</justification>
+   <justification>Records document the passing and promulgation of legislation.</justification>
+   <justification>Records provide evidence of legal delegations to perform duties and functions of State.</justification>
+   <justification>Records document [judgments / rulings / decisions] determining the extent of jurisdictions and powers.</justification>
+   <justification>Records document agreements between governments.</justification>
+   </category>
+   <category name="State archives (Appraisal objective 2)">
+   <justification>Records provide evidence of key [decisions / activities] influencing the [administration of government / governance of the people of NSW].</justification>
+   <justification>Records document the [background to / basis for / outcomes of] key [decisions / activities] influencing the [administration of government / governance of the people of NSW].</justification>
+   <justification>Records document the [formulation / determination] of policy across the whole of government.</justification>
+   <justification>Records document the [formulation / determination / implementation] of [high level policy / strategic management decisions] [across sectors / within the organisation].</justification>
+   <justification>Records document the [monitoring / analysis / review] of policy affecting key government functions.</justification>
+   <justification>Records provide evidence of major reforms of the State’s [political / administrative] [structures / institutions].</justification>
+   <justification>Records document the [development / implementation / review] of legislation.</justification>
+   </category>
+   <category name="State archives (Appraisal objective 3)">
+   <justification>Records are essential for the [establishment / protection] of fundamental rights and entitlements of [individuals / groups] within the community.</justification>
+   <justification>Records are essential for the ongoing administration of the State.</justification>
+   <justification>Records establish the existence of [individuals / groups].</justification>
+   <justification>Records establish the rights of [individuals / groups] to [participate in the affairs of the State / make claim to entitlements provided by the State / make claim to protection provided by the State].</justification>
+   <justification>Records document the registration of births, deaths and marriages.</justification>
+   <justification>Records document the administration of [title or interests in land / real property].</justification>
+   <justification>Records document the administration of probate.</justification>
+   </category>
+   <category name="State archives (Appraisal objective 4)">
+   <justification>Records substantially contribute to [the existing body of knowledge / an understanding] of aspects of the [history / society / culture / people] of NSW.</justification>
+   <justification>Records relate to [events / persons / places / social phenomena / environmental phenomena / cultural phenomena] of significance to the [broader community / State of NSW / nation].</justification>
+   <justification>Records document the [planning / management] of major [infrastructure / development] projects.</justification>
+   <justification>Records document the [planning / management] of the State’s economic resources.</justification>
+   <justification>Records document the [planning / management / staging] of significant [cultural events / celebrations].</justification>
+   <justification>Records document the [identification / development / management] of [sites / objects] of [conservation / cultural / heritage] significance.</justification>
+   <justification>Records provide evidence of the [works / activities] of [individuals who/ organisations that] have significantly contributed to society.</justification>
+   </category>
+   <category name="State archives (Appraisal objective 5)">
+   <justification>Records contain information [essential for / contributing to] the [protection / physical well being / social benefit] of [current / future] generations.</justification>
+   <justification>Records document the impact of government activities on [the environment / the community / individuals within the community].</justification>
+   <justification>Records document the nature of people’s interaction with [government / their environment].</justification>
+   <justification>Records form a significant [collection / analysis] of data to assist effective [planning / decision-making] in relation to issues affecting [the community / resource management / the environment / the provision of essential services].</justification>
+   <justification>Records document [representations / appeals] against the [decisions / actions] of [government / the legislature].</justification>
+   <justification>Records document individual case management where the government [functions / programs] had far-reaching [impact / influence] on the [lives of individuals within the community / environment / development of the State and its resources].</justification>
+   <justification>Records document [environmental / economic / social] conditions within the State [at a particular point in time / over time].</justification>
+   </category>
+</samplejustifications>

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<help>
+  <section heading="About">
+    <page heading="About this program">
+      <para>This program is a full implementation of State Records NSW's XML schema for retention and disposal authorities.</para>
+      <para>It enables the creation, validation and transformation of retention and disposal authorities in an XML format.</para>
+    </page>
+  </section>
+  <section heading="Drafting a functional retention and disposal authority">
+    <page heading="Introduction">
+      <para>This section provides practical guidance on using the XML Retention and Disposal Authority Editor to compile a functional retention and disposal authority</para>
+    </page>
+    <page heading="Date range">
+      <para>Each functional retention and disposal authority needs to indicate the proposed dates of coverage (i.e. the date range of the records to which the functional authority can be applied).</para>
+      <para>To enter a date range:</para>
+      <para> •  Navigate to the 'Details' screen using the tree menu on the left-hand side of the editor.</para>
+      <para> •  Under 'Authority date range', enter a year in the field under 'Start'. This could be the year of your organisation's inception, or the year in which the earliest records maintained by your organisation were created.</para>
+      <para> •  Also enter a year in the field under 'End' if the authority is only to apply to records created during a certain period. If the authority is to be ongoing, there is no need to enter a year under 'End'.</para>
+      <para> •  You may check the 'circa' box if the start and/or end date is approximate.</para>
+    </page>
+    <page heading="Supporting documentation">
+      <para>When submitting an initial draft authority, SRNSW requires organisations to provide supporting documentation.</para>
+      <para>To enter supporting documentation:</para>
+      <para> •  Right-click on 'Context' in the tree menu and choose 'Add supporting documentation' from the pop-up menu.</para>
+      <para> •  This will add five elements under which you may add text: 'About the organisation', 'About relationships with other organisations and stakeholders', 'About committees', 'About the records held by the organisation' and 'About any external stakeholder consultation undertaken'.</para>
+      <para> •  See Appendix 1 in the Procedures for disposal authorisation for information about the content that should be included under each element.</para>
+      <para> •  If you referred to published sources while compiling the supporting information (e.g. your organisation's latest annual report or content from your organisation's website) you can enter information about the source/s by left-clicking on 'Add' under 'Sources', entering the title and web address (if applicable) of the source, then left-clicking 'Apply'.</para>
+      <para>You may wish to include additional sections under Supporting documentation (e.g. to document other information gathered during the process of developing a functional authority). To add context elements, right-click on 'Context' in the tree menu and choose 'Add context' from the pop-up menu. You will need to enter a name for the new context element under 'Context Title'.</para>
+    </page>
+    <page heading="Table of commentary">
+      <para>If, as part of developing the draft authority, you undertook an internal review process or consultation with external stakeholders, you may document the feedback received in a table of commentary.</para>
+      <para>To enter a table of commentary:</para>
+      <para> •  Right-click on 'Context' in the tree menu and choose 'Add table of commentary' from the pop-up menu.</para>
+      <para> •  This will add two types of elements under which you may add text: 'Summary' and 'Comment and Response'.</para>
+      <para> •  Each comment and response is numbered. To add more comments, right-click on 'Context' in the tree menu and choose 'Add context' from the pop-up menu. You will need to enter a name for the new context element under 'Context Title'.</para>
+    </page>
+    <page heading="Structure of authority">
+      <para>Functional retention and disposal authorities are structured around functions and activities, and are based on a three level hierarchy: function &gt; activity &gt; disposal class.</para>
+      <para> •  To add a new function-activity-disposal class set, right-click on 'Authority' in the tree menu and choose 'Add function-activity-class' from the pop-up menu.</para>
+      <para> •  To include additional activities under a function, right-click on the function title in the tree menu and choose 'Add activity-class' from the pop-up menu.</para>
+      <para> •  To include additional disposal classes under an activity, either right-click on the activity title in the tree menu and choose 'Add child class' from the pop-up menu OR right-click on the class number in the tree menu and choose 'Add sibling class' from the pop-up menu.</para>
+      <para> •  To delete elements from the authority, right-click on the function or activity title or disposal class number in the tree menu and choose 'Delete' from the pop-up menu, then left-click 'OK' in the dialog.</para>
+      <para>WARNING! Deleting a function or activity also deletes all the elements under it in the hierarchy (i.e. deleting a function will also delete any activities and disposal classes under it, and deleting an activity will also delete any disposal classes under it).</para>
+    </page>
+    <page heading="Functions">
+      <para>Business functions are what an organisation is responsible and accountable for doing, in the broadest sense, to fulfil its established role and responsibilities to its stakeholders. They represent the major responsibilities that are managed by the organisation to fulfil its goals. A business function represents a group of related business activities carried out by the organisation.</para>
+      <para> •  Left-click on an element in the first level of the hierarchy that appears under 'Authority' in the tree menu. This should be automatically identified as a function under 'Term Type'.</para>
+      <para> •  Under 'Term Title', enter a clear, concise name for the function.</para>
+      <para> •  Under 'Description', enter a short, clear definition that provides a plain-English explanation of the function and clearly indicates its scope.</para>
+      <para> •  See the Procedures for disposal authorisation for guidance on identifying and scoping business functions.</para>
+    </page>
+    <page heading="Activities">
+      <para>Business activities are what an organisation does to carry out its business functions. Taken together, a group of activities will make up a business function. These activities do not overlap, although parts of them may be done by different business units within the organisation.</para>
+      <para> •  Left-click on an element in the second level of the hierarchy that appears under 'Authority' in the tree menu. This should be automatically identified as an activity under 'Term Type'.</para>
+      <para> •  Under 'Term Title', enter a clear, concise name for the activity.</para>
+      <para> •  Under 'Description', enter a short, clear definition that provides a plain-English explanation of the activity and reflects the processes carried out with respect to the function.</para>
+      <para> •  See the Procedures for disposal authorisation for guidance on identifying and scoping business activities.</para>
+    </page>
+    <page heading="See references">
+      <para>See references aim to make functional retention and disposal authorities more useable. They give users of the functional retention and disposal authority options to help them make the best decision about how to sentence a particular class of records.</para>
+      <para>See references may be added at the end of functions or activities by using the drop down menu under 'See references'.</para>
+      <para> •  To add a see reference to another function or activity within the draft authority, choose 'Internal' from the drop down menu and then left-click 'Add'. Under 'Terms', enter the name of the function. If you need to include an activity title, left-click 'Add' and then enter the name of the activity in the second field that appears under 'Terms'. Under 'See Text', enter a description of when users should refer to this function or activity, i.e. ‘for records relating to…’, and then left-click 'Apply'.</para>
+      <para> •  To add a see reference to a function or activity within GDA12 or GA28, choose 'GDA12' or 'GA28' from the drop down menu and then left-click 'Add'. Choose the function from the first drop down menu under 'Terms', and then the activity from the second drop down menu (if needed). Under 'See Text', enter a description of when users should refer to this function or activity, i.e. ‘for records relating to…’, and then left-click 'Apply'.</para>
+      <para> •  To add a see reference to a function or activity within another functional or general authority (other than GA28 or GDA12), choose 'Another authority' from the drop down menu and then left-click 'Add'. Under 'ID reference', choose the appropriate prefix from the drop down menu (e.g. FA or GA) and then enter the number of the authority in the field. Under 'Authority Title', enter the title of the authority (usually the name of the organisation or a brief description of the functions covered). Under 'Terms', enter the name of the function. If you need to include an activity title, left-click 'Add' and then enter the name of the activity in the second field that appears under 'Terms'. Under 'Item number', enter the relevant disposal class number. Under 'See Text', enter a description of when users should refer to this function or activity, i.e. ‘for records relating to…’, and then left-click 'Apply'.</para>
+      <para> •  To delete a see reference, right-click on the reference and choose 'Delete' from the pop-up menu.</para>
+      <para> •  For more information about using see references, see Appendix 3 of the Procedures for disposal authorisation.</para>
+    </page>
+    <page heading="Disposal classes">
+      <para>Disposal classes consist of records performing or recording similar transactions and therefore having the same minimum retention period and disposal action.</para>
+      <para> •  Left-click on an element in the third level of the hierarchy that appears under 'Authority' in the tree menu ('Class').</para>
+      <para> •  Under 'Description', enter a clear description of the transactional processes and types of records that are covered by the class.</para>
+      <para> •  See the Procedures for disposal authorisation for guidance on drafting disposal classes.</para>
+      <para>DISPOSAL ACTIONS</para>
+      <para>Each disposal class must have a disposal action that specifies what should happen to the records.</para>
+      <para>To enter a disposal action authorising destruction:</para>
+      <para> •  Under 'Disposal', left-click 'Add'.</para>
+      <para> •  Under 'Retention period', enter the number of years or months and choose 'years' or 'months' from the drop down menu. Under 'Disposal trigger', choose a trigger from the drop down menu or enter a custom trigger (e.g. 'audit' or 'date of receipt'). Under 'Disposal Action', choose 'Destroy' from the drop down menu and then left-click 'Apply'.</para>
+      <para>Note: If the disposal action does not require entry of a specific number of months or years (e.g. 'Retain until administrative or reference use ceases, then destroy'), leave the fields under 'Retention period' empty.</para>
+      <para> •  See the Procedures for disposal authorisation for guidance regarding retention periods and disposal triggers.</para>
+      <para>Note: Sometimes disposal triggers can be 'tricky' (e.g. where a condition is present, such as if the records relate to a minor they must be retained at least until the person reaches a certain age). Contact SRNSW for assistance in entering these types of disposal actions into the Editor.</para>
+      <para>To enter a disposal action requiring records as State archives:</para>
+      <para> •  Under 'Disposal', left-click 'Add'.</para>
+      <para> •  Under 'Disposal Action', choose 'Required as State archives' from the drop down menu.</para>
+      <para> •  You should also identify proposed custody arrangements by entering the number of years or months and choosing 'years' or 'months' from the drop down menu under 'Retention period', and choosing a trigger from the drop down menu under 'Disposal trigger' or entering a custom trigger (e.g. 'audit' or 'date of receipt'). Then left-click 'Apply'.</para>
+      <para> •  See the Procedures for disposal authorisation for guidance on identifying State archives and determining custody proposals.</para>
+      <para>It is also possible to choose a disposal action of 'Retain in agency' or 'Transfer' from the drop down menu. You should contact SRNSW for more guidance about using these disposal actions.</para>
+      <para>JUSTIFICATIONS</para>
+      <para>Each disposal action must have a definitive, measurable statement that gives a clear rationale for the identified minimum retention period or the recommendation to retain the records as State archives.</para>
+      <para> •  Under 'Justification', enter a brief statement. See Appendix 3 in the Procedures for disposal authorisation for information about drafting justifications.</para>
+      <para> •  For assistance, SRNSW has compiled a sample of common justifications. To access this list, place the cursor in the 'Justification' field and press ‘Control-J’. Select the appropriate justification from the lists provided and then left-click 'Apply'. You may modify these justifications as required.</para>
+    </page>
+    <page heading="Comments">
+      <para>It is possible to include comments about functions, activities and disposal classes. This feature may be useful during an internal review process.</para>
+      <para> •  Under 'Comments', left-click 'Add'.</para>
+      <para> •  Under 'Author', enter the name/ID of the author of the comment, and then enter the comment under 'Comment'. Left-click 'Apply'.</para>
+    </page>
+    <page heading="Layout of draft authority">
+      <para>SRNSW's conventions for retention and disposal authorities require functions and activities to be listed alphabetically.</para>
+      <para> •  To sort functions and activities in the draft authority, choose 'Edit' and then 'Sort by terms' from the 'Transform' menu.</para>
+      <para> •  To number functions, activities and disposal classes, choose 'Edit' and then 'Number items' from the 'Transform' menu.</para>
+      <para>Note: It is possible to impose numbering on functions, activities and disposal classes within the authority, rather than automatically number the items. To do this, enter a number under 'Item number'.</para>
+      <para>SRNSW's conventions for see references require references to other functions and activities within the functional authority to be listed before references to functions and activities within other retention and disposal authorities.</para>
+      <para> •  To sort see references in the draft authority choose 'Edit' and then 'Sort see references' from the 'Transform' menu.</para>
+    </page>
+    <page heading="Rearranging activities and disposal classes">
+      <para> •  To move an activity to another function, right-click on the activity title in the tree menu and choose 'Cut' from the pop-up menu. Then either right-click on the relevant function title in the tree menu and choose 'Paste child' from the pop-up menu OR right-click on an activity title in the tree menu and choose 'Paste sibling' from the pop-up menu.</para>
+      <para> •  To copy an activity to another function, , right-click on the activity title in the tree menu and choose 'Copy' from the pop-up menu. Then either right-click on the relevant function title in the tree menu and choose 'Paste child' from the pop-up menu OR right-click on an activity title in the tree menu and choose 'Paste sibling' from the pop-up menu.</para>
+      <para>WARNING! Moving or copying an activity to another function will also move or copy all of the disposal classes under the activity.</para>
+      <para> •  To move a disposal class to another activity, right-click on the class number in the tree menu and choose 'Cut' from the pop-up menu. Then either right-click on the relevant activity title in the tree menu and choose 'Paste child' from the pop-up menu OR right-click on a class number in the tree menu and choose 'Paste sibling' from the pop-up menu.</para>
+      <para> •  To copy a disposal class to another activity, right-click on the class number in the tree menu and choose 'Copy' from the pop-up menu. Then either right-click on the relevant activity title in the tree menu and choose 'Paste child' from the pop-up menu OR right-click on a class number in the tree menu and choose 'Paste sibling' from the pop-up menu.</para>
+      <para> •  You can change the order in which disposal classes appear under an activity by right-clicking on the class number in the tree menu and choosing 'Move up' or 'Move down' from the pop-up menu.</para>
+    </page>
+    <page heading="Formatting">
+      <para>It is possible to apply limited formatting to text in some fields. The available formatting is:</para>
+      <para> •  'Emp', to be used to emphasise particular words or phrases (will appear as bolded text)</para>
+      <para> •  'Src', to be used to identify sources, e.g. legislation, publication titles etc (will appear as italicised text)</para>
+      <para> •  'Link', to be used to add hyperlinks</para>
+      <para> •  'List' (will appear as bullet points).</para>
+      <para>This formatting may be used in the following fields:</para>
+      <para> •  'Context content' for supporting documentation</para>
+      <para> •  'Description' and 'Comments' for functions, activities and disposal classes</para>
+      <para> •  'Justification' for disposal classes.</para>
+      <para>To use formatting, highlight the relevant text and left-click on the appropriate button located above and to the right of the field.</para>
+    </page>
+    <page heading="Transforming a draft authority">
+      <para>The Editor allows you to transform content for viewing in html and word documents.</para>
+      <para>HTML VIEW</para>
+      <para> •  To view the draft authority, choose 'Preview' and then 'Authority' from the 'Transform' menu.</para>
+      <para> •  To view comments on the draft authority, choose 'Preview' and then either 'Authority w comments' or 'Comments' from the 'Transform' menu.</para>
+      <para> •  To view all the disposal classes in the draft authority, choose 'Preview' and then 'Disposal classes' from the 'Transform' menu.</para>
+      <para> •  To view the supporting documentation, choose 'Preview' and then 'Supporting documentation' from the 'Transform' menu.</para>
+      <para>WORD VERSION</para>
+      <para>You can transform the authority into a Word version for printing, distribution to stakeholders or for internal consultation purposes and approval.</para>
+      <para> •  Choose 'Word' and then 'Draft authority' from the 'Transform' menu.</para>
+      <para>TAB SEPARATED VERSION</para>
+      <para>You can also transform the authority into a generic 'tab separated version' for import by other systems or programs.</para>
+      <para> •  Choose 'Export' and then 'Tab separated version' from the 'Transform' menu.</para>
+      <para> •  The output will open within the program itself. To save, select 'Save as' from the 'File' menu and then enter an appropriate location and filename.</para>
+      <para>Note: This transformation doesn't include function and activity scope notes or components of non-standard (i.e. custom) disposal actions.</para>
+    </page>
+    <page heading="Status events">
+      <para>You may record significant events in the history of a retention and disposal authority (e.g. dates of each draft, date of submission, date of approval and date of issue). To add a status event:</para>
+      <para> •  Navigate to the 'Details' screen using the tree menu on the left-hand side of the Editor.</para>
+      <para> •  Under 'Status events', choose the type of event you wish to add from the drop down menu and then left-click 'Add'.</para>
+      <para> •  Enter the formal name of your organisation in the 'Agency' field.</para>
+      <para> •  Leave the 'Number' field blank (this will be completed by SRNSW staff).</para>
+      <para> •  For a draft, increase the number in the 'Version' field as necessary.</para>
+      <para> •  Left-click on 'Select' next to the 'Date' field and choose the appropriate date from the calendar, then left-click 'Apply'.</para>
+      <para> •  Left-click 'Apply' to commit your changes.</para>
+      <para>Date of submission, date of approval and date of issue details will be added by SRNSW.</para>
+    </page>
+    <page heading="Submitting a draft retention and disposal authority for review and approval">
+      <para>There are two main stages in the process of obtaining approval for a functional retention and disposal authority:</para>
+      <para> •  Submitting an initial draft for review and comment by SRNSW</para>
+      <para> •  Formally submitting a final agreed draft for approval by SRNSW and its Board.</para>
+      <para>When submitting an initial draft to SRNSW for review, please send an xml version to disposal@records.nsw.gov.au.</para>
+      <para>When formally submitting a final draft for approval, please send a Word version of the authority together with a covering letter to the Director of SRNSW, and an xml version to disposal@records.nsw.gov.au. More information about submitting a functional authority to SRNSW, including a sample covering letter for the formal submission, is available in the Procedures for disposal authorisation.</para>
+    </page>
+  </section>
+  <section heading="Program operations">
+    <page heading="Program views">
+      <para>The program has three views: 'Edit form' (for drafting an authority), 'Review' (for reviewing and adding comments to an authority) and 'Source' (to inspect the underlying XML). These views are all accessible via the 'View' menu. The toolbar has shortcuts for both the 'Edit form' and 'Review' views.</para>
+    </page>
+    <page heading="Navigation">
+      <para>The 'Details', 'Back' and 'Forward' buttons in the toolbar can be used to navigate between context elements, terms and classes. You can navigate in this way within all three views ('Edit form', 'Review' and 'Source' views).</para>
+      <para>The shortcut keys for movement are: 'Control-Home', 'Control-Page_Down' and 'Control-Page_Up'.</para>
+    </page>
+    <page heading="File menu">
+      <para>To save your work, select 'Save as' from the 'File' menu. Choose an appropriate file name (e.g. 'my_agency_name_v1.xml') and an appropriate save location (e.g. your computer's desktop).</para>
+      <para>It is sensible to save your work often. Use the shortcut 'Control-S' to quickly save your work.</para>
+    </page>
+    <page heading="Searching">
+      <para>The program includes a relevancy-ranked search feature to quickly find relevant terms or classes in an authority.</para>
+      <para>To search your authority, select 'Search' from the 'View' menu or from the toolbar.</para>
+      <para>Enter as many search terms as you like in the search box. If you use multiple terms, the program will display results for any of the terms but give higher ranking to results that include combinations of terms (e.g. a search for 'policy archives' will return classes required as State archives and terms or classes that include the 'policy' keyword, but will rank those classes that are required as State archives and that contain the 'policy' keyword highest).</para>
+      <para>To do wildcard searching, simply truncate your keywords (e.g. 'polic' will return hits containing both 'policy' and 'policies').</para>
+    </page>
+  </section>
+  <section heading="Customisations">
+    <page heading="Adjusting preferences">
+      <para>To change your program preferences, select 'Preferences' from the 'View' menu.</para>
+      <para>DEFAULTS</para>
+      <para>In this section, you can change the default 'Comments author' (for comments) and 'Context type' (for blank contextual elements).</para>
+      <para>You can also control whether:</para>
+      <para> •  the titles of top-level terms (functions) are capitalized</para>
+      <para> •  the tree menu in the 'Edit form' view should automatically expand</para>
+      <para> •  the tree menu in the 'Edit form' view should contain options to create any kind of term hierarchy (or just allow the use of functions and activities).</para>
+      <para>LAYOUT</para>
+      <para>The layout options allow you to control the dimensions of particular fields in the 'Edit form'.</para>
+      <para>By adjusting the 'Page width', you may find that the 'Edit form' better fits your screen.</para>
+      <para>UPDATES</para>
+      <para>The 'Updates' preferences control whether the program automatically marks the date of update for terms and classes that are changed. The 'Highlight updates since' field allows you to highlight changes after a certain date (changes are highlighted in the programs' 'Review' view.</para>
+    </page>
+    <page heading="Adding stylesheets">
+      <para>With a little bit of XSL programming, it is possible to customise this program to add your own editing, HTML previewing and MS Word reporting options under the 'Transform' menu.</para>
+      <para>The first step is to design a custom stylesheet. A good resource for learning XSL is Roger Costello's tutorial, which is downloadable as a zip file from http://www.xfront.com/xsl.html.</para>
+      <para>Four types of output are supported:</para>
+      <para> •  XML (the program substitutes the current working document with the new XML document outputted by the stylesheet)</para>
+      <para> •  HTML (the program opens the default browser and displays the HTML document outputted by the stylesheet)</para>
+      <para> •  MS Word (the program opens MS Word and displays the document outputted by the stylesheet)</para>
+      <para> •  any text format (the program opens a new window and displays the document outputted by the stylesheet in the source view).</para>
+      <para>Once completed and tested, copy the new stylesheet into the program's data/stylesheets directory.</para>
+      <para>Simply edit the 'xsl_manifest.xml' document in that same directory to add your new XSL stylesheet to the program's 'Transform' menu.</para>
+    </page>
+  </section>
+  <section heading="Advanced features">
+    <page heading="Multiple disposal actions">
+      <para>Multiple disposal actions have a number of potential uses, including:</para>
+      <para> •  allowing complex multi-part disposal actions to be mapped in XML (e.g. 'Retain for this, or that, whichever is longer, then do this')</para>
+      <para> •  allowing the chaining of successive disposal actions</para>
+      <para> •  allowing risk-managed, EDRMS-automatable actions to sit alongside authorised disposal actions.</para>
+      <para>If you add additional disposal actions to a class, you must distinguish them by completing the 'Disposal condition' field for each action.</para>
+      <para>If you are interested in using this feature, please contact SRNSW for further advice.</para>
+    </page>
+    <page heading="Using the 'Linked to...' field">
+      <para>The 'Linked to...' field allows you to create links between individual terms, classes or the authority as a whole and other resources (e.g. your agency's local classification scheme, the business units to which particular terms apply, or the legislative mandates informing individual classes etc).</para>
+      <para>This element can also be used to add index terms or build a linking table to a previous authority.</para>
+      <para>If you are interested in using this feature, please contact SRNSW for further advice.</para>
+    </page>
+  </section>
+  <section heading="Troubleshooting">
+    <page heading="When things go wrong! Responding to errors">
+      <para>The errors that you may encounter can be divided into two rough categories:</para>
+      <para> •  XML errors (which the program handles gracefully with an error message)</para>
+      <para> •  program errors (the program freezes or terminates abruptly).</para>
+    </page>
+    <page heading="XML errors">
+      <para>Whenever the program opens an XML file it does two checks:</para>
+      <para>1. Is the file is correct XML?</para>
+      <para>2. Does the file successfully validate against SRNSW's schema (i.e. is it the right kind of XML file)?</para>
+      <para>If either of these checks fail, the file will be opened in the 'Source' view rather than the 'Edit form' view. This allows simple errors to be fixed and prevents accidental overwriting of potentially significant information. While errors persist, users are prevented from switching to the 'Edit form' or 'Review' views and an error message is displayed.</para>
+      <para>Errors can be fixed by hand editing the document within the 'Source' view. Any changes you make will be automatically applied so you can check at any time (and without saving) whether you have fixed things by trying to switch to either the 'Edit form' or 'Review' views (any further errors will show in an error dialogue).</para>
+      <para>If the problem is incorrect XML, an error message beginning 'This is not a well-formed XML file' will show whenever you try to switch views.</para>
+      <para>A more likely error is a failure to validate against SRNSW's schema. This type of error is signified by an error message beginning 'This XML file has validation errors'. Such an error may be caused by:</para>
+      <para> •  a document that includes elements not found in SRNSW's schema</para>
+      <para> •  elements that are missing from the document but are required by SRNSW's schema</para>
+      <para> •  elements that contain the wrong kind of content (e.g. an element which expects a date in the format ‘2009-12-01’ but contains the words ‘December 1 2009’ instead).</para>
+    </page>
+    <page heading="Program errors">
+      <para>Program errors may be caused by:</para>
+      <para> •  problems in the application itself</para>
+      <para> •  problems in the third party libraries it depends on</para>
+      <para> •  transient computer/network problems (e.g. failure to write to files stored on a network).</para>
+      <para>If a program error does occur you may be able to diagnose it by opening the 'error_log.txt' file. On a windows installation, this file is in your 'Documents and Settings' folder at this path: C:\Documents and Settings\[user_name]\Application Data\AuthorityEditorSettings.</para>
+      <para>Note: The 'Application Data' folder is hidden by default - if you can't find it, from the 'Tools' menu in Explorer select 'Folder Options' - 'View' (tab) - 'Show hidden files and folders'.</para>
+    </page>
+    <page heading="Accessing files on networks">
+      <para>Question: I am trying to access a file on a network drive - how do I open it?</para>
+      <para>When in the 'File - Open' dialog left-click on the 'Type a file name' image on the top left (a pencil and notepad) or hit the shortcut CTL-L to get a 'Location' entry window. Type the network address you want here (or copy and paste the address from Windows Explorer).</para>
+      <para>Tip: Add a bookmark to this location (the 'Add' button on the bottom left) for easier access in the future.</para>
+      <para>If you are in a 'File - Save as' dialog you don't get a 'Location' entry window. As a work around, go to the 'File - Open' dialog and follow the instructions above. When you have located the right folder, add a bookmark to it. That bookmark will then be available for 'File - Save as' operations.</para>
+    </page>
+  </section>
+</help>

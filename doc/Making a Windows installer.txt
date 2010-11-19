@@ -1,0 +1,20 @@
+Making a Windows installer
+-------------------------
+
+If you've made changes to this application and would like to generate a custom Windows installer, you can do so quite easily.
+
+Steps:
+
+1) Download and install the full windows package on a windows machine (this includes pre-packaged versions of ruby, ruby-gnome and nokogiri)
+
+2) Apply the changes you want to this windows version (i.e. if you are working on MAC or LINUX copy your changes over)
+
+3) Change the default parameters in the AE_full_install.nsi file as appropriate (e.g. you may need to change the SOURCE_LOCATION parameter to point it to wherever you've installed AE locally e.g. "c:\Program Files\AE")
+
+4) Get the nullsoft scriptable install system (http://nsis.sourceforge.net/Download) and run the AE_full_install.nsi script (by either right-clicking on the script and selecting 'compile NSIS script' or dragging it onto makensisw.exe).
+
+
+Making an 'Upgrade' installer
+-----------------------------
+
+Also included is a simple NSIS script for patching existing installations of XML Authority Editor with your latest changes. The file is AE_upgrade.nsi. Follow the same steps as above.

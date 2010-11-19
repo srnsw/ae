@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.records.nsw.gov.au/schemas/RDA" xmlns="http://www.records.nsw.gov.au/schemas/RDA" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:annotation>
+		<xsd:documentation xml:lang="en">
+This is a permissive version of the schema describing an XML format for retention and disposal authorities issued by the State Records Authority of New South Wales.
+This is not the official version of the schema (see www.records.nsw.gov.au/schemas/RDA) - changes have been made to this permissive version to allow partially complete authorities to be loaded in SRNSW's authority editing tool.
+This work may be freely reproduced for personal, educational or government purposes.
+Permission must be received from State Records Authority for all other uses.
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="Authority">
+		<xsd:complexType>
+			<xsd:annotation>
+				<xsd:documentation xml:lang="en">
+Mandatory. Root element.
+				</xsd:documentation>
+			</xsd:annotation>
+			<xsd:sequence>
+				<xsd:element name="ID" type="ID" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element name="AuthorityTitle" type="xsd:token" minOccurs="0" />
+				<xsd:element name="Scope" type="xsd:token" minOccurs="0" />
+				<xsd:element name="DateRange" type="DateRange" minOccurs="0" />
+				<xsd:element name="Status" type="Status" minOccurs="0"/>
+				<xsd:element name="LinkedTo" type="LinkedTo" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element name="Comment" type="Comment" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:element name="Context" type="Context" minOccurs="0" maxOccurs="unbounded" />
+				<xsd:choice minOccurs="0" maxOccurs="unbounded">
+					<xsd:element name="Term" type="Term" />
+					<xsd:element name="Class" type="Class" />
+				</xsd:choice>
+			</xsd:sequence>
+			<xsd:attribute name="publish" type="xsd:boolean" use="optional" />
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="ID">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Optional element. May have multiple.
+A unique identifier that may belong to one of a number of control schemes -
+e.g. agency file number, retention and disposal authority number, appraisal report number, etc.
+E.g. &lt;ID control="FA"&gt;250&lt;/ID&gt;.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:token">
+				<xsd:attribute name="control" type="ID.control" use="optional"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:simpleType name="ID.control">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Mandatory attribute. Control scheme for ID element.
+Use "AgencyFileNo" for agency file number, "SRFileNo" for State Records file number,
+"FA" for functional retention and disposal authority number,
+"GA" for general retention and disposal authority number, and "AR" for appraisal report number.
+Other controls (e.g. "DA", "GDA" and "DR") may be used for legacy authority numbers.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="AgencyRef" />
+			<xsd:enumeration value="SRFileNo" />
+			<xsd:enumeration value="AR" />
+			<xsd:enumeration value="FA" />
+			<xsd:enumeration value="GA" />
+			<xsd:enumeration value="DA" />
+			<xsd:enumeration value="GDA" />
+			<xsd:enumeration value="DR" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="DateRange">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Optional element. If the authority does not contain date ranges, stylesheets will substitute this field with the word "Open".
+If the authority has no top-level date range, but date ranges for terms or classes, stylesheets will substitute the word "Various".
+Within the date range element, permissible elements are just a start date or just an end date (translate to YYYY+ and pre-YYYY)
+or both a start date and an end date (YYYY-YYYY). Both start and end dates have an optional circa attribute.
+E.g. &lt;DateRange&gt;&lt;Start circa="true"&gt;1900&lt;/Start&gt;&lt;End&gt;1980&lt;/End&gt;&lt;/DateRange&gt;.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Start" type="Year" minOccurs="0" />
+			<xsd:element name="End" type="Year" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Year">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:gYear">
+				<xsd:attribute name="circa" type="xsd:boolean" use="optional" />
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="Status">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Mandatory element. The status element is a container for sub-elements that describe the current status of the authority
+and record significant dates in its history: drafting, submission, approval, issuing, being applied, partially or
+fully superseding another authority, being partially/ fully superseded, date to be reviewed, and expiry or revocation.
+At least one of these events must be included.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:choice maxOccurs="unbounded">
+			<xsd:element name="Draft" type="Draft"/>
+			<xsd:element name="Submitted" type="Submitted"/>
+			<xsd:element name="Approved" type="StatusDate"/>
+			<xsd:element name="Issued" type="Issued"/>
+			<xsd:element name="Applying" type="Applying"/>
+			<xsd:element name="PartSupersedes" type="SuperType"/>
+			<xsd:element name="Supersedes" type="SuperType"/>
+			<xsd:element name="PartSupersededBy" type="SuperType"/>
+			<xsd:element name="SupersededBy" type="SuperType"/>
+			<xsd:element name="Review" type="StatusDate" />
+			<xsd:element name="Expired" type="StatusDate" />
+			<xsd:element name="Revoked" type="StatusDate" />
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="Draft">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Optional element. May have multiple. Contains the name of the agency responsible for the draft,
+date of completion in the format YYYY-MM-DD, as well as a "version" attribute.
+E.g. &lt;Draft version="1"&gt;&lt;Agency&gt;Wild Dog Destruction Board&lt;Agency/&gt;&lt;Date&gt;2008-12-31&lt;/Date&gt;&lt;/Draft&gt;.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Agency" type="Agency" minOccurs="0"/>
+			<xsd:element name="Date" type="StatusDate" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="version" type="Draft.version" use="optional"/>
+	</xsd:complexType>
+	<xsd:simpleType name="Draft.version">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Mandatory attribute. E.g. "version='1'".
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="9999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="Submitted">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Optional element. May have multiple. Should be included in the final draft.
+This element records details of the officer (normally an agency's CEO) responsible for submitting the draft to State Records NSW.
+It contains four elements: the name of the officer responsible for submitting the authority, their position title, their agency's name, and the date of submission.
+E.g. &lt;Submitted&gt;&lt;Officer&gt;Joan Citizen&lt;/Officer&gt;&lt;Position&gt;Chief Executive Officer&lt;/Position&gt;&lt;Agency&gt;Wild Dog Destruction Board&lt;/Agency&gt;&lt;Date&gt;2008-12-31&lt;/Date&gt;&lt;/Submitted&gt;
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Officer" type="xsd:token" minOccurs="0"/>
+			<xsd:element name="Position" type="xsd:token" minOccurs="0"/>
+			<xsd:element name="Agency" type="Agency" minOccurs="0"/>
+			<xsd:element name="Date" type="StatusDate" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Issued">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Optional element. May have multiple.
+Contains the name of the agency to which the authority is issued as well as the date of issue by State Records, in the format YYYY-MM-DD.
+E.g. &lt;Issued&gt;&lt;Agency&gt;Wild Dog Destruction Board&lt;/Agency&gt;&lt;Date&gt;2008-12-31&lt;/Date&gt;&lt;/Issued&gt;.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Agency" type="Agency" minOccurs="0"/>
+			<xsd:element name="Date" type="StatusDate" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Applying">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Optional element. May have multiple.
+Contains the name of the agency applying the authority, the date they commenced applying it,
+(optionally) the date they ceased applying it, both in the format YYYY-MM-DD, and an optional "extent" attribute.
+E.g. &lt;Applying extent="whole"&gt;&lt;Agency&gt;Wild Dog Destruction Board&lt;/Agency&gt;&lt;StartDate&gt;2008-12-31&lt;/StartDate&gt;&lt;/Applying&gt;.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Agency" type="Agency" minOccurs="0"/>
+			<xsd:element name="StartDate" type="StatusDate" minOccurs="0"/>
+			<xsd:element name="EndDate" type="StatusDate" minOccurs="0"/>
+		</xsd:sequence>
+		<xsd:attribute name="extent" type="Applying.extent" use="optional" />
+	</xsd:complexType>
+	<xsd:simpleType name="Applying.extent">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Optional element. This attribute contains either of the words "whole" or "part".
+"Whole" means that an authority covers at least 80% of the drafting agency's functional records (functional records are those not covered by general retention and disposal authorities).
+Otherwise, "part" should be used. E.g. "extent='whole'".
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="whole" />
+			<xsd:enumeration value="part" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="Agency">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Legal name of the agency that drafted, submitted, was issued, or is applying the authority.
+Has an optional agency number attribute assigned by State Records NSW.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:token">
+				<xsd:attribute name="agencyno" type="Agency.agencyno" use="optional" />
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:simpleType name="Agency.agencyno">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Optional attribute. Agency numbers are unique identifiers assigned by State Records NSW. E.g. "agencyno='225'".
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="0"/>
+			<xsd:maxInclusive value="9999"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="StatusDate">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Date of draft, sumbission, Board approval, issue, starting to be applied or no longer being applied, being partially or fully superseded, review, expiry and revokation of an authority. 
+All dates are in the format YYYY-MM-DD. E.g. 2008-12-31.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:date">
+			<xsd:minInclusive value="1960-01-01" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="SuperType">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Optional element. May have multiple. PartSupersedes, Supersedes, PartSupersededBy and SupersededBy contain six subelements:
+IDRef (mandatory, authority ID of the superseding or superseded authority, e.g. &lt;IDRef control="FA"&gt;250&lt;/IDRef&gt;);
+AuthorityTitleRef (optional, title of the superseding or superseded authority);
+TermTitleRef (optional, may have multiple, e.g. &lt;TermTitleRef&gt;Pest Animal Control&lt;/TermTitleRef&gt;&lt;TermTitleRef&gt;Baiting&lt;/TermTitleRef&gt;);
+ItemNoRef (optional, e.g. &lt;ItemNoRef&gt;1.2.3&lt;/ItemNoRef&gt;);
+PartText (optional, defines what portion of records are superseded, e.g. &lt;PartText&gt;records relating to the setting of baits and traps to control wild dogs&lt;/PartText&gt;);
+and Date (optional, refers to the date of issue of the superseding authority in the format &lt;Date&gt;2008-12-31&lt;/Date&gt;).
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="IDRef" type="ID" minOccurs="0"/>
+			<xsd:element name="AuthorityTitleRef" type="xsd:token" minOccurs="0" />
+			<xsd:element name="TermTitleRef" type="xsd:token" minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="ItemNoRef" type="xsd:token" minOccurs="0" />
+			<xsd:element name="PartText" type="xsd:token" minOccurs="0" />
+			<xsd:element name="Date" type="StatusDate" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LinkedTo">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Optional element. May have multiple. Can be used at the top level of the authority, for each term, and for classes.
+Enables the linking of classes, terms or whole authorities to other classification schemes, to mandates, to appraisal objectives, or to other resources.
+E.g. &lt;LinkedTo type="Agency BCS"&gt;Policy Development&lt;/LinkedTo&gt;.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:token">
+				<xsd:attribute name="type" type="xsd:token" use="optional" />
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="Context">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Optional element. May have multiple. Context elements supply additional information about disposal authorities.
+This additional information may comprise supporting documentation, reports to State Records' Board, reports on external consultations, guidance for implementation, implementation plans, etc.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ContextTitle" type="xsd:token" minOccurs="0"/>
+			<xsd:element name="ContextContent" type="ContextContent" minOccurs="0"/>
+			<xsd:element name="Comment" type="Comment" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:attribute name="type" type="xsd:token" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="ContextContent">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Mandatory element. Contains Paragraph elements and Source elements.
+Source elements are optional and may be used to create a bibliography: stylesheets will list these and add the heading, "Sources used:".
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Paragraph" type="Paragraph" maxOccurs="unbounded" />
+			<xsd:element name="Source" type="Source" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Paragraph" mixed="true">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Mandatory element. May have multiple.
+Paragraphs are mixed elements which contain both text and a choice of three mark-up elements: Emphasis, Source, and List.
+E.g. &lt;Paragraph&gt;Records that are &lt;Emphasis&gt;not&lt;/Emphasis&gt; precedent-setting.&lt;/Paragraph&gt;.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="Emphasis" type="xsd:token" />
+			<xsd:element name="Source" type="Source" />
+			<xsd:element name="List" type="List" />
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="Source">
+	<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Optional element. May have multiple. Used to identify a word or phrase as a reference to a source.
+Stylesheets translate this element to itallic text. E.g. "According to the &lt;Source url="http://www.legislation.nsw.gov.au"&gt;State Records Act 1998&lt;/Source&gt;...".
+If the optional url attribute is used, stylesheets create hyperlinks.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:token">
+				<xsd:attribute name="url" type="xsd:token" use="optional" />
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="List">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Optional element. May have multiple. Used to create bullet point lists. Contains Item elements.
+E.g. "Records include:&lt;List&gt;&lt;Item&gt;minutes&lt;/Item&gt;&lt;Item&gt;memoranda&lt;/Item&gt;&lt;Item&gt;and mimeograph recordings.&lt;/Item&gt;&lt;/List&gt;
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Item" type="Item" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Item" mixed="true">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Mandatory element. May have multiple.
+Items are mixed elements which contain both text and a choice of two optional mark-up elements: Emphasis and Source.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="Emphasis" type="xsd:token" />
+			<xsd:element name="Source" type="Source" />
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:complexType name="Comment">
+	<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Optional element. May have multiple.
+This element is used for communication between State Records and agencies during the drafting process.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Paragraph" type="Paragraph" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:attribute name = "author" type="xsd:token" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="Term">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Optional element. May have multiple. Term elements are used to create a classification structure within which disposal classes can be nested.
+In most authorities, Term elements are used to represent functions and activities.
+E.g. &lt;Term type="function" itemno="1.0.0" update="2" publish="true"&gt;...
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ID" type="ID" minOccurs="0" />
+			<xsd:element name="TermTitle" type="xsd:token" minOccurs="0"/>
+			<xsd:element name="TermDescription" type="Description" minOccurs="0" />
+			<xsd:element name="DateRange" type="DateRange" minOccurs="0" />
+			<xsd:element name="Status" type="Status" minOccurs="0" />
+			<xsd:element name="LinkedTo" type="LinkedTo" minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="Comment" type="Comment" minOccurs="0" maxOccurs="unbounded" />
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:element name="Term" type="Term"/>
+				<xsd:element name="Class" type="Class"/>
+			</xsd:choice>
+		</xsd:sequence>
+		<xsd:attribute name="type" type="Term.type" use="optional"/>
+		<xsd:attribute name="itemno" type="xsd:token" use="optional" />
+		<xsd:attribute name="update" type="update" use="optional" />
+		<xsd:attribute name="publish" type="xsd:boolean" use="optional" />
+	</xsd:complexType>
+	<xsd:simpleType name="Term.type">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Mandatory attribute. Identifies a term's type. Normally "function" or "activity" will be used.
+Other (deprecated) choices are "subfunction", "subactivity", "subject" and "series".
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="function" />
+			<xsd:enumeration value="subfunction" />
+			<xsd:enumeration value="activity" />
+			<xsd:enumeration value="subactivity" />
+			<xsd:enumeration value="subject" />
+			<xsd:enumeration value="series" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="Description">
+	<xsd:annotation>
+		<xsd:documentation xml:lang="en">
+Optional element. Contains Paragraph elements and SeeReference elements.
+		</xsd:documentation>
+	</xsd:annotation>
+	<xsd:sequence>
+		<xsd:element name="Paragraph" type="Paragraph" minOccurs="0" maxOccurs="unbounded" />
+		<xsd:element name="SeeReference" type="SeeReference" minOccurs="0" maxOccurs="unbounded" />
+	</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SeeReference">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Optional element. May have multiple. Used to create references to other terms within the authority and to other authorities.
+If no IDRef or AuthorityTitleRef is given, it is assumed to be an internal reference.
+E.g. &lt;SeeReference&gt;&lt;TermTitleRef&gt;CONSTRUCTION&lt;/TermTitleRef&gt;&lt;TermTitleRef&gt;Brick-laying&lt;/TermTitleRef&gt;&lt;SeeText&gt;for records relating to the laying of bricks.&lt;/SeeText&gt;&lt;/SeeReference&gt;
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="IDRef" type="ID" minOccurs="0" />
+			<xsd:element name="AuthorityTitleRef" type="xsd:token" minOccurs="0" />
+			<xsd:element name="TermTitleRef" type="xsd:token" minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="ItemNoRef" type="xsd:token" minOccurs="0" />
+			<xsd:element name="SeeText" type="xsd:token" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="update">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Optional attribute. Records on what date an element was modified, allowing the tracking of changes.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:date">
+			<xsd:minInclusive value="1960-01-01" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="Class">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Mandatory element (at least one class within an authority).
+Normally includes ClassDescription, Disposal, and Justification elements.
+E.g. &lt;Class itemno="1.1.1" update="2" publish="true"&gt;...
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="ID" type="ID" minOccurs="0" />
+			<xsd:element name="ClassTitle" type="xsd:token" minOccurs="0" />
+			<xsd:element name="ClassDescription" type="Description" minOccurs="0"/>
+			<xsd:element name="Disposal" type="Disposal" minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="Justification" type="Justification" minOccurs="0"/>
+			<xsd:element name="DateRange" type="DateRange" minOccurs="0" />
+			<xsd:element name="Status" type="Status" minOccurs="0" />
+			<xsd:element name="LinkedTo" type="LinkedTo" minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="Comment" type="Comment" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+		<xsd:attribute name="itemno" type="xsd:token" use="optional" />
+		<xsd:attribute name="update" type="update" use="optional" />
+		<xsd:attribute name="publish" type="xsd:boolean" use="optional" />
+	</xsd:complexType>
+	<xsd:complexType name="Disposal">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Mandatory element. Usually a single element but may have multiple if separate DisposalCondition elements are given.
+Normally contains a RetentionPeriod element, a DisposalTrigger element and a DisposalAction element.
+CustomAction and CustomCustody elements may be used to describe more complex disposal actions.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="DisposalCondition" type="xsd:token" minOccurs="0" />
+			<xsd:element name="RetentionPeriod" type="RetentionPeriod" minOccurs="0" />
+			<xsd:element name="DisposalTrigger" type="xsd:token" minOccurs="0" />
+			<xsd:element name="DisposalAction" type="DisposalAction" minOccurs="0" />
+			<xsd:element name="TransferTo" type="xsd:token" minOccurs="0" />
+			<xsd:element name="CustomAction" type="CustomAction" minOccurs="0" />
+			<xsd:element name="CustomCustody" type="CustomCustody" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RetentionPeriod">
+	<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Optional element. A period of years or months for which records are kept before a disposal action is carried out.
+E.g. &lt;RetentionPeriod unit="months"&gt;6&lt;/RetentionPeriod&gt;.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:unsignedShort">
+				<xsd:attribute name="unit" type="RetentionPeriod.unit" use="optional"/>			
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:simpleType name="RetentionPeriod.unit">
+	<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Mandatory attribute. Choose either "years" or "months".
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="years" />
+			<xsd:enumeration value="months" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="DisposalAction">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Optional element. Choose either "Destroy", "Required as State archives", "Retain in agency" or "Transfer".
+E.g. &lt;DisposalAction&gt;Destroy&lt;/DisposalAction&gt;.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="Destroy" />
+			<xsd:enumeration value="Required as State archives" />
+			<xsd:enumeration value="Retain in agency" />
+			<xsd:enumeration value="Transfer" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="CustomAction">
+	<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Optional element. Used to represent complex disposal actions which cannot be represented using the standard disposal elements.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Paragraph" type="Paragraph" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CustomCustody">
+	<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Optional element. Used to describe complex retention arrangements which cannot be represented using the standard disposal elements.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Paragraph" type="Paragraph" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="Justification">
+		<xsd:annotation>
+			<xsd:documentation xml:lang="en">
+Mandatory element. Contains Paragraph elements.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Paragraph" type="Paragraph" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,95 @@
+XML Authority Editor
+==================
+
+This program is a full implementation of State Records New South Wales' XML schema for retention and disposal authorities.
+
+Release Date
+------------
+2009
+
+Copyright
+---------
+Copyright (c) State of New South Wales through the State Records Authority of New South Wales, 2009
+
+License
+-------
+XML Authority Editor is released under the GNU General Public License (version 3 or later).
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program (see COPYING).  If not, see <http://www.gnu.org/licenses/>.
+
+Open source license information
+------------------------------
+XML Authority Editor depends on open source technologies.
+
+Documentation and source code for these libraries, as well as information about
+their own dependencies, is available at the following locations:
+
+Ruby <http://www.ruby-lang.org/en/> [Ruby license]
+
+Ruby-GNOME2 <http://ruby-gnome2.sourceforge.jp/> [LGPL license]
+(for a Windows distribution of Ruby-GNOME2 see Hidehito Ota's installer at
+<http://d.hatena.ne.jp/luna_8bit/20090321/1237598167>)
+(for gtk+ see <http//www.gtk.org>)
+
+Ruby-Cairo <http://cairographics.org/rcairo/> [Ruby license]
+(for cairo see <http://cairographics.org/>)
+
+Nokogiri <http://nokogiri.org/> [MIT license]
+(for libxml2/libxslt see <http://xmlsoft.org/>)
+
+In the Windows distribution, original documentation for these libraries is included
+in the '[install location]\doc' and '[install location]\lib\ruby\site_ruby\1.8\nokogiri-1.4.0'
+directories.
+
+Windows Installer
+----------------
+NSIS (Nullsoft Scriptable Install System) <http://nsis.sourceforge.net/>
+
+Requirements
+------------
+To run XML Authority Editor you will require Ruby (1.8.7), ruby-gnome and nokogiri.
+
+The Windows distribution includes a ruby interpreter and all necessary libraries.
+
+On a Mac, this should work:
+
+sudo port install ruby
+sudo port install rb-gnome
+sudo port install rb-rubygems
+sudo gem install nokogiri
+
+On deb or ubuntu linux, this should work:
+
+sudo apt-get install ruby
+sudo apt-get install rubygems-rb18
+sudo apt-get install ruby-gnome2
+sudo gem install nokogiri
+
+Run XML Authority Editor
+------------------
+On Mac or Linux, open a terminal and navigate to your install folder. Enter 'ruby init.rb'.
+
+Rubygems isn't loaded by default and this may cause an error.
+You can either add it to your ruby defaults (edit your .profile/.bashrc file to
+include the line 'export RUBYOPT=rubygems') or edit the environment.rb file
+to include 'require "rubygems"' (uncomment the second line).
+
+Windows users can just run the 'Authority Editor' shortcut in the install directory.
+
+Support
+-------
+State Records New South Wales is unable to provide technical support for XML Authority Editor.
+
+ 
+
