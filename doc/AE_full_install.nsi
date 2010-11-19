@@ -107,7 +107,7 @@ Section -SecMain
   SetOutPath $INSTDIR
   
   ; Put file there
-  File /r "${SOURCE_LOCATION}\*.*"
+  File /r /x .git "${SOURCE_LOCATION}\*.*"
   
   ; Create shortcut in install directory
   CreateShortCut "$INSTDIR\${APP_NAME}.lnk" "$INSTDIR\bin\rubyw.exe" "'$INSTDIR\bin\init.rb'" "$INSTDIR\lib\ruby\site_ruby\1.8\ae\data\xmlicon.ico" 0

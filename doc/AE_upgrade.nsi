@@ -27,7 +27,7 @@ Section "Main"
   MessageBox MB_OK "Please close Authority Editor now if it is running."
   RMDir /r "$0\lib\ruby\site_ruby\1.8\ae"
   SetOutPath "$0\lib\ruby\site_ruby\1.8\ae"
-  File /r "${SOURCE_LOCATION}\lib\ruby\site_ruby\1.8\ae\*.*"
+  File /r /x .git "${SOURCE_LOCATION}\lib\ruby\site_ruby\1.8\ae\*.*"
  ${Else}
   ReadRegStr $1 HKCU "Software\Authority Editor" "Install_Dir"
     ${If} $1 != ""
