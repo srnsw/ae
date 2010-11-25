@@ -71,10 +71,11 @@ sudo gem install nokogiri
 
 On deb or ubuntu linux, this should work:
 
-sudo apt-get install ruby
-sudo apt-get install rubygems-rb18
-sudo apt-get install ruby-gnome2
+sudo apt-get install ruby rubygems-rb18 ruby-gnome2
 sudo gem install nokogiri
+
+On Fedora (and perhaps other RPM based distros), this should work:
+su -c 'yum install ruby rubygems ruby-gnome2 ruby-nokogiri ruby-gtksourceview'
 
 Run XML Authority Editor
 ------------------
@@ -90,6 +91,3 @@ Windows users can just run the 'Authority Editor' shortcut in the install direct
 Support
 -------
 State Records New South Wales is unable to provide technical support for XML Authority Editor.
-
- 
-
