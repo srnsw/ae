@@ -29,10 +29,10 @@
       <text>Clear all comments</text>
       <file>edit_clear_comments.xsl</file>
     </stylesheet>
-    <!--stylesheet>
+    <stylesheet>
       <text>Update old XML</text>
       <file>edit_update.xsl</file>
-    </stylesheet-->
+    </stylesheet>
   </edit_menu>
   <view_menu>
     <stylesheet>
@@ -67,10 +67,10 @@
       <text>Supporting documentation</text>
       <file>preview_supporting.xsl</file>
     </stylesheet>
-    <!--stylesheet>
+    <stylesheet>
       <text>Appraisal report pt 1</text>
       <file>preview_ar1.xsl</file>
-    </stylesheet-->
+    </stylesheet>
     <stylesheet>
       <text>Index</text>
       <file>preview_index.xsl</file>
@@ -89,7 +89,7 @@
       <text>Comments document</text>
       <file>word_comments.xsl</file>
     </stylesheet>
-    <!--stylesheet>
+    <stylesheet>
       <text>Appraisal report pt 1</text>
       <file>word_appraisal_report_pt1.xsl</file>
     </stylesheet>
@@ -100,18 +100,18 @@
     <stylesheet>
       <text>Approved authority</text>
       <file>word_approved_authority.xsl</file>
-    </stylesheet-->
+    </stylesheet>
     <stylesheet>
       <text>Index</text>
       <file>word_index.xsl</file>
     </stylesheet>
-    <!--stylesheet>
+    <stylesheet>
       <text>GDA10 linking table</text>
       <file>word_GDA10_linking_table.xsl</file>
-    </stylesheet-->
+    </stylesheet>
   </word_transform_menu>
   <export_transform_menu>
-  <!--stylesheet>
+    <stylesheet>
       <text>Clean for agency use</text>
       <file>export_clean_agency.xsl</file>
       <extension>xml</extension>
@@ -120,7 +120,7 @@
       <text>Clean for publication</text>
       <file>export_clean_publication.xsl</file>
       <extension>xml</extension>
-    </stylesheet-->
+    </stylesheet>
     <stylesheet>
       <text>Tab separated version</text>
       <file>export_tsv.xsl</file>

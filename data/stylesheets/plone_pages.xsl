@@ -12,7 +12,7 @@
       <xsl:if test="rda:Term"><hr/>
       <p class="level0">
       <xsl:for-each select="rda:Term">
-      <a href="#{rda:anchor}"><xsl:value-of select="translate(rda:TermTitle, $lowerCaseChars, $upperCaseChars)"/></a>
+      <a href="#{rda:anchor}"><xsl:value-of select="concat(@itemno, ' ', translate(rda:TermTitle, $lowerCaseChars, $upperCaseChars))"/></a>
       <xsl:if test="following-sibling::rda:Term"><xsl:text> | </xsl:text></xsl:if>
       </xsl:for-each>
       </p>
