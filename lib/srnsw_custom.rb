@@ -56,6 +56,7 @@ class Plone < Gtk::Dialog
     dup_xml = xml.dup
     go.signal_connect('clicked') {|button| generate(dup_xml)}
     vbox.pack_start(set_output_location, false, false, 0)
+    vbox.pack_start(set_index, false, false, 0)
     vbox.pack_start(status, true, true, 0)
     vbox.pack_start(Gtk::HBox.new(false,0).pack_start(go, false, false, 0), false, false, 5)
   end
@@ -66,6 +67,14 @@ class Plone < Gtk::Dialog
     @destination.filename = ENV['HOME']
     @destination.set_width_chars(20)
     frame << @destination
+   end
+   
+   def set_index
+    frame = Gtk::Frame.new('Index')
+    @create_index = Gtk::CheckButton.new('Create index?', true)
+    @index_prefix = Gtk::Entry.new.set_text('../part-1-the-general-retention-and-disposal-authority/')
+    vbox = Gtk::VBox.new(false,0).pack_start(@create_index, false, false, 0).pack_start(@index_prefix, false, false, 0)
+    frame << vbox
    end
   
   def status
@@ -186,6 +195,24 @@ class Plone < Gtk::Dialog
       output = xslt.transform(chunk).root.children.to_s
       File.open(dirname + "\\" + filename, "w") {|f| f.write(output)}
     end
+    if @create_index.active?
+      index_dir = dirname + "\\" + "index"
+      Dir.mkdir(index_dir) unless File.exist?(index_dir)
+      prefix = @index_prefix.text
+      index_xslt = Nokogiri::XSLT::Stylesheet.parse_stylesheet_doc(
+        Nokogiri::XML(File.new("data/stylesheets/plone_index.xsl")))
+      index_xml = index_xslt.transform(xml, ["prefix", "'#{prefix}'"])
+      ("a".."z").each do |letter|
+        index_output = index_xml.root.xpath("bt[starts-with(h4, '#{letter}')]")
+        if index_output.length > 0
+          index_array = index_output.collect {|node| node.children.to_s}
+          index_filename = letter + ".txt"
+          report("Writing..." + index_filename)
+          File.open(index_dir + "\\" + index_filename, "w") {|f| f.write(index_array.join)}
+        end
+      end
+    end
+    report("***COMPLETE***")
   end
  end
 

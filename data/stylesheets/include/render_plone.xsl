@@ -4,6 +4,15 @@
   <xsl:template match="rda:List"><ul><xsl:apply-templates/></ul></xsl:template>
   <xsl:template match="rda:Item"><li><xsl:apply-templates/></li></xsl:template>
   <xsl:template match="rda:Emphasis"><strong><xsl:apply-templates/></strong></xsl:template>
+  <xsl:template match="rda:Source"><em><xsl:choose>
+    <xsl:when test="@url">
+      <xsl:choose>
+        <xsl:when test="(contains(@url, 'http://'))"><a title="external-link" href="{@url}"><xsl:apply-templates/></a></xsl:when>
+        <xsl:otherwise><a title="external-link" href="http://{@url}"><xsl:apply-templates/></a></xsl:otherwise>
+      </xsl:choose>
+    </xsl:when>
+    <xsl:otherwise><xsl:apply-templates/></xsl:otherwise>
+    </xsl:choose></em></xsl:template>
   
   <xsl:template match="rda:SeeReference">
     <p><xsl:text>See </xsl:text>

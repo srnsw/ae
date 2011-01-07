@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:exslt="http://exslt.org/common" xmlns:rda="http://www.records.nsw.gov.au/schemas/RDA" version="1.0">
   <xsl:output method="xml"/>
-   <xsl:include href="include/utils.xsl"/>
+  <xsl:include href="include/utils.xsl"/>
   <xsl:include href="include/index.xsl"/>
   <xsl:include href="include/html_header.xsl"/>
+  <xsl:variable name="ANCHOR">
+    <xsl:value-of select="'false'"/>
+  </xsl:variable>
   <xsl:template match="rda:Authority">
     <xsl:variable name="index">
       <xsl:call-template name="index">

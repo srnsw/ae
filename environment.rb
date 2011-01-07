@@ -44,6 +44,7 @@ if Utils::os_mswin?
         Dir.mkdir(path)
         Dir.mkdir(path + '\tmp')
         FileUtils.cp('data/preferences.xml', path)
+        FileUtils.cp('data/xsl_manifest.xml', path)
     end 
     APPPATH = path
     TMPPATH = path + '\tmp'

@@ -26,6 +26,7 @@ Section "Main"
  ${If} $0 != ""
   MessageBox MB_OK "Please close Authority Editor now if it is running."
   RMDir /r "$0\lib\ruby\site_ruby\1.8\ae"
+  ; RMDir /r "$APPDATA\AuthorityEditorSettings\*.*" 
   SetOutPath "$0\lib\ruby\site_ruby\1.8\ae"
   File /r /x .git "${SOURCE_LOCATION}\lib\ruby\site_ruby\1.8\ae\*.*"
  ${Else}
@@ -33,8 +34,9 @@ Section "Main"
     ${If} $1 != ""
       MessageBox MB_OK "Please close Authority Editor now if it is running."
       RMDir /r "$1\lib\ruby\site_ruby\1.8\ae"
+      ; RMDir /r "$APPDATA\AuthorityEditorSettings\*.*" 
       SetOutPath "$1\lib\ruby\site_ruby\1.8\ae"
-      File /r "${SOURCE_LOCATION}\lib\ruby\site_ruby\1.8\ae\*.*"
+      File /r /x .git "${SOURCE_LOCATION}\lib\ruby\site_ruby\1.8\ae\*.*"
     ${Else}
       MessageBox MB_OK "Unable to upgrade. Authority Editor is not installed on this computer."
     ${Endif}

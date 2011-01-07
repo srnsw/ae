@@ -7,7 +7,7 @@ class XSLMenuItems
   attr_reader :edit, :preview, :transform, :export
 
   def initialize(mainwindow)
-    manifest = Nokogiri::XML(File.new("data/stylesheets/xsl_manifest.xml"))
+    manifest = Nokogiri::XML(File.new(APPPATH + "/xsl_manifest.xml"))
     root = manifest.root
     @edit = Gtk::Menu.new
     get_items(root.at('edit_menu'), @edit) do |item|

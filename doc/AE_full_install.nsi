@@ -147,7 +147,8 @@ LangString DESC_SecAssociate ${LANG_ENGLISH} "Associates files with the extensio
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
 
 Function .onInit
-!insertmacro MULTIUSER_INIT
+  !insertmacro MULTIUSER_INIT
+  RMDir /r "$APPDATA\AuthorityEditorSettings\*.*" 
 FunctionEnd
 ;--------------------------------
 

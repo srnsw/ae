@@ -5,6 +5,9 @@
   <xsl:include href="include/word_header.xsl"/>
   <xsl:include href="include/word_headers_footers.xsl"/>
   <xsl:include href="include/index.xsl"/>
+  <xsl:variable name="ANCHOR">
+    <xsl:value-of select="'false'"/>
+  </xsl:variable>
   <xsl:variable name="AUTHORITY_TITLE">
     <xsl:choose>
       <xsl:when test="rda:Authority/rda:AuthorityTitle">

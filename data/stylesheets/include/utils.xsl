@@ -212,4 +212,17 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
+  <xsl:template name="titleise">
+    <xsl:param name="title"/>
+    <xsl:variable name="illegal" select="' ,()'"/>
+    <xsl:variable name="clean" select="'-'"/>
+    <xsl:choose>
+      <xsl:when test="contains($title, '&amp;')">
+        <xsl:value-of select="translate(concat(substring-before($title, '&amp;'), 'and', substring-after($title, '&amp;')), $illegal, $clean)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="translate($title, $illegal, $clean)"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
 </xsl:stylesheet>
