@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl_manifest>
+  <edit_menu>
+    <stylesheet>
+      <text>Sort by terms</text>
+      <file>edit_sortterms.xsl</file>
+    </stylesheet>
+    <stylesheet>
+      <text>Sort see references</text>
+      <file>edit_sortseerefs.xsl</file>
+    </stylesheet>
+    <stylesheet>
+      <text>Capitalize terms</text>
+      <file>edit_capitalize.xsl</file>
+    </stylesheet>
+    <stylesheet>
+      <text>Number items</text>
+      <file>edit_numberitems.xsl</file>
+    </stylesheet>
+    <stylesheet>
+      <text>Clear all agency comments</text>
+      <file>edit_clearagency.xsl</file>
+    </stylesheet>
+    <stylesheet>
+      <text>Clear all SRNSW comments</text>
+      <file>edit_clearsrnsw.xsl</file>
+    </stylesheet>
+    <stylesheet>
+      <text>Clear all comments</text>
+      <file>edit_clear_comments.xsl</file>
+    </stylesheet>
+    <!--stylesheet>
+      <text>Update old XML</text>
+      <file>edit_update.xsl</file>
+    </stylesheet-->
+  </edit_menu>
+  <view_menu>
+    <stylesheet>
+      <text>Authority</text>
+      <file>preview_authority.xsl</file>
+    </stylesheet>
+    <stylesheet>
+      <text>Authority w comments</text>
+      <file>preview_authority_comments.xsl</file>
+    </stylesheet>
+    <stylesheet>
+      <text>Comments</text>
+      <file>preview_comments.xsl</file>
+    </stylesheet>
+    <stylesheet>
+      <text>Disposal classes</text>
+      <file>preview_retention_order.xsl</file>
+    </stylesheet>
+    <stylesheet>
+      <text>Recent changes</text>
+      <file>preview_recent.xsl</file>
+    </stylesheet>
+    <stylesheet>
+      <text>Report broken links</text>
+      <file>preview_broken_links.xsl</file>
+    </stylesheet>
+    <stylesheet>
+      <text>Summary</text>
+      <file>preview_summary.xsl</file>
+    </stylesheet>
+    <stylesheet>
+      <text>Supporting documentation</text>
+      <file>preview_supporting.xsl</file>
+    </stylesheet>
+    <!--stylesheet>
+      <text>Appraisal report pt 1</text>
+      <file>preview_ar1.xsl</file>
+    </stylesheet-->
+    <stylesheet>
+      <text>Index</text>
+      <file>preview_index.xsl</file>
+    </stylesheet>
+    <stylesheet>
+      <text>Linking table</text>
+      <file>preview_linking_table.xsl</file>
+    </stylesheet>
+  </view_menu>
+  <word_transform_menu>
+    <stylesheet>
+      <text>Draft authority</text>
+      <file>word_draft_authority.xsl</file>
+    </stylesheet>
+    <stylesheet>
+      <text>Comments document</text>
+      <file>word_comments.xsl</file>
+    </stylesheet>
+    <!--stylesheet>
+      <text>Appraisal report pt 1</text>
+      <file>word_appraisal_report_pt1.xsl</file>
+    </stylesheet>
+    <stylesheet>
+      <text>Appraisal report</text>
+      <file>word_appraisal_report.xsl</file>
+    </stylesheet>
+    <stylesheet>
+      <text>Approved authority</text>
+      <file>word_approved_authority.xsl</file>
+    </stylesheet-->
+    <stylesheet>
+      <text>Index</text>
+      <file>word_index.xsl</file>
+    </stylesheet>
+    <!--stylesheet>
+      <text>GDA10 linking table</text>
+      <file>word_GDA10_linking_table.xsl</file>
+    </stylesheet-->
+  </word_transform_menu>
+  <export_transform_menu>
+  <!--stylesheet>
+      <text>Clean for agency use</text>
+      <file>export_clean_agency.xsl</file>
+      <extension>xml</extension>
+    </stylesheet>
+    <stylesheet>
+      <text>Clean for publication</text>
+      <file>export_clean_publication.xsl</file>
+      <extension>xml</extension>
+    </stylesheet-->
+    <stylesheet>
+      <text>Tab separated version</text>
+      <file>export_tsv.xsl</file>
+      <extension>txt</extension>
+    </stylesheet>
+  </export_transform_menu>
+</xsl_manifest>
