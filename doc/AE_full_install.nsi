@@ -4,7 +4,7 @@
 !define SOURCE_LOCATION "C:\Program Files\Authority Editor"
 !define APP_NAME "Authority Editor"
 !define APP_NAME_SQUASHED "AuthorityEditor"
-!define APP_VERSION "1.0"
+!define APP_VERSION "1.1"
 !define APP_PUBLISHER "State Records NSW"
 !define APP_WEB_SITE "http://www.records.nsw.gov.au"
 !define APP_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${APP_NAME}"
@@ -148,7 +148,6 @@ LangString DESC_SecAssociate ${LANG_ENGLISH} "Associates files with the extensio
 
 Function .onInit
   !insertmacro MULTIUSER_INIT
-  RMDir /r "$APPDATA\AuthorityEditorSettings\*.*" 
 FunctionEnd
 ;--------------------------------
 

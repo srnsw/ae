@@ -40,11 +40,19 @@ require 'lib/widgets_search.rb'
 if Utils::os_mswin?
   require 'win32ole'
     path =  ENV['APPDATA'].to_s + '\AuthorityEditorSettings'
-    unless File.exist?(path)
+    version = path + '\version_' + Domain::PROGRAM_VERSION
+    unless File.exist?(version)
+      if File.exist?(path)
+        Dir.mkdir(path + '\tmp') unless File.exist?(path + '\tmp')
+        FileUtils.cp('data/preferences.xml', path) unless File.exist?(path + '\preferences.xml')
+        FileUtils.cp('data/xsl_manifest.xml', path) unless File.exist?(path + '\xsl_manifest.xml')
+      else
         Dir.mkdir(path)
         Dir.mkdir(path + '\tmp')
         FileUtils.cp('data/preferences.xml', path)
         FileUtils.cp('data/xsl_manifest.xml', path)
+      end
+      FileUtils.touch(version)
     end 
     APPPATH = path
     TMPPATH = path + '\tmp'

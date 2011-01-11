@@ -457,13 +457,13 @@ class MainWindow < Gtk::Window
     Gtk::AboutDialog.show(self, 
     :name => 'XML Retention and Disposal Authority Editor', 
     :comments => "This program is a full implementation of State Records New South Wales' XML schema for retention and disposal authorities.",
-    :version => '1.0',
+    :version => Domain::PROGRAM_VERSION,
     :copyright => 'Copyright (c) State of New South Wales through the State Records Authority of New South Wales, 2009',
     :license => license,
     :authors => ['Richard Lehane'],
     :documenters => ["Kama Gabara", "Emma Harris", "Angela McGing", "Peri Stewart"],
     :logo => Gdk::Pixbuf.new('data/xmlicon.png'),
-    :program_name => 'XML RDA Editor',
+    :program_name => 'Authority Editor',
     :website => 'http://www.records.nsw.gov.au'
     )
     nil
