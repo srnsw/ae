@@ -112,29 +112,58 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:choose>
-          <xsl:when test="$classes[1]/rda:Disposal/rda:CustomCustody">
-            <xsl:text>true</xsl:text>
-          </xsl:when>
-          <xsl:when test="$classes[1]/rda:Disposal/rda:DisposalAction='Required as State archives'">
-            <xsl:choose>
-              <xsl:when test="$classes[1]/rda:Disposal/rda:RetentionPeriod or $classes[1]/rda:Disposal/rda:DisposalTrigger">
-                <xsl:text>true</xsl:text>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:call-template name="hascustody">
-                  <xsl:with-param name="classes" select="$classes[position() &gt; 1]"/>
-                </xsl:call-template>
-              </xsl:otherwise>
-            </xsl:choose>
+          <xsl:when test="$classes[1]/rda:Disposal/rda:DisposalCondition='Authorised'">
+            <xsl:call-template name="testcustody">
+              <xsl:with-param name="disposals" select="$classes[1]/rda:Disposal[rda:DisposalCondition='Authorised']"/>
+              <xsl:with-param name="classes" select="$classes[position() &gt; 1]"/>
+            </xsl:call-template>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:call-template name="hascustody">
+            <xsl:call-template name="testcustody">
+              <xsl:with-param name="disposals" select="$classes[1]/rda:Disposal[not(rda:DisposalCondition='Automated')]"/>
               <xsl:with-param name="classes" select="$classes[position() &gt; 1]"/>
             </xsl:call-template>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:otherwise>
     </xsl:choose>
+  </xsl:template>
+  <xsl:template name="testcustody">
+    <xsl:param name="disposals"/>
+    <xsl:param name="classes"/>
+    <xsl:choose>
+      <xsl:when test="not($disposals)">
+        <xsl:call-template name="hascustody">
+          <xsl:with-param name="classes" select="$classes"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:choose>
+          <xsl:when test="$disposals[1]/rda:CustomCustody">
+            <xsl:text>true</xsl:text>
+          </xsl:when>
+          <xsl:when test="$disposals[1]/rda:DisposalAction='Required as State archives'">
+            <xsl:choose>
+              <xsl:when test="$disposals[1]/rda:RetentionPeriod or $disposals[1]/rda:DisposalTrigger">
+                <xsl:text>true</xsl:text>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:call-template name="testcustody">
+                  <xsl:with-param name="disposals" select="$disposals[position() &gt; 1]"/>
+                  <xsl:with-param name="classes" select="$classes"/>
+                </xsl:call-template>
+              </xsl:otherwise>
+            </xsl:choose>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:call-template name="testcustody">
+              <xsl:with-param name="disposals" select="$disposals[position() &gt; 1]"/>
+              <xsl:with-param name="classes" select="$classes"/>
+            </xsl:call-template>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:otherwise>
+    </xsl:choose>  
   </xsl:template>
   <!-- this traverses up the node tree and returns the first RDANO found -useful for authorities with multiple RDANOs-->
   <xsl:template name="local_id">

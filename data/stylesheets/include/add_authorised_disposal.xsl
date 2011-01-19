@@ -11,6 +11,11 @@
       <xsl:apply-templates select="rda:ClassDescription"/>
       <xsl:apply-templates select="rda:Disposal"/>
       <xsl:if test="rda:Disposal and not(rda:Disposal/rda:DisposalCondition='Authorised')">
+        <xsl:variable name="CustomCustody">
+          <xsl:call-template name="custody">
+            <xsl:with-param name="disposals" select="rda:Disposal"/>
+          </xsl:call-template>
+        </xsl:variable>
         <xsl:element name="Disposal">
           <xsl:element name="DisposalCondition">
             <xsl:text>Authorised</xsl:text>
@@ -20,6 +25,13 @@
               <xsl:with-param name="disposals" select="rda:Disposal"/>
             </xsl:call-template>
           </xsl:element>
+          <xsl:if test="$CustomCustody != ''">
+            <xsl:element name="CustomCustody">
+              <xsl:call-template name="custody">
+                <xsl:with-param name="disposals" select="rda:Disposal"/>
+              </xsl:call-template>
+            </xsl:element>            
+          </xsl:if>
         </xsl:element>
       </xsl:if>
       <xsl:apply-templates select="rda:Justification"/>
