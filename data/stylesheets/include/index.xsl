@@ -7,14 +7,18 @@
       <xsl:variable name="first_run">
         <xsl:element name="links">
           <xsl:apply-templates select="//rda:LinkedTo[@type='index']"/>
-          <xsl:apply-templates select="//rda:Term"/>
+          <xsl:call-template name="index_terms"> 
+            <xsl:with-param name="terms" select="//rda:Term"/>
+          </xsl:call-template>
         </xsl:element>
       </xsl:variable>
       <!-- recreate the list of link terms created in the first run and this time add to it, in reverse, all link terms with a narrow term (so the narrow term becomes the broad term and the broad the narrow)-->
       <xsl:variable name="raw_terms">
         <xsl:element name="links">
           <xsl:apply-templates select="//rda:LinkedTo[@type='index']"/>
-          <xsl:apply-templates select="//rda:Term"/>
+          <xsl:call-template name="index_terms"> 
+            <xsl:with-param name="terms" select="//rda:Term"/>
+          </xsl:call-template>
           <xsl:call-template name="reverse">
             <xsl:with-param name="reverse_term" select="exslt:node-set($first_run)/links/link_term[nt]"/>
           </xsl:call-template>
@@ -121,7 +125,9 @@
     </xsl:element>
   </xsl:template>
   <!-- create indexing terms for each function and activity in the authority-->
-  <xsl:template match="rda:Term">
+  <xsl:template name="index_terms">
+    <xsl:param name="terms"/>
+    <xsl:for-each select="$terms">
     <xsl:element name="link_term">
       <xsl:element name="bt">
         <xsl:value-of select="translate(normalize-space(rda:TermTitle), $upperCaseChars, $lowerCaseChars)"/>
@@ -145,6 +151,7 @@
         </xsl:call-template>
       </xsl:element>
     </xsl:element>
+    </xsl:for-each>
   </xsl:template>
   <!-- reverses the broad and narrow terms in a link-->
   <xsl:template name="reverse">
