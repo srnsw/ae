@@ -216,5 +216,106 @@ class Plone < Gtk::Dialog
   end
  end
 
+# module functions for interfacing with authority-register.exe, a command
+# line program that mints FA/GA and AR numbers (see github.com/srsnw/authority-register)
+module AuthorityRegister
+  REGISTER_PATH = "\\\\Loftus\\Workgroups\\Government Recordkeeping\\Disposal regulation\\Drafting\\authority-register\\authority-register.exe"
+  
+  module_function
+  def register(control)
+    cmd = REGISTER_PATH + " -n #{control}"
+    response = IO.popen(cmd) {|out| out.gets}
+  end
+  
+  def unregister(control, id)
+    cmd = REGISTER_PATH + " -r #{control + id}"
+    response = IO.popen(cmd) {|out| out.gets}
+  end
+  
+  def increment(control, id)
+    cmd = REGISTER_PATH + " -v #{control + id}"
+    response = IO.popen(cmd) {|out| out.gets}  
+  end
+  
+  def decrement(control, id)
+    cmd = REGISTER_PATH + " -d #{control + id}"
+    response = IO.popen(cmd) {|out| out.gets}  
+  end
+end
 
+# redefine multi_delete method to include option to deregister IDs
+class CurrentNode
+  # Used by multi-list widgets to re-order elements. Returns nil.
+  def multi_delete(list, context, name, pos)
+    node = get_multi_node(context, name, pos)
+    if name == 'ID'
+      if control = node['control']
+        if ['FA', 'GA', 'AR'].index(control)
+          number = node.content
+          unless number.empty?
+            if Utils::confirm_dialog("Would you like to deregister ID #{control} #{number}?", list.toplevel)
+              begin
+                AuthorityRegister::unregister(control, number)
+              rescue
+                Utils::error_dialog("Error: can't connect to register", list.toplevel)
+              end
+            end
+          end
+        end
+      end
+    end
+    node.unlink
+    list.update
+    update_elements
+    @rdadoc.trigger_change
+  end
+end
 
+# add a new 'register' button to the ID dialog
+class IDDialog < MultiDialog
+  def initialize(xml_doc, parent, content, attr)
+    super('Add or edit ID', parent)
+    stocks = Domain::IDCONTROLS
+    @parent = parent
+    @xml_doc = xml_doc
+    @content = Gtk::Entry.new
+    @content.set_text(content) if content
+    @attr = Gtk::ComboBox.new(true)
+    stocks.each {|stock| @attr.append_text(stock)}
+    @attr.set_active(stocks.index(attr)) if attr and stocks.index(attr)
+    content_frame = PlainFrame.new('ID number') << @content
+    attr_frame = PlainFrame.new('Control') << @attr
+    button = Gtk::Button.new('Register')
+    button.signal_connect("clicked") {|widget| register_id}
+    hbox = HBox.new(2, attr_frame, content_frame, button)
+    frame = BoldFrame.new('ID number') << hbox
+    vbox.add(frame)
+    show_all
+  end
+  
+  def register_id
+    control = @attr.active_text if @attr.active_text
+    id = @content.text.strip if @content.text.strip.length > 0
+    if id
+      Utils::error_dialog("ID number already present: #{id}", @parent)
+    else
+      if control
+        if ['FA', 'GA', 'AR'].index(control)
+          begin
+            new_id = AuthorityRegister::register(control)
+          rescue
+            Utils::error_dialog("Error: can't connect to register", @parent)
+          end
+          if new_id
+            @content.text = new_id
+            response(0)
+          end
+        else
+          Utils::error_dialog("ID must be of type FA/GA/AR", @parent)
+        end
+      else
+        Utils::error_dialog("Choose an ID type (FA/GA/AR)", @parent)
+      end
+    end
+  end
+end

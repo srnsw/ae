@@ -13,7 +13,7 @@ end
 # The Domain module allows customisation of jurisdiction-specific terminology.
 #
 module Domain
-  PROGRAM_VERSION = "1.1"
+  PROGRAM_VERSION = "1.2"
   # Set VALIDATE to false if you change defaults in this module that are required
   # by SRNSW's schema (i.e. ID controls, RDA controls, term types, disposal actions).
   VALIDATE = true
