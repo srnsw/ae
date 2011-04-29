@@ -224,22 +224,32 @@ module AuthorityRegister
   module_function
   def register(control)
     cmd = REGISTER_PATH + " -n #{control}"
-    response = IO.popen(cmd) {|out| out.gets}
   end
   
   def unregister(control, id)
     cmd = REGISTER_PATH + " -r #{control + id}"
-    response = IO.popen(cmd) {|out| out.gets}
   end
   
   def increment(control, id)
     cmd = REGISTER_PATH + " -v #{control + id}"
-    response = IO.popen(cmd) {|out| out.gets}  
   end
   
   def decrement(control, id)
     cmd = REGISTER_PATH + " -d #{control + id}"
-    response = IO.popen(cmd) {|out| out.gets}  
+  end
+  
+  def execute_cmd(cmd) 
+    begin
+      output = IO.popen(cmd) {|out| out.gets}
+    rescue
+      output = nil
+    end
+    return nil unless output
+    if output.strip.empty?
+      nil
+    else  
+      output =~ /\D/ ? nil : output
+    end    
   end
 end
 
@@ -254,11 +264,8 @@ class CurrentNode
           number = node.content
           unless number.empty?
             if Utils::confirm_dialog("Would you like to deregister ID #{control} #{number}?", list.toplevel)
-              begin
-                AuthorityRegister::unregister(control, number)
-              rescue
-                Utils::error_dialog("Error: can't connect to register", list.toplevel)
-              end
+              old_id = AuthorityRegister::execute_cmd(AuthorityRegister::unregister(control, number))
+              Utils::error_dialog("Error: failed to deregister ID #{control} #{number}", list.toplevel) unless old_id
             end
           end
         end
@@ -301,15 +308,13 @@ class IDDialog < MultiDialog
     else
       if control
         if ['FA', 'GA', 'AR'].index(control)
-          begin
-            new_id = AuthorityRegister::register(control)
-          rescue
-            Utils::error_dialog("Error: can't connect to register", @parent)
-          end
-          if new_id
-            @content.text = new_id
-            response(0)
-          end
+            new_id = AuthorityRegister::execute_cmd(AuthorityRegister::register(control))
+            if new_id
+              @content.text = new_id
+              response(0)
+            else
+              Utils::error_dialog("Error: failure connecting to register", @parent)
+            end
         else
           Utils::error_dialog("ID must be of type FA/GA/AR", @parent)
         end
