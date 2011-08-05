@@ -84,6 +84,7 @@
     </w:r>
   </xsl:template>
   <xsl:template match="rda:SeeReference">
+	  <xsl:if test="$SHOWSEEREF='true'">
     <w:p>
       <w:r>
           <w:t><xsl:text>See </xsl:text></w:t>
@@ -139,5 +140,6 @@
         </w:r>
       </xsl:if>
     </w:p>
+    </xsl:if>
   </xsl:template>
 </xsl:stylesheet>
