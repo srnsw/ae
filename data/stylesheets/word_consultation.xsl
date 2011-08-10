@@ -6,33 +6,13 @@
   <xsl:include href="include/word_headers_footers.xsl"/>
   <xsl:include href="include/render_word_authority.xsl"/>
   <xsl:include href="include/render_word_contents.xsl"/>
-  <xsl:include href="include/word_ar1.xsl"/>
-  <xsl:param name="BIC">true</xsl:param>
-  <xsl:variable name="SUBMITTED">
-    <xsl:for-each select="rda:Authority/rda:Status/rda:Submitted">
-      <xsl:if test="position() &gt;1">
-        <xsl:choose>
-          <xsl:when test="position()=last()">
-            <xsl:text> and </xsl:text>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:text>, </xsl:text>
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:if>
-      <xsl:value-of select="rda:Officer"/>
-      <xsl:text> (</xsl:text>
-      <xsl:value-of select="rda:Position"/>
-      <xsl:text>, </xsl:text>
-      <xsl:value-of select="rda:Agency"/>
-      <xsl:text>)</xsl:text>
-    </xsl:for-each>
-  </xsl:variable>
   <xsl:variable name="HASCUSTODY">
-    <xsl:value-of select="'false'"/>
+    <xsl:call-template name="hascustody">
+      <xsl:with-param name="classes" select="descendant::rda:Class"/>
+    </xsl:call-template>
   </xsl:variable>
-    <xsl:variable name="SHOWSEEREF">
-	<xsl:value-of select="'true'"/>  
+  <xsl:variable name="SHOWSEEREF">
+	<xsl:value-of select="'false'"/>  
   </xsl:variable>
   <xsl:variable name="JUSTIFICATION">
     <xsl:choose>
@@ -45,14 +25,14 @@
     </xsl:choose>
   </xsl:variable>
   <xsl:variable name="COLS">
-    <xsl:choose>
-      <xsl:when test="$JUSTIFICATION='row'">
-        <xsl:value-of select="'no_j_c'"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="'j'"/>
-      </xsl:otherwise>
-    </xsl:choose>
+        <xsl:choose>
+          <xsl:when test="$JUSTIFICATION='row'">
+            <xsl:value-of select="'no_j_c'"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="'j'"/>
+          </xsl:otherwise>
+        </xsl:choose>
   </xsl:variable>
   <xsl:variable name="ORIENTATION">
     <xsl:choose>
@@ -65,11 +45,11 @@
     </xsl:choose>
   </xsl:variable>
   <xsl:variable name="ID">
-    <xsl:text>AR No: </xsl:text>
-    <xsl:value-of select="$ARNO"/>
+    <xsl:text>Authority number: </xsl:text>
+    <xsl:value-of select="$RDANO"/>
   </xsl:variable>
   <xsl:variable name="AUTHORITY_HEAD">
-    <xsl:text>Appraisal Report Part 2 - </xsl:text>
+    <xsl:text>DRAFT - </xsl:text>
     <xsl:value-of select="$AUTHORITY_TYPE"/>
   </xsl:variable>
   <xsl:variable name="AUTHORITY_TITLE">
@@ -86,39 +66,15 @@
       <xsl:text>progid="Word.Document"</xsl:text>
     </xsl:processing-instruction>
     <w:wordDocument w:macrosPresent="no" w:embeddedObjPresent="no" w:ocxPresent="no" xml:space="preserve">
-				<xsl:call-template name="word_header">
-				  <xsl:with-param name="keep_next" select="'true'"/>
-        </xsl:call-template>
-				<w:body>
-        <wx:sect>
-        <xsl:call-template name="word_ar1"/>
-        <w:p>
-          <w:pPr>
-            <w:rPr>
-              <w:smallCaps/>
-            </w:rPr>
-            <w:sectPr>
-              <xsl:call-template name="portrait_header_footer">
-                <xsl:with-param name="header_first" select="'Board of the State Records Authority of New South Wales'"/>
-                <xsl:with-param name="header_text" select="concat('Appraisal Report ', $ARNO)"/>
-                <xsl:with-param name="footer_text" select="'BOARD-IN-CONFIDENCE'"/>
-              </xsl:call-template>
-              <w:pgSz w:w="11907" w:h="16840" w:code="9"/>
-              <w:pgMar w:top="1418" w:right="1418" w:bottom="1418" w:left="1418" w:header="720" w:footer="720" w:gutter="0"/>
-              <w:paperSrc w:first="11" w:other="11"/>
-              <w:cols w:space="720"/>
-              <w:titlePg/>
-            </w:sectPr>
-          </w:pPr>
-        </w:p>
+    <xsl:call-template name="word_header"/>
+    <w:body>
+      <wx:sect>
         <xsl:if test="count(//rda:Term)&gt;5">
           <xsl:call-template name="TOC"/>
         </xsl:if>
         <xsl:call-template name="render_authority"/>
-        <w:sectPr>
-           <xsl:call-template name="headers_footers">
-            <xsl:with-param name="BIC" select="'true'"/>
-           </xsl:call-template>
+         <w:sectPr>
+           <xsl:call-template name="headers_footers"/>
            <xsl:if test="$ORIENTATION='portrait'">
                 <w:pgSz w:w="11907" w:h="16840" w:code="9"/>
                 <w:pgMar w:top="1418" w:right="1418" w:bottom="1418" w:left="1418" w:header="567" w:footer="567" w:gutter="0"/>
@@ -132,7 +88,7 @@
            <w:titlePg/>
          </w:sectPr>
         </wx:sect>
-        </w:body>
-			</w:wordDocument>
+    </w:body>
+    </w:wordDocument>
   </xsl:template>
 </xsl:stylesheet>

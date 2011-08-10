@@ -85,6 +85,10 @@
       <text>Draft authority</text>
       <file>word_draft_authority.xsl</file>
     </stylesheet>
+     <!--stylesheet>
+      <text>Consultation draft</text>
+      <file>word_consultation.xsl</file>
+    </stylesheet-->   
     <stylesheet>
       <text>Comments document</text>
       <file>word_comments.xsl</file>
