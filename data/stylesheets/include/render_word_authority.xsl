@@ -394,7 +394,21 @@
               <w:p/>
             </xsl:if>
             <xsl:for-each select="rda:Justification">
-              <xsl:apply-templates/>
+				<xsl:choose>
+				<xsl:when test="$SHOWSEEREF='false'">
+				<xsl:choose>
+				<xsl:when test="../rda:Disposal/rda:DisposalAction='Required as State archives'">
+				<w:p/>
+				</xsl:when> 
+				<xsl:otherwise>
+				<xsl:apply-templates/>
+				</xsl:otherwise>
+				</xsl:choose>
+				</xsl:when>
+				<xsl:otherwise>
+				<xsl:apply-templates/>
+				</xsl:otherwise>
+				</xsl:choose>
             </xsl:for-each>
           </w:tc>
         </xsl:when>
@@ -427,6 +441,9 @@
       </xsl:if>
     </w:tr>
     <xsl:if test="$JUSTIFICATION='row' and rda:Justification">
+      <xsl:choose>
+		<xsl:when test="$SHOWSEEREF='false' and rda:Disposal/rda:DisposalAction='Required as State archives'"/>
+        <xsl:otherwise>
       <w:tr>
         <w:tc>
           <w:tcPr>
@@ -467,6 +484,8 @@
             </xsl:for-each>
         </w:tc>
       </w:tr>
+      </xsl:otherwise>
+      </xsl:choose>
     </xsl:if>
   </xsl:template>
 </xsl:stylesheet>
