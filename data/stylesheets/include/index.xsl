@@ -8,7 +8,7 @@
         <xsl:element name="links">
           <xsl:apply-templates select="//rda:LinkedTo[@type='index']"/>
           <xsl:call-template name="index_terms"> 
-            <xsl:with-param name="terms" select="//rda:Term"/>
+            <xsl:with-param name="terms" select="//rda:Term[@itemno]"/>
           </xsl:call-template>
         </xsl:element>
       </xsl:variable>
@@ -17,7 +17,7 @@
         <xsl:element name="links">
           <xsl:apply-templates select="//rda:LinkedTo[@type='index']"/>
           <xsl:call-template name="index_terms"> 
-            <xsl:with-param name="terms" select="//rda:Term"/>
+            <xsl:with-param name="terms" select="//rda:Term[@itemno]"/>
           </xsl:call-template>
           <xsl:call-template name="reverse">
             <xsl:with-param name="reverse_term" select="exslt:node-set($first_run)/links/link_term[nt]"/>
