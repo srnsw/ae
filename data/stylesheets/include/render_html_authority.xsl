@@ -68,13 +68,29 @@
                   <xsl:with-param name="node" select="."/>
                 </xsl:call-template>
               </xsl:when>
-              <xsl:otherwise>
+              <xsl:when test="rda:TermTitle">
                 <xsl:value-of select="rda:TermTitle"/>
-              </xsl:otherwise>
-          </xsl:choose> 
+              </xsl:when>
+              <xsl:when test="rda:DateRange">
+				<xsl:text>Date range: </xsl:text>	   
+				<xsl:call-template name="make_date_text">
+				  <xsl:with-param name="date_range" select="rda:DateRange"/>
+				</xsl:call-template>	 
+			  </xsl:when>	  
+            </xsl:choose>  
           </b>
           </a>
         </p>
+        <xsl:if test="rda:DateRange and ($SHOW_UPDATES='true' or rda:TermTitle)">
+		  <p>
+			<b>
+			  <xsl:text>Date range: </xsl:text>	 
+			  <xsl:call-template name="make_date_text">
+			   <xsl:with-param name="date_range" select="rda:DateRange"/>
+			  </xsl:call-template>
+          </b>
+        </p>
+        </xsl:if>
       </td>
       <td>
         <xsl:for-each select="rda:TermDescription">
@@ -137,13 +153,29 @@
                   <xsl:with-param name="node" select="."/>
                 </xsl:call-template>
               </xsl:when>
-              <xsl:otherwise>
+              <xsl:when test="rda:ClassTitle">
                 <xsl:value-of select="rda:ClassTitle"/>
-              </xsl:otherwise>
-          </xsl:choose> 
+              </xsl:when>
+              <xsl:when test="rda:DateRange">
+				<xsl:text>Date range: </xsl:text>	   
+				<xsl:call-template name="make_date_text">
+				  <xsl:with-param name="date_range" select="rda:DateRange"/>
+				</xsl:call-template>	 
+			  </xsl:when>	  
+            </xsl:choose>  
           </b>
           </a>
         </p>
+        <xsl:if test="rda:DateRange and ($SHOW_UPDATES='true' or rda:ClassTitle)">
+		  <p>
+			<b>
+			  <xsl:text>Date range: </xsl:text>	 
+			  <xsl:call-template name="make_date_text">
+			   <xsl:with-param name="date_range" select="rda:DateRange"/>
+			  </xsl:call-template>
+			</b>
+		  </p>  
+		</xsl:if>
       </td>
       <td>
         <xsl:for-each select="rda:ClassDescription">

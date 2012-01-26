@@ -214,9 +214,36 @@
               <w:b-cs/>
               <w:b/>
             </w:rPr>
-            <w:t><xsl:value-of select="rda:TermTitle"/></w:t>
+            <w:t><xsl:choose>
+				<xsl:when test="rda:TermTitle"><xsl:value-of select="rda:TermTitle"/></xsl:when>
+				<xsl:otherwise>
+				  <xsl:if test="rda:DateRange">
+					<xsl:text>Date range: </xsl:text>  
+					<xsl:call-template name="make_date_text">
+		              <xsl:with-param name="date_range" select="rda:DateRange"/>
+		            </xsl:call-template>
+		          </xsl:if>
+		        </xsl:otherwise>
+			 </xsl:choose></w:t>
           </w:r>
         </w:p>
+        <xsl:if test="rda:TermTitle and rda:DateRange">
+			<w:p>
+          <w:pPr>
+            <w:pStyle w:val="Normalsingle"/>
+            <w:spacing w:before="120" w:after="120"/>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:b-cs/>
+              <w:b/>
+            </w:rPr>
+            <w:t>Date range: <xsl:call-template name="make_date_text">
+		   <xsl:with-param name="date_range" select="rda:DateRange"/>
+		 </xsl:call-template></w:t>
+          </w:r>
+        </w:p>
+		</xsl:if>
       </w:tc>
       <w:tc>
         <w:tcPr>
@@ -348,9 +375,36 @@
               <w:b-cs/>
               <w:b/>
             </w:rPr>
-            <w:t><xsl:value-of select="rda:ClassTitle"/></w:t>
+            <w:t><xsl:choose>
+				<xsl:when test="rda:ClassTitle"><xsl:value-of select="rda:ClassTitle"/></xsl:when>
+				<xsl:otherwise>
+				  <xsl:if test="rda:DateRange">
+					<xsl:text>Date range: </xsl:text>  
+					<xsl:call-template name="make_date_text">
+		              <xsl:with-param name="date_range" select="rda:DateRange"/>
+		            </xsl:call-template>
+		          </xsl:if>
+		        </xsl:otherwise>
+			 </xsl:choose></w:t>
           </w:r>
         </w:p>
+        <xsl:if test="rda:ClassTitle and rda:DateRange">
+			<w:p>
+          <w:pPr>
+            <w:pStyle w:val="Normalsingle"/>
+            <w:spacing w:before="120" w:after="120"/>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:b-cs/>
+              <w:b/>
+            </w:rPr>
+            <w:t>Date range: <xsl:call-template name="make_date_text">
+		   <xsl:with-param name="date_range" select="rda:DateRange"/>
+		 </xsl:call-template></w:t>
+          </w:r>
+        </w:p>
+		</xsl:if>
       </w:tc>
       <w:tc>
         <w:tcPr>

@@ -254,4 +254,36 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
+  <xsl:template name="make_date_text">
+	  <xsl:param name="date_range"/>
+	   <xsl:for-each select="$date_range">
+          <xsl:choose>
+            <xsl:when test="not(rda:End)">
+              <xsl:if test="rda:Start/@circa='true'">
+                <xsl:text>c.</xsl:text>
+              </xsl:if>
+              <xsl:value-of select="rda:Start"/>
+              <xsl:text>+</xsl:text>
+            </xsl:when>
+            <xsl:when test="not(rda:Start)">
+              <xsl:text>pre-</xsl:text>
+              <xsl:if test="rda:End/@circa='true'">
+                <xsl:text>c.</xsl:text>
+              </xsl:if>
+              <xsl:value-of select="rda:End"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:if test="rda:Start/@circa='true'">
+                <xsl:text>c.</xsl:text>
+              </xsl:if>
+              <xsl:value-of select="rda:Start"/>
+              <xsl:text>-</xsl:text>
+              <xsl:if test="rda:End/@circa='true'">
+               <xsl:text>c.</xsl:text>
+              </xsl:if>
+              <xsl:value-of select="rda:End"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:for-each>
+  </xsl:template>
 </xsl:stylesheet>
