@@ -132,35 +132,9 @@
   <xsl:variable name="DATE_RANGE">
     <xsl:choose>
       <xsl:when test="rda:Authority/rda:DateRange">
-        <xsl:for-each select="rda:Authority/rda:DateRange">
-          <xsl:choose>
-            <xsl:when test="not(rda:End)">
-              <xsl:if test="rda:Start/@circa='true'">
-                <xsl:text>c.</xsl:text>
-              </xsl:if>
-              <xsl:value-of select="rda:Start"/>
-              <xsl:text>+</xsl:text>
-            </xsl:when>
-            <xsl:when test="not(rda:Start)">
-              <xsl:text>pre-</xsl:text>
-              <xsl:if test="rda:End/@circa='true'">
-                <xsl:text>c.</xsl:text>
-              </xsl:if>
-              <xsl:value-of select="rda:End"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:if test="rda:Start/@circa='true'">
-                <xsl:text>c.</xsl:text>
-              </xsl:if>
-              <xsl:value-of select="rda:Start"/>
-              <xsl:text>-</xsl:text>
-              <xsl:if test="rda:End/@circa='true'">
-               <xsl:text>c.</xsl:text>
-              </xsl:if>
-              <xsl:value-of select="rda:End"/>
-            </xsl:otherwise>
-          </xsl:choose>
-        </xsl:for-each>
+         <xsl:call-template name="make_date_text">
+		   <xsl:with-param name="date_range" select="rda:Authority/rda:DateRange"/>
+		 </xsl:call-template>
       </xsl:when>
       <xsl:otherwise>
         <xsl:choose>
@@ -177,37 +151,9 @@
   <xsl:variable name="DATETEXT">
     <xsl:choose>
       <xsl:when test="rda:Authority/rda:DateRange">
-        <xsl:for-each select="rda:Authority/rda:DateRange">
-          <xsl:choose>
-            <xsl:when test="not(rda:End)">
-              <xsl:text> from </xsl:text>
-              <xsl:if test="rda:Start/@circa='true'">
-                <xsl:text>c.</xsl:text>
-              </xsl:if>
-              <xsl:value-of select="rda:Start"/>
-              <xsl:text> onwards</xsl:text>
-            </xsl:when>
-            <xsl:when test="not(rda:Start)">
-              <xsl:text> before </xsl:text>
-              <xsl:if test="rda:End/@circa='true'">
-                <xsl:text>c.</xsl:text>
-              </xsl:if>
-              <xsl:value-of select="rda:End"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:text> from </xsl:text>
-              <xsl:if test="rda:Start/@circa='true'">
-                <xsl:text>c.</xsl:text>
-              </xsl:if>
-              <xsl:value-of select="rda:Start"/>
-              <xsl:text> to </xsl:text>
-              <xsl:if test="rda:End/@circa='true'">
-               <xsl:text>c.</xsl:text>
-              </xsl:if>
-              <xsl:value-of select="rda:End"/>
-            </xsl:otherwise>
-          </xsl:choose>
-        </xsl:for-each>
+        <xsl:call-template name="make_date_text">
+		   <xsl:with-param name="date_range" select="rda:Authority/rda:DateRange"/>
+		 </xsl:call-template>
       </xsl:when>
       <xsl:otherwise>
         <xsl:text/>
