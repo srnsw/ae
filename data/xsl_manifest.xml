@@ -87,7 +87,7 @@
     </stylesheet>
      <!--stylesheet>
       <text>Consultation draft</text>
-      <file>word_consultation.xsl</file>
+      <file>word_consultation_report.xsl</file>
     </stylesheet-->   
     <stylesheet>
       <text>Comments document</text>
