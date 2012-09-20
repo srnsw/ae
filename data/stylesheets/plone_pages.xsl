@@ -17,9 +17,7 @@
       </xsl:for-each>
       </p>
       <xsl:for-each select="rda:Term">
-      <a name="{rda:anchor}">
-      <h2><xsl:value-of select="concat(@itemno, ' ', translate(rda:TermTitle, $lowerCaseChars, $upperCaseChars))"/></h2>
-      </a>
+      <h2><a name="{rda:anchor}"></a><xsl:value-of select="concat(@itemno, ' ', translate(rda:TermTitle, $lowerCaseChars, $upperCaseChars))"/></h2>
       <xsl:for-each select="rda:TermDescription"><xsl:apply-templates/></xsl:for-each>
       <xsl:if test="rda:Class">
         <xsl:call-template name="class_table">
