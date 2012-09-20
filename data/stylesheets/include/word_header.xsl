@@ -5,6 +5,7 @@
     <!--controls default spacing for Normal Paragraphs-->
     <xsl:param name="spacing" select="'120'"/>
     <xsl:param name="keep_next" select="'false'"/>
+    <xsl:param name="gaadmin" select="'false'"/>
     <o:DocumentProperties>
       <o:Title/>
       <o:Author/>
@@ -70,21 +71,44 @@
           <w:lang w:val="EN-AU" w:fareast="EN-US" w:bidi="AR-SA"/>
         </w:rPr>
       </w:style>
-      <w:style w:type="paragraph" w:styleId="Heading1">
-        <w:name w:val="heading 1"/>
-        <wx:uiName wx:val="Heading 1"/>
-        <w:basedOn w:val="Normal"/>
-        <w:next w:val="Normal"/>
-        <w:pPr>
-          <w:pStyle w:val="Heading1"/>
-          <w:spacing w:before="240"/>
-          <w:outlineLvl w:val="0"/>
-        </w:pPr>
-        <w:rPr>
-          <wx:font wx:val="Verdana"/>
-          <w:b/>
-        </w:rPr>
-      </w:style>
+      <xsl:choose>
+        <xsl:when test="$gaadmin = 'true'">
+          <w:style w:type="paragraph" w:styleId="Heading1">
+            <w:name w:val="heading 1"/>
+            <wx:uiName wx:val="Heading 1"/>
+            <w:basedOn w:val="Normal"/>
+            <w:next w:val="Normal"/>
+            <w:pPr>
+              <w:keepNext/>
+              <w:spacing w:before="240"/>
+              <w:ind w:left="709" w:hanging="709"/>
+              <w:outlineLvl w:val="0"/>
+            </w:pPr>
+            <w:rPr>
+              <wx:font wx:val="Verdana"/>
+              <w:b/>
+              <w:sz w:val="24"/>
+            </w:rPr>
+          </w:style>
+        </xsl:when>
+        <xsl:otherwise>
+          <w:style w:type="paragraph" w:styleId="Heading1">
+            <w:name w:val="heading 1"/>
+            <wx:uiName wx:val="Heading 1"/>
+            <w:basedOn w:val="Normal"/>
+            <w:next w:val="Normal"/>
+            <w:pPr>
+              <w:pStyle w:val="Heading1"/>
+              <w:spacing w:before="240"/>
+              <w:outlineLvl w:val="0"/>
+            </w:pPr>
+            <w:rPr>
+              <wx:font wx:val="Verdana"/>
+              <w:b/>
+            </w:rPr>
+          </w:style>
+        </xsl:otherwise>
+      </xsl:choose>
       <w:style w:type="paragraph" w:styleId="Heading2">
         <w:name w:val="heading 2"/>
         <wx:uiName wx:val="Heading 2"/>
@@ -94,7 +118,7 @@
           <w:pStyle w:val="Heading2"/>
           <w:keepNext/>
           <w:spacing w:before="180"/>
-           <w:outlineLvl w:val="1"/>
+          <w:outlineLvl w:val="1"/>
         </w:pPr>
         <w:rPr>
           <wx:font wx:val="Verdana"/>

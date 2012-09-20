@@ -5,6 +5,7 @@
     <xsl:param name="header_text" select="$header_first"/>
     <xsl:param name="footer_text" select="''"/>
     <xsl:param name="tab" select="''"/>
+    <xsl:param name="gaadmin" select="'false'"/>
     <w:hdr w:type="odd">
       <w:p>
         <w:pPr>
@@ -124,9 +125,17 @@
   </xsl:template>
   <xsl:template name="headers_footers">
     <xsl:param name="BIC"/>
+    <xsl:param name="gaadmin" select="'false'"/>
     <w:hdr w:type="odd">
       <xsl:call-template name="standard_header"/>
-      <xsl:call-template name="header_table"/>
+      <xsl:choose>
+        <xsl:when test="$gaadmin = 'true'">
+          <xsl:call-template name="ga28_header_table"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:call-template name="header_table"/>
+        </xsl:otherwise>
+      </xsl:choose>
       <xsl:call-template name="breadcrumb"/>
     </w:hdr>
     <w:ftr w:type="odd">
@@ -136,7 +145,14 @@
     </w:ftr>
     <w:hdr w:type="first">
       <xsl:call-template name="standard_header_first"/>
-      <xsl:call-template name="header_table"/>
+      <xsl:choose>
+        <xsl:when test="$gaadmin = 'true'">
+          <xsl:call-template name="ga28_header_table"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:call-template name="header_table"/>
+        </xsl:otherwise>
+      </xsl:choose>
       <w:p>
         <w:pPr>
           <w:spacing w:before="0" w:after="0"/>
@@ -250,6 +266,98 @@
         </w:t>
       </w:r>
     </w:p>
+  </xsl:template>
+  <xsl:template name="ga28_header_table">
+    <w:tbl>
+    <w:tblPr>
+        <w:tblW w:w="9072" w:type="dxa"/>
+        <w:jc w:val="center"/>
+        <w:tblBorders>
+          <w:top w:val="single" w:sz="6" wx:bdrwidth="10" w:space="0" w:color="auto"/>
+          <w:left w:val="single" w:sz="6" wx:bdrwidth="10" w:space="0" w:color="auto"/>
+          <w:bottom w:val="single" w:sz="6" wx:bdrwidth="10" w:space="0" w:color="auto"/>
+          <w:right w:val="single" w:sz="6" wx:bdrwidth="10" w:space="0" w:color="auto"/>
+          <w:insideH w:val="single" w:sz="6" wx:bdrwidth="10" w:space="0" w:color="auto"/>
+          <w:insideV w:val="single" w:sz="6" wx:bdrwidth="10" w:space="0" w:color="auto"/>
+        </w:tblBorders>
+      </w:tblPr>
+      <w:tblGrid>
+        <w:gridCol w:w="992"/>
+        <w:gridCol w:w="5812"/>
+        <w:gridCol w:w="2268"/>
+      </w:tblGrid>
+      <w:tr>
+        <w:trPr>
+          <w:jc w:val="center"/>
+        </w:trPr>
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="992" w:type="dxa"/>
+            <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
+          </w:tcPr>
+          <w:p>
+            <w:pPr>
+              <w:spacing w:before="100" w:before-autospacing="on" w:after="100" w:after-autospacing="on"/>
+              <w:rPr>
+                <w:b/>
+                <w:sz-cs w:val="24"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:b/>
+                <w:sz-cs w:val="24"/>
+              </w:rPr>
+              <w:t>No.</w:t>
+            </w:r>
+          </w:p>
+        </w:tc>
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="5812" w:type="dxa"/>
+            <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
+          </w:tcPr>
+          <w:p>
+            <w:pPr>
+              <w:spacing w:before="100" w:before-autospacing="on" w:after="100" w:after-autospacing="on"/>
+              <w:rPr>
+                <w:b/>
+                <w:sz-cs w:val="24"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:b/>
+                <w:sz-cs w:val="24"/>
+              </w:rPr>
+              <w:t>Description of records</w:t>
+            </w:r>
+          </w:p>
+        </w:tc>
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:w="2268" w:type="dxa"/>
+            <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
+          </w:tcPr>
+          <w:p>
+            <w:pPr>
+              <w:spacing w:before="100" w:before-autospacing="on" w:after="100" w:after-autospacing="on"/>
+              <w:rPr>
+                <w:b/>
+                <w:sz-cs w:val="24"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:b/>
+                <w:sz-cs w:val="24"/>
+              </w:rPr>
+              <w:t>Disposal action</w:t>
+            </w:r>
+          </w:p>
+        </w:tc>
+      </w:tr>
+    </w:tbl>
   </xsl:template>
   <xsl:template name="header_table">
     <xsl:variable name="size_1">

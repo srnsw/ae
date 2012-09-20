@@ -20,6 +20,9 @@
     <w:p>
       <w:pPr>
         <w:pStyle w:val="Heading1"/>
+        <xsl:if test="parent::rda:Authority">
+          <w:pageBreakBefore/>
+        </xsl:if>
       </w:pPr>
       <aml:annotation aml:id="{$number}" w:type="Word.Bookmark.Start" w:name="{generate-id(.)}"/>
       <w:r>
@@ -34,23 +37,26 @@
               <xsl:value-of select="concat($id, ' ')"/>
             </xsl:if>
           </xsl:if>
-          <xsl:value-of select="@itemno"/>
+          <xsl:if test="@itemno">
+            <xsl:value-of select="concat(@itemno, ' ')"/>
+          </xsl:if>
         </w:t>
       </w:r>
       <w:r>
         <w:t>
-          <xsl:value-of select="concat(' ', rda:TermTitle)"/>
+          <xsl:value-of select="rda:TermTitle"/>
         </w:t>
       </w:r>
       <aml:annotation aml:id="{$number}" w:type="Word.Bookmark.End"/>
-      <w:r>
+      <!--w:r>
         <w:rPr>
           <w:rStyle w:val="HiddenChar"/>
+          <w:noproof/>
         </w:rPr>
         <w:t>
-          <xsl:value-of select="$breadcrumb"/>
+          <xsl:value-of select="concat(' ', $breadcrumb)"/>
         </w:t>
-      </w:r>
+      </w:r-->
     </w:p>
     <xsl:if test="not(rda:TermDescription)">
       <w:p/>
@@ -70,27 +76,29 @@
       </xsl:for-each>
     </xsl:variable>
     <xsl:if test="not(preceding-sibling::rda:Class)">
+      <w:p>
+        <w:pPr>
+          <w:spacing w:before="0" w:after="60"/>
+        </w:pPr>  
+        <w:r/>
+      </w:p>  
       <xsl:text disable-output-escaping="yes">&lt;w:tbl&gt;</xsl:text>
       <w:tblPr>
-        <w:tblW w:w="9286" w:type="dxa"/>
+        <w:tblW w:w="9072" w:type="dxa"/>
+        <w:jc w:val="center"/>
         <w:tblBorders>
-          <w:top w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-          <w:left w:val="single" w:sz="6" wx:bdrwidth="15" w:space="0" w:color="auto"/>
-          <w:bottom w:val="single" w:sz="6" wx:bdrwidth="15" w:space="0" w:color="auto"/>
-          <w:right w:val="single" w:sz="6" wx:bdrwidth="15" w:space="0" w:color="auto"/>
-          <w:insideH w:val="single" w:sz="6" wx:bdrwidth="15" w:space="0" w:color="auto"/>
-          <w:insideV w:val="single" w:sz="6" wx:bdrwidth="15" w:space="0" w:color="auto"/>
+          <w:top w:val="single" w:sz="6" wx:bdrwidth="10" w:space="0" w:color="auto"/>
+          <w:left w:val="single" w:sz="6" wx:bdrwidth="10" w:space="0" w:color="auto"/>
+          <w:bottom w:val="single" w:sz="6" wx:bdrwidth="10" w:space="0" w:color="auto"/>
+          <w:right w:val="single" w:sz="6" wx:bdrwidth="10" w:space="0" w:color="auto"/>
+          <w:insideH w:val="single" w:sz="6" wx:bdrwidth="10" w:space="0" w:color="auto"/>
+          <w:insideV w:val="single" w:sz="6" wx:bdrwidth="10" w:space="0" w:color="auto"/>
         </w:tblBorders>
-        <w:tblLayout w:type="Fixed"/>
-        <w:tblCellMar>
-          <w:left w:w="107" w:type="dxa"/>
-          <w:right w:w="107" w:type="dxa"/>
-        </w:tblCellMar>
       </w:tblPr>
       <w:tblGrid>
-        <w:gridCol w:w="1100" w:type="dxa"/>
-        <w:gridCol w:w="5918" w:type="dxa"/>
-        <w:gridCol w:w="2268" w:type="dxa"/>
+        <w:gridCol w:w="992"/>
+        <w:gridCol w:w="5812"/>
+        <w:gridCol w:w="2268"/>
       </w:tblGrid>
     </xsl:if>
     <w:tr>
@@ -102,7 +110,7 @@
       </w:tblPrEx>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="1100" w:type="dxa"/>
+          <w:tcW w:w="992" w:type="dxa"/>
         </w:tcPr>
         <w:p>
           <w:r>
@@ -120,6 +128,8 @@
               <xsl:value-of select="@itemno"/>
             </w:t>
           </w:r>
+        </w:p>
+        <w:p>
           <w:r>
             <w:rPr>
               <w:rStyle w:val="HiddenChar"/>
@@ -128,11 +138,11 @@
               <xsl:value-of select="$breadcrumb"/>
             </w:t>
           </w:r>
-        </w:p>
+        </w:p>  
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="5918" w:type="dxa"/>
+          <w:tcW w:w="5812" w:type="dxa"/>
         </w:tcPr>
         <xsl:if test="rda:ClassTitle">
           <w:p>
@@ -165,8 +175,8 @@
         </xsl:call-template>
       </w:tc>
     </w:tr>
-  <xsl:if test="not(following-sibling::rda:Class)">
-    <xsl:text disable-output-escaping="yes">&lt;/w:tbl&gt;</xsl:text>
-  </xsl:if>  
+    <xsl:if test="not(following-sibling::rda:Class)">
+      <xsl:text disable-output-escaping="yes">&lt;/w:tbl&gt;</xsl:text>
+    </xsl:if>
   </xsl:template>
 </xsl:stylesheet>

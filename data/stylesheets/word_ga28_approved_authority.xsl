@@ -73,7 +73,9 @@
       <xsl:text>progid="Word.Document"</xsl:text>
     </xsl:processing-instruction>
     <w:wordDocument w:macrosPresent="no" w:embeddedObjPresent="no" w:ocxPresent="no" xml:space="preserve">
-    <xsl:call-template name="word_header"/>
+    <xsl:call-template name="word_header">
+      <xsl:with-param name="gaadmin" select="'true'"/>
+    </xsl:call-template>
     <w:body>
       <xsl:call-template name="frontmatter_one"/>
       <wx:sect>
@@ -87,7 +89,9 @@
          </xsl:if>
          <xsl:call-template name="render_authority"/>
          <w:sectPr>
-           <xsl:call-template name="headers_footers"/>
+           <xsl:call-template name="headers_footers">
+            <xsl:with-param name="gaadmin" select="'true'"/>
+           </xsl:call-template>
            <xsl:if test="$ORIENTATION='portrait'">
                 <w:pgSz w:w="11907" w:h="16840" w:code="9"/>
                 <w:pgMar w:top="1418" w:right="1418" w:bottom="1418" w:left="1418" w:header="567" w:footer="567" w:gutter="0"/>
