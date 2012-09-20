@@ -3,15 +3,6 @@
   <xsl:include href="disposal_word.xsl"/>
   <xsl:include href="render_word.xsl"/>
   <xsl:template name="render_authority">
-    <xsl:variable name="size_1">
-      <xsl:text>1100</xsl:text>
-    </xsl:variable>
-    <xsl:variable name="size_2">
-      <xsl:text>5918</xsl:text>
-    </xsl:variable>
-    <xsl:variable name="size_3">
-      <xsl:text>2268</xsl:text>
-    </xsl:variable>
     <xsl:apply-templates select="rda:Term | rda:Class"/>
   </xsl:template>
   <xsl:template match="rda:Term">
@@ -70,7 +61,15 @@
     <xsl:apply-templates select="rda:Term | rda:Class"/>
   </xsl:template>
   <xsl:template match="rda:Class">
-    <xsl:if test="position() = first()">
+    <xsl:variable name="breadcrumb">
+      <xsl:for-each select="ancestor::rda:Term">
+        <xsl:if test="parent::rda:Term">
+          <xsl:text> - </xsl:text>
+        </xsl:if>
+        <xsl:value-of select="rda:TermTitle"/>
+      </xsl:for-each>
+    </xsl:variable>
+    <xsl:if test="not(preceding-sibling::rda:Class)">
       <xsl:text disable-output-escaping="yes">&lt;w:tbl&gt;</xsl:text>
       <w:tblPr>
         <w:tblW w:w="9286" w:type="dxa"/>
@@ -89,19 +88,11 @@
         </w:tblCellMar>
       </w:tblPr>
       <w:tblGrid>
-        <w:gridCol w:w="{$size_1}" w:type="dxa"/>
-        <w:gridCol w:w="{$size_2}" w:type="dxa"/>
-        <w:gridCol w:w="{$size_3}" w:type="dxa"/>
+        <w:gridCol w:w="1100" w:type="dxa"/>
+        <w:gridCol w:w="5918" w:type="dxa"/>
+        <w:gridCol w:w="2268" w:type="dxa"/>
       </w:tblGrid>
     </xsl:if>
-    <xsl:variable name="breadcrumb">
-      <xsl:for-each select="ancestor::rda:Term">
-        <xsl:if test="parent::rda:Term">
-          <xsl:text> - </xsl:text>
-        </xsl:if>
-        <xsl:value-of select="rda:TermTitle"/>
-      </xsl:for-each>
-    </xsl:variable>
     <w:tr>
       <w:tblPrEx>
         <w:tblCellMar>
@@ -111,7 +102,7 @@
       </w:tblPrEx>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="{$size_1}" w:type="dxa"/>
+          <w:tcW w:w="1100" w:type="dxa"/>
         </w:tcPr>
         <w:p>
           <w:r>
@@ -141,7 +132,7 @@
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="{$size_2}" w:type="dxa"/>
+          <w:tcW w:w="5918" w:type="dxa"/>
         </w:tcPr>
         <xsl:if test="rda:ClassTitle">
           <w:p>
@@ -164,7 +155,7 @@
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="{$size_3}" w:type="dxa"/>
+          <w:tcW w:w="2268" w:type="dxa"/>
         </w:tcPr>
         <xsl:if test="not(rda:Disposal[not(rda:DisposalCondition='Automated')])">
           <w:p/>
@@ -174,8 +165,8 @@
         </xsl:call-template>
       </w:tc>
     </w:tr>
-    <xsl:if test="position() = last()">
-      <xsl:text disable-output-escaping="yes">&lt;/w:tbl&gt;</xsl:text>
-    </xsl:if>
+  <xsl:if test="not(following-sibling::rda:Class)">
+    <xsl:text disable-output-escaping="yes">&lt;/w:tbl&gt;</xsl:text>
+  </xsl:if>  
   </xsl:template>
 </xsl:stylesheet>
