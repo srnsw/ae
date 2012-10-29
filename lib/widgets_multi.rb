@@ -795,7 +795,7 @@ class ThisTerms < Terms
     newterm = Gtk::Entry.new
     context = @xml_doc.root
     @terms.each do |entry|
-      new_context = context.xpath("rda:Term[rda:TermTitle='#{entry.text}']",
+      new_context = context.xpath(%Q(rda:Term[rda:TermTitle="#{entry.text}"]),
       Namespace::RDA)[0]
       context = new_context if new_context
     end
