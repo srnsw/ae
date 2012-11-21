@@ -76,16 +76,6 @@ module Domain
   # delete all hashes within the array.
   GENERALAUTHORITIES = [
   {
-  :short_title => 'GDA12',
-  :id_control => 'GDA',
-  :id_number => '12',
-  :long_title => 'Personnel records',
-  :terms => {
-    'OCCUPATIONAL HEALTH AND SAFETY' => ['', 'Health promotion'],
-    'PERSONNEL' => ['', 'Allowances', 'Appeals (decisions)', 'Arrangements', 'Audit', 'Authorisation', 'Committees', 'Compliance', 'Contracting-out', 'Counselling', 'Discipline', 'Employee files', 'Employment conditions', 'Evaluation', 'Grievances', 'Infringements', 'Insurance', 'Leave', 'Marketing', 'Performance management', 'Planning', 'Policy', 'Procedures', 'Recruitment', 'Rehabilitation', 'Representatives', 'Salaries', 'Security', 'Separations', 'Social clubs', 'Suggestions']
-    }
-  },
-  {
   :short_title => 'GA28', 
   :id_control => 'GA', 
   :id_number => '28', 
@@ -105,7 +95,7 @@ module Domain
     'INFORMATION MANAGEMENT'=> ['','Acquisition', 'Agreements', 'Appeals', 'Audit', 'Authorisation', 'Cases', 'Compliance', 'Conservation', 'Control', 'Customer service', 'Disposal', 'Distribution', 'Donations', 'Enquiries', 'Evaluation', 'Implementation', 'Intellectual property', 'Inventory', 'Marketing', 'Planning', 'Policy', 'Procedures', 'Reporting', 'Reviewing', 'Security'],
     'LEGAL SERVICES' => ['','Advice', 'Agreements', 'Compliance', 'Litigation', 'Planning', 'Policy', 'Procedures', 'Reporting', 'Research', 'Reviewing'],
     'OCCUPATIONAL HEALTH & SAFETY' => ['','Accidents', 'Appeals', 'Audit', 'Compliance', 'Health promotion', 'Inspections', 'Planning', 'Policy', 'Procedures', 'Reporting', 'Representatives', 'Reviewing', 'Risk management', 'Standards'],
-    'PERSONNEL' => ['','Compliance', 'Insurance', 'Planning', 'Policy', 'Procedures', 'Reporting', 'Reviewing', 'Salaries'],
+    'PERSONNEL' => ['','Advice' , 'Authorisation' , 'Compliance', 'Employee service history' , 'Grievances' , 'Insurance', 'Leave, attendance and absences' , 'Misconduct' , 'Performance management' , 'Recruitment' ,  'Reporting', 'Representatives' , 'Reviewing', 'Security' , 'Social clubs and groups' , 'Suggestions'],
     'PROPERTY MANAGEMENT' => ['','Acquisition', 'Arrangements', 'Audit', 'Claims', 'Compliance', 'Conservation', 'Construction', 'Disposal', 'Evaluation', 'Flora and fauna management', 'Inspections', 'Installation', 'Insurance', 'Leasing', 'Leasing-out', 'Maintenance', 'Moving', 'Planning', 'Policy', 'Procedures', 'Reporting', 'Reviewing', 'Risk management', 'Security'],
     'PUBLICATION' => ['','Agreements', 'Authorisation', 'Compliance', 'Corporate style', 'Distribution', 'Drafting', 'Enquiries', 'Evaluation', 'Intellectual property', 'Joint ventures', 'Marketing', 'Planning', 'Policy', 'Procedures', 'Production', 'Reporting', 'Reviewing', 'Stocktake'],
     'STAFF DEVELOPMENT'=>['','Acquisition', 'Addresses', 'Audit', 'Conferences', 'Evaluation', 'Planning', 'Policy', 'Procedures', 'Reporting', 'Reviewing', 'Training'],
