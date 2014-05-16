@@ -448,21 +448,21 @@
               <w:p/>
             </xsl:if>
             <xsl:for-each select="rda:Justification">
-				<xsl:choose>
-				<xsl:when test="$SHOWSEEREF='false'">
-				<xsl:choose>
-				<xsl:when test="../rda:Disposal/rda:DisposalAction='Required as State archives'">
-				<w:p/>
-				</xsl:when> 
-				<xsl:otherwise>
-				<xsl:apply-templates/>
-				</xsl:otherwise>
-				</xsl:choose>
-				</xsl:when>
-				<xsl:otherwise>
-				<xsl:apply-templates/>
-				</xsl:otherwise>
-				</xsl:choose>
+      				<xsl:choose>
+      				<xsl:when test="$SHOWARCHIVESJUST='false'">
+      				  <xsl:choose>
+      				    <xsl:when test="../rda:Disposal/rda:DisposalAction='Required as State archives'">
+      				      <w:p/>
+      				    </xsl:when> 
+      				  <xsl:otherwise>
+      				    <xsl:apply-templates/>
+      				  </xsl:otherwise>
+      				  </xsl:choose>
+      				</xsl:when>
+      				<xsl:otherwise>
+      				<xsl:apply-templates/>
+      				</xsl:otherwise>
+      				</xsl:choose>
             </xsl:for-each>
           </w:tc>
         </xsl:when>
@@ -496,7 +496,7 @@
     </w:tr>
     <xsl:if test="$JUSTIFICATION='row' and rda:Justification">
       <xsl:choose>
-		<xsl:when test="$SHOWSEEREF='false' and rda:Disposal/rda:DisposalAction='Required as State archives'"/>
+		<xsl:when test="$SHOWARCHIVESJUST='false'"/>
         <xsl:otherwise>
       <w:tr>
         <w:tc>

@@ -11,16 +11,19 @@
       <xsl:with-param name="classes" select="descendant::rda:Class"/>
     </xsl:call-template>
   </xsl:variable>
+  <xsl:variable name="SHOWARCHIVESJUST">
+  <xsl:value-of select="'false'"/>  
+  </xsl:variable>
   <xsl:variable name="SHOWSEEREF">
 	<xsl:value-of select="'false'"/>  
   </xsl:variable>
   <xsl:variable name="JUSTIFICATION">
     <xsl:choose>
-      <xsl:when test="rda:Authority/rda:LinkedTo[@type='justification' and .='row']">
-        <xsl:value-of select="'row'"/>
+      <xsl:when test="rda:Authority/rda:LinkedTo[@type='justification' and .='column']">
+        <xsl:value-of select="'column'"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:value-of select="'column'"/>
+        <xsl:value-of select="'row'"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>

@@ -715,19 +715,19 @@
         <w:r>
           <w:br/>
           <w:t>
-            <xsl:text>PO Box 516 Kingswood NSW 2747</xsl:text>
+            <xsl:text>PO Box 516</xsl:text>
           </w:t>
         </w:r>
         <w:r>
           <w:br/>
           <w:t>
-            <xsl:text>Telephone: (02) 8247 8627</xsl:text>
+            <xsl:text>Kingswood NSW 2747</xsl:text>
           </w:t>
         </w:r>
         <w:r>
           <w:br/>
           <w:t>
-            <xsl:text>Facsimile: (02) 8247 8626</xsl:text>
+            <xsl:text>Telephone: (02) 9673 1788</xsl:text>
           </w:t>
         </w:r>
         <w:r>

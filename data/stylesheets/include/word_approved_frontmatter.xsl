@@ -390,20 +390,11 @@
           <w:t>
             <xsl:text>following prior approval by the Board of the State Records Authority of New South Wales in accordance with section 21(3) of the Act.</xsl:text>
           </w:t>
+          <w:br w:type="page" />
         </w:r>
       </w:p>
       <w:p>
         <w:pPr>
-          <w:pStyle w:val="ChapterHeading"/>
-          <w:pBdr>
-            <w:bottom w:val="none" w:sz="0" wx:bdrwidth="0" w:space="0" w:color="auto"/>
-          </w:pBdr>
-          <w:ind w:left="0" w:first-line="0"/>
-          <w:rPr>
-            <w:b w:val="off"/>
-            <w:sz w:val="16"/>
-            <w:sz-cs w:val="16"/>
-          </w:rPr>
           <w:sectPr>
             <w:hdr w:type="odd">
               <w:p>
@@ -492,14 +483,9 @@
           </w:sectPr>
         </w:pPr>
         <w:r>
-          <w:rPr>
-            <w:b w:val="off"/>
-            <w:sz w:val="28"/>
-            <w:sz-cs w:val="28"/>
-          </w:rPr>
-          <w:br w:type="page"/>
+          <w:t xml:space="preserve"> </w:t>
         </w:r>
-      </w:p>
+      </w:p>  
     </wx:sect>
   </xsl:template>
   <xsl:template name="frontmatter_two">
@@ -509,7 +495,7 @@
       </w:pPr>
       <w:r>
         <w:t>
-          <xsl:text>State Records Authority of New South Wales</xsl:text>
+          <xsl:text >State Records Authority of New South Wales</xsl:text>
         </w:t>
       </w:r>
     </w:p>

@@ -2,7 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:rda="http://www.records.nsw.gov.au/schemas/RDA" version="1.0">
   <xsl:include href="utils.xsl"/>
   <xsl:variable name="DIRECTOR">
-    <xsl:value-of select="'Alan Ventress'"/>
+    <xsl:value-of select="'Geoff Hinchcliffe'"/>
   </xsl:variable>
     <xsl:variable name="MANAGER">
     <xsl:value-of select="'Amanda Barber'"/>
@@ -11,7 +11,7 @@
     <xsl:value-of select="'Jenni Stapleton'"/>
   </xsl:variable>
   <xsl:variable name="CHAIR">
-    <xsl:value-of select="'Professor Lucy Taksa PhD'"/>
+    <xsl:value-of select="'Anne Henderson'"/>
   </xsl:variable>
   <xsl:variable name="ARNO">
     <xsl:text>AR</xsl:text><xsl:value-of select="rda:Authority/rda:ID[@control='AR']"/>

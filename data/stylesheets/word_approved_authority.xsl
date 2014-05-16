@@ -13,8 +13,11 @@
       <xsl:with-param name="classes" select="descendant::rda:Class"/>
     </xsl:call-template>
   </xsl:variable>
+  <xsl:variable name="SHOWARCHIVESJUST">
+    <xsl:value-of select="'true'"/>  
+  </xsl:variable>
     <xsl:variable name="SHOWSEEREF">
-	<xsl:value-of select="'true'"/>  
+	<xsl:value-of select="'false'"/>  
   </xsl:variable>
   <xsl:variable name="JUSTIFICATION">
     <xsl:value-of select="'false'"/>
