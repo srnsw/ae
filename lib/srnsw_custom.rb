@@ -104,7 +104,7 @@ class Plone < Gtk::Dialog
    
    def create_filename(node)
      filename = String.new
-     itemno = node['itemno']
+     itemno = node['itemno'] 
      filename << itemno + '-' if itemno
      title = node.xpath("rda:TermTitle | rda:ClassTitle", Namespace::RDA)[0]
      if title 

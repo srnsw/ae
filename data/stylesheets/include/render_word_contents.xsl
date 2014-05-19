@@ -8,33 +8,15 @@
         <w:tblLook w:val="01E0"/>
       </w:tblPr>
       <w:tblGrid>
-        <w:gridCol w:w="600" w:type="pct"/>
         <w:gridCol w:w="2000" w:type="pct"/>
         <w:gridCol w:w="1900" w:type="pct"/>
+        <w:gridCol w:w="600" w:type="pct"/>
         <w:gridCol w:w="500" w:type="pct"/>
       </w:tblGrid>
       <w:tr>
         <w:trPr>
           <w:tblHeader/>
         </w:trPr>
-        <w:tc>
-          <w:tcPr>
-            <w:tcW w:w="600" w:type="pct"/>
-          </w:tcPr>
-          <w:p>
-            <w:pPr>
-              <w:rPr>
-                <w:b/>
-              </w:rPr>
-            </w:pPr>
-            <w:r>
-              <w:rPr>
-                <w:b/>
-              </w:rPr>
-              <w:t>Reference</w:t>
-            </w:r>
-          </w:p>
-        </w:tc>
         <w:tc>
           <w:tcPr>
             <w:tcW w:w="2000" w:type="pct"/>
@@ -73,6 +55,24 @@
         </w:tc>
         <w:tc>
           <w:tcPr>
+            <w:tcW w:w="600" w:type="pct"/>
+          </w:tcPr>
+          <w:p>
+            <w:pPr>
+              <w:rPr>
+                <w:b/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:b/>
+              </w:rPr>
+              <w:t>Reference</w:t>
+            </w:r>
+          </w:p>
+        </w:tc>
+        <w:tc>
+          <w:tcPr>
             <w:tcW w:w="500" w:type="pct"/>
           </w:tcPr>
           <w:p>
@@ -92,6 +92,27 @@
       </w:tr>
       <xsl:for-each select="rda:Term">
         <w:tr>
+          <w:tc>
+            <w:tcPr>
+              <w:tcW w:w="2000" w:type="pct"/>
+            </w:tcPr>
+            <w:p>
+              <w:hlink w:bookmark="{generate-id(.)}" w:screenTip="{rda:TermTitle}">
+                <w:r>
+                  <w:rPr/>
+                  <w:t>
+                    <xsl:value-of select="rda:TermTitle"/>
+                  </w:t>
+                </w:r>
+              </w:hlink>
+            </w:p>
+          </w:tc>
+          <w:tc>
+            <w:tcPr>
+              <w:tcW w:w="1900" w:type="pct"/>
+            </w:tcPr>
+            <w:p/>
+          </w:tc>
           <w:tc>
             <w:tcPr>
               <w:tcW w:w="600" w:type="pct"/>
@@ -117,27 +138,6 @@
           </w:tc>
           <w:tc>
             <w:tcPr>
-              <w:tcW w:w="2000" w:type="pct"/>
-            </w:tcPr>
-            <w:p>
-              <w:hlink w:bookmark="{generate-id(.)}" w:screenTip="{rda:TermTitle}">
-                <w:r>
-                  <w:rPr/>
-                  <w:t>
-                    <xsl:value-of select="rda:TermTitle"/>
-                  </w:t>
-                </w:r>
-              </w:hlink>
-            </w:p>
-          </w:tc>
-          <w:tc>
-            <w:tcPr>
-              <w:tcW w:w="1900" w:type="pct"/>
-            </w:tcPr>
-            <w:p/>
-          </w:tc>
-          <w:tc>
-            <w:tcPr>
               <w:tcW w:w="500" w:type="pct"/>
             </w:tcPr>
             <w:p>
@@ -153,6 +153,25 @@
         <xsl:for-each select="rda:Term">
           <w:tr>
             <w:tc>
+              <w:tcPr>
+                <w:tcW w:w="2000" w:type="pct"/>
+              </w:tcPr>
+              <w:p/>
+            </w:tc>
+            <w:tc>
+              <w:tcPr>
+                <w:tcW w:w="1900" w:type="pct"/>
+              </w:tcPr>
+              <w:p>
+                <w:hlink w:bookmark="{generate-id(.)}" w:screenTip="{rda:TermTitle}">
+                  <w:r>
+                    <w:rPr/>
+                    <w:t><xsl:value-of select="rda:TermTitle"/></w:t>
+                  </w:r>
+                </w:hlink>
+              </w:p>
+            </w:tc>
+             <w:tc>
               <w:tcPr>
                 <w:tcW w:w="600" w:type="pct"/>
               </w:tcPr>
@@ -173,25 +192,6 @@
                     <xsl:value-of select="@itemno"/>
                   </w:t>
                 </w:r>
-              </w:p>
-            </w:tc>
-            <w:tc>
-              <w:tcPr>
-                <w:tcW w:w="2000" w:type="pct"/>
-              </w:tcPr>
-              <w:p/>
-            </w:tc>
-            <w:tc>
-              <w:tcPr>
-                <w:tcW w:w="1900" w:type="pct"/>
-              </w:tcPr>
-              <w:p>
-                <w:hlink w:bookmark="{generate-id(.)}" w:screenTip="{rda:TermTitle}">
-                  <w:r>
-                    <w:rPr/>
-                    <w:t><xsl:value-of select="rda:TermTitle"/></w:t>
-                  </w:r>
-                </w:hlink>
               </w:p>
             </w:tc>
             <w:tc>

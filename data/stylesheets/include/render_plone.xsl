@@ -12,8 +12,8 @@
       </xsl:choose>
     </xsl:when>
     <xsl:otherwise><xsl:apply-templates/></xsl:otherwise>
-    </xsl:choose></em></xsl:template>
-  
+    </xsl:choose></em>
+  </xsl:template>
   <xsl:template match="rda:SeeReference">
     <p><xsl:text>See </xsl:text>
     <xsl:if test="rda:IDRef">

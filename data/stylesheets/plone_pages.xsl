@@ -12,12 +12,12 @@
       <xsl:if test="rda:Term"><hr/>
       <p class="level0">
       <xsl:for-each select="rda:Term">
-      <a href="#{rda:anchor}"><xsl:value-of select="concat(@itemno, ' ', translate(rda:TermTitle, $lowerCaseChars, $upperCaseChars))"/></a>
+      <a href="#{rda:anchor}"><xsl:value-of select="concat(translate(rda:TermTitle, $lowerCaseChars, $upperCaseChars), ' ', @itemno)"/></a>
       <xsl:if test="following-sibling::rda:Term"><xsl:text> | </xsl:text></xsl:if>
       </xsl:for-each>
       </p>
       <xsl:for-each select="rda:Term">
-      <h2><a name="{rda:anchor}"></a><xsl:value-of select="concat(@itemno, ' ', translate(rda:TermTitle, $lowerCaseChars, $upperCaseChars))"/></h2>
+      <h2><a name="{rda:anchor}"></a><xsl:value-of select="concat(translate(rda:TermTitle, $lowerCaseChars, $upperCaseChars), ' ', @itemno)"/></h2>
       <xsl:for-each select="rda:TermDescription"><xsl:apply-templates/></xsl:for-each>
       <xsl:if test="rda:Class">
         <xsl:call-template name="class_table">
