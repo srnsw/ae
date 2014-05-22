@@ -104,12 +104,12 @@ class Plone < Gtk::Dialog
    
    def create_filename(node)
      filename = String.new
-     itemno = node['itemno'] 
-     filename << itemno + '-' if itemno
      title = node.xpath("rda:TermTitle | rda:ClassTitle", Namespace::RDA)[0]
      if title 
-      filename << titleise(title.content) 
+      filename << titleise(title.content) + '-'
      end
+     itemno = node['itemno'] 
+     filename << itemno if itemno
      filename
    end
    
@@ -122,9 +122,9 @@ class Plone < Gtk::Dialog
    def create_anchor_text(term)
      anchor_text = []
      term_title = term.xpath("rda:TermTitle", Namespace::RDA)[0]
+     anchor_text << titleise(term_title.content) if term_title
      itemno = term['itemno']
      anchor_text << itemno if itemno
-     anchor_text << titleise(term_title.content) if term_title
      return anchor_text.join("-")
    end
    
