@@ -155,7 +155,7 @@ class Plone < Gtk::Dialog
           end
           last_term = terms.pop
           if last_term
-            bottom_term = top_term.xpath("//rda:Term[rda:TermTitle='#{last_term.content}']", Namespace::RDA)[0]
+            bottom_term = top_term.xpath("rda:Term[rda:TermTitle='#{last_term.content}']", Namespace::RDA)[0]
             if bottom_term
               href_text = href_text + "#" + create_anchor_text(bottom_term)
             else
