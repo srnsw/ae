@@ -128,41 +128,17 @@
         </w:r>
         <w:r>
           <w:rPr>
-            <w:rStyle w:val="Emphasis"/>
-            <w:i w:val="off"/>
+            <w:i/>
           </w:rPr>
           <w:t>
             <xsl:text>State Records Act</xsl:text>
           </w:t>
         </w:r>
         <w:r>
-          <w:t>.</w:t>
-        </w:r>
-      </w:p>
-      <w:p>
-        <w:pPr>
-          <w:rPr>
-            <w:lang w:val="EN-US"/>
-          </w:rPr>
-        </w:pPr>
-        <w:r>
-          <w:t>
-            <xsl:text>This authority is the product of an appraisal process conducted in accordance with State Records’ </xsl:text>
-          </w:t>
-        </w:r>
-        <w:r>
-          <w:rPr>
-            <w:i/>
-          </w:rPr>
-          <w:t>
-            <xsl:text>Standard on the appraisal and disposal of State records</xsl:text>
-          </w:t>
-        </w:r>
-        <w:r>
           <w:t>
             <xsl:text>. </xsl:text>
             <xsl:if test="$AUTHORITY_TYPE='Functional Retention and Disposal Authority'">
-            <xsl:text>It is the duty of a public office, in submitting a draft functional retention and disposal authority for approval, to disclose to State Records any information which affects the retention of the records covered by the authority.</xsl:text>
+            <xsl:text>It is the duty of a public office, in submitting a draft retention and disposal authority for approval, to disclose to State Records any information which affects the retention of the records covered by the authority.</xsl:text>
             </xsl:if>
           </w:t>
         </w:r>
@@ -247,7 +223,7 @@
             <w:i/>
           </w:rPr>
           <w:t>
-            <xsl:text>General Retention and Disposal Authority – Imaged records</xsl:text>
+            <xsl:text>General Retention and Disposal Authority – Original or source records that have been copied</xsl:text>
           </w:t>
         </w:r>
         <w:r>
