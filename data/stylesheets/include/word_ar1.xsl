@@ -414,7 +414,7 @@
             <w:p>
               <w:r>
                 <w:t>
-                  <xsl:text>Approved for submission to Deputy Director</xsl:text>
+                  <xsl:text>Approved for submission to Director</xsl:text>
                 </w:t>
               </w:r>
             </w:p>
@@ -463,13 +463,13 @@
               </w:pPr>
               <w:r>
                 <w:t>
-                  <xsl:value-of select="$MANAGER"/>
+                  <xsl:value-of select="$DEPUTY"/>
                 </w:t>
               </w:r>
               <w:r>
                 <w:br w:type="text-wrapping" w:clear="all"/>
                 <w:t>
-                  <xsl:text>Manager, Government Recordkeeping</xsl:text>
+                  <xsl:text>Deputy Director</xsl:text>
                 </w:t>
               </w:r>
               <w:r>
@@ -567,7 +567,7 @@
               </w:pPr>
               <w:r>
                 <w:t>
-                  <xsl:value-of select="$DEPUTY"/>
+                  <xsl:value-of select="$DIRECTOR"/>
                 </w:t>
               </w:r>
               <w:r>
@@ -575,7 +575,7 @@
               </w:r>
               <w:r>
                 <w:t>
-                  <xsl:text>Deputy Director</xsl:text>
+                  <xsl:text>Director</xsl:text>
                 </w:t>
               </w:r>
               <w:r>
