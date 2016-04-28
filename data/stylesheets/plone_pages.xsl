@@ -7,13 +7,11 @@
   <xsl:include href="include/disposal_common.xsl"/>
   <xsl:template match="rda:Term">
     <html>
-      <a name="{rda:anchor}"/>
       <xsl:for-each select="rda:TermDescription">
-        <xsl:call-template name="first_term"><xsl:with-param name="node" select="rda:Paragraph[1]"/></xsl:call-template>
+        <xsl:call-template name="first_term"><xsl:with-param name="node" select="rda:Paragraph[1]"/><xsl:with-param name="anchor" select="../rda:anchor"/></xsl:call-template>
         <xsl:apply-templates select="rda:Paragraph[position()>1] | rda:SeeReference"/>
       </xsl:for-each>
-      <xsl:for-each select="rda:Term">
-      <h2><a name="{rda:anchor}"></a><xsl:value-of select="concat(translate(rda:TermTitle, $lowerCaseChars, $upperCaseChars), ' ', @itemno)"/></h2>
+      <xsl:for-each select="rda:Term"><h2><a name="{rda:anchor}"></a><xsl:value-of select="concat(translate(rda:TermTitle, $lowerCaseChars, $upperCaseChars), ' ', @itemno)"/></h2>
       <xsl:for-each select="rda:TermDescription"><xsl:apply-templates/></xsl:for-each>
       <xsl:if test="rda:Class">
         <xsl:call-template name="class_table">
@@ -31,13 +29,15 @@
 
   <xsl:template name="class_table">
     <xsl:param name="node"/>
-    <table class="plain">
-      <tbody>
+    <table align="center" class="table" style="width: 90%;">
+      <thead>
         <tr>
-          <th>No</th>
-          <th>Description of records</th>
-          <th>Disposal action</th>
+          <th scope="col">No</th>
+          <th scope="col">Description of records</th>
+          <th scope="col">Disposal action</th>
         </tr>
+      </thead>
+      <tbody>
         <xsl:for-each select="$node/rda:Class">
           <tr>
             <td><xsl:value-of select="@itemno"/></td>
@@ -49,10 +49,10 @@
     </table>
   </xsl:template>
 
+  <!-- for the paragraph of a function descsription, present the text in an alert box -->
   <xsl:template name="first_term">
     <xsl:param name="node"/>
-    <xsl:for-each select="$node">
-      <div class="alert alert-info"><xsl:apply-templates/></div>
-    </xsl:for-each>
+    <xsl:param name="anchor"/>
+    <xsl:for-each select="$node"><div class="alert alert-info"><a name="{$anchor}"/><xsl:apply-templates/></div></xsl:for-each>
   </xsl:template>
 </xsl:stylesheet>

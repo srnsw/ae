@@ -61,24 +61,28 @@
       <Paragraph>Justifications for each retention period and disposal action are included in the Corporation's draft functional retention and disposal authority.</Paragraph>
     </ContextContent>
   </Context>
-  <Term itemno="3.0.0" type="function">
+  <Term itemno="3.0.0" type="function" update="2016-04-28">
     <TermTitle>FIRE MANAGEMENT</TermTitle>
     <TermDescription>
       <Paragraph>The function of managing fire prone land, including the use of fire to achieve land management objectives. Also includes the prevention and control of fires in areas managed by the Agency.</Paragraph>
+      <Paragraph>Hello.</Paragraph>
+      <Paragraph><Emphasis>Note:</Emphasis> This is important.</Paragraph>
     </TermDescription>
-    <Term type="activity" itemno="3.3.0">
+    <Term type="activity" itemno="3.3.0" update="2016-04-28">
       <TermTitle>Fire planning</TermTitle>
       <TermDescription>
         <Paragraph>The activity of developing and implementing fire plans for an area or district which describe natural resources and proposals for managing fires.</Paragraph>
+        <Paragraph><Emphasis>Note:</Emphasis> Not important.</Paragraph>
         <SeeReference>
           <TermTitleRef>FIRE MANAGEMENT</TermTitleRef>
           <TermTitleRef>Incidents</TermTitleRef>
           <SeeText>for records relating to specific fire incidents.</SeeText>
         </SeeReference>
       </TermDescription>
-      <Class itemno="3.3.1">
+      <Class itemno="3.3.1" update="2016-04-28">
         <ClassDescription>
           <Paragraph>Fire management plans for individual reserves.</Paragraph>
+          <Paragraph><Emphasis>Note:</Emphasis> Definitely not important.</Paragraph>
         </ClassDescription>
         <Disposal>
           <RetentionPeriod unit="years">1</RetentionPeriod>

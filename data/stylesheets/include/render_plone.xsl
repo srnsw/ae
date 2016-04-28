@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:rda="http://www.records.nsw.gov.au/schemas/RDA" version="1.0">
-  <xsl:template match="rda:Paragraph"><p><xsl:apply-templates/></p></xsl:template>
+  <xsl:template match="rda:Paragraph">
+    <xsl:choose>
+      <xsl:when test="child::node()[1]=rda:Emphasis and count(ancestor::*)=2"><div class="alert alert-info"><xsl:apply-templates/></div></xsl:when>
+      <xsl:otherwise><p><xsl:apply-templates/></p></xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
   <xsl:template match="rda:List"><ul><xsl:apply-templates/></ul></xsl:template>
   <xsl:template match="rda:Item"><li><xsl:apply-templates/></li></xsl:template>
   <xsl:template match="rda:Emphasis"><strong><xsl:apply-templates/></strong></xsl:template>
