@@ -8,14 +8,10 @@
   <xsl:template match="rda:Term">
     <html>
       <a name="{rda:anchor}"/>
-      <xsl:for-each select="rda:TermDescription"><xsl:apply-templates/></xsl:for-each>
-      <xsl:if test="rda:Term"><hr/>
-      <p class="level0">
-      <xsl:for-each select="rda:Term">
-      <a href="#{rda:anchor}"><xsl:value-of select="concat(translate(rda:TermTitle, $lowerCaseChars, $upperCaseChars), ' ', @itemno)"/></a>
-      <xsl:if test="following-sibling::rda:Term"><xsl:text> | </xsl:text></xsl:if>
+      <xsl:for-each select="rda:TermDescription">
+        <xsl:call-template name="first_term"><xsl:with-param name="node" select="rda:Paragraph[1]"/></xsl:call-template>
+        <xsl:apply-templates select="rda:Paragraph[position()>1] | rda:SeeReference"/>
       </xsl:for-each>
-      </p>
       <xsl:for-each select="rda:Term">
       <h2><a name="{rda:anchor}"></a><xsl:value-of select="concat(translate(rda:TermTitle, $lowerCaseChars, $upperCaseChars), ' ', @itemno)"/></h2>
       <xsl:for-each select="rda:TermDescription"><xsl:apply-templates/></xsl:for-each>
@@ -25,7 +21,6 @@
         </xsl:call-template>
       </xsl:if>
       </xsl:for-each>
-      </xsl:if>
       <xsl:if test="rda:Class">
       <xsl:call-template name="class_table">
         <xsl:with-param name="node" select="."/>
@@ -52,5 +47,12 @@
         </xsl:for-each>
       </tbody>
     </table>
+  </xsl:template>
+
+  <xsl:template name="first_term">
+    <xsl:param name="node"/>
+    <xsl:for-each select="$node">
+      <div class="alert alert-info"><xsl:apply-templates/></div>
+    </xsl:for-each>
   </xsl:template>
 </xsl:stylesheet>
