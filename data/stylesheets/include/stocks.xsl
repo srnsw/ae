@@ -5,7 +5,7 @@
     <xsl:value-of select="'Geoff Hinchcliffe'"/>
   </xsl:variable>
     <xsl:variable name="MANAGER">
-    <xsl:value-of select="'Amanda Barber'"/>
+    <xsl:value-of select="'Sally Irvine-Smith'"/>
   </xsl:variable>
   <xsl:variable name="DEPUTY">
     <xsl:value-of select="'Jenni Stapleton'"/>
@@ -124,7 +124,7 @@
         <xsl:text>general retention and disposal authority</xsl:text>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:text>functional retention and disposal authority</xsl:text>
+        <xsl:text>retention and disposal authority</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>

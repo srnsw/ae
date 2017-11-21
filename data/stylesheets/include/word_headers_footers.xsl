@@ -59,7 +59,7 @@
           </xsl:if>
         </w:pPr>
         <w:r>
-          <w:t>State Records Authority of New South Wales</w:t>
+          <w:t>State Archives and Records Authority of New South Wales</w:t>
         </w:r>
         <w:r>
           <w:tab wx:wTab="4740" wx:tlc="none" wx:cTlc="78"/>
@@ -787,7 +787,7 @@
           <w:sz w:val="18"/>
         </w:rPr>
         <w:t>
-          <xsl:text>State Records Authority of New South Wales</xsl:text>
+          <xsl:text>State Archives and Records Authority of New South Wales</xsl:text>
         </w:t>
       </w:r>
       <w:r>

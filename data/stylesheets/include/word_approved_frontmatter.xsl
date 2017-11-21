@@ -25,7 +25,7 @@
             <w:sz-cs w:val="32"/>
           </w:rPr>
           <w:t>
-            <xsl:text>State Records Authority of New South Wales</xsl:text>
+            <xsl:text>State Archives and Records Authority of New South Wales</xsl:text>
           </w:t>
         </w:r>
       </w:p>
@@ -388,7 +388,7 @@
             <w:sz-cs w:val="28"/>
           </w:rPr>
           <w:t>
-            <xsl:text>following prior approval by the Board of the State Records Authority of New South Wales in accordance with section 21(3) of the Act.</xsl:text>
+            <xsl:text>following prior approval by the Board of the State Archives and Records Authority of New South Wales in accordance with section 21(3) of the Act.</xsl:text>
           </w:t>
           <w:br w:type="page" />
         </w:r>
@@ -420,9 +420,9 @@
                     <w:sz-cs w:val="16"/>
                   </w:rPr>
                   <w:t>
-                    <xsl:text>© State of New South Wales through the State Records Authority of New South Wales </xsl:text>
+                    <xsl:text>© State of New South Wales through the State Archives and Records Authority of New South Wales </xsl:text>
                     <xsl:value-of select="$ISSUE_YEAR"/>
-                    <xsl:text>. This work may be freely reproduced for personal, educational or government purposes. Permission must be received from State Records Authority for all other uses.</xsl:text>
+                    <xsl:text>. This work may be freely reproduced for personal, educational or government purposes. Permission must be received from State Archives and Records Authority for all other uses.</xsl:text>
                   </w:t>
                 </w:r>
               </w:p>
@@ -495,7 +495,7 @@
       </w:pPr>
       <w:r>
         <w:t>
-          <xsl:text >State Records Authority of New South Wales</xsl:text>
+          <xsl:text >State Archives and Records Authority of New South Wales</xsl:text>
         </w:t>
       </w:r>
     </w:p>
@@ -2047,7 +2047,7 @@
               </w:rPr>
               <w:br/>
               <w:t>
-                <xsl:text>Director</xsl:text>
+                <xsl:text>Executive Director</xsl:text>
               </w:t>
             </w:r>
             <w:r>
@@ -2056,7 +2056,7 @@
               </w:rPr>
               <w:br/>
               <w:t>
-                <xsl:text>State Records Authority of New South Wales</xsl:text>
+                <xsl:text>State Archives and Records Authority of New South Wales</xsl:text>
               </w:t>
             </w:r>
           </w:p>

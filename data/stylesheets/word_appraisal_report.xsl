@@ -59,11 +59,11 @@
   </xsl:variable>
   <xsl:variable name="ORIENTATION">
     <xsl:choose>
-      <xsl:when test="rda:Authority/rda:LinkedTo[@type='orientation' and .='portrait']">
-        <xsl:value-of select="'portrait'"/>
+      <xsl:when test="rda:Authority/rda:LinkedTo[@type='orientation' and .='landscape']">
+        <xsl:value-of select="'landscape'"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:value-of select="'landscape'"/>
+        <xsl:value-of select="'portrait'"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
