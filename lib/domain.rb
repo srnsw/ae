@@ -45,7 +45,7 @@ module Domain
   CONTEXTSETS = [{
     :menu_text => 'Add supporting documentation',
     :type => 'supporting documentation',
-    :titles => ['About the organisation', 'About relationships with other organisations and stakeholders', 'About committees', 'About the records held by the organisation', 'About any external stakeholder consultation undertaken']
+    :titles => ['Submission', 'Background', 'Issue']
     },
     {
     :menu_text => 'Add table of commentary',
@@ -82,21 +82,21 @@ module Domain
   :long_title => 'Administrative records',
   :terms => {
     'COMMITTEES' => [''], 
-    'COMMUNITY RELATIONS' => ['','Acquisition', 'Addresses', 'Agreements', 'Celebrations, ceremonies, functions', 'Conferences', 'Customer service', 'Donations', 'Enquiries', 'Evaluation', 'Exhibitions', 'Greetings', 'Joint ventures', 'Liaison', 'Marketing', 'Media relations', 'Planning', 'Policy', 'Procedures', 'Public reaction', 'Reporting', 'Reviewing', 'Submissions', 'Visits'],
+    'COMMUNITY RELATIONS' => ['','Acquisition', 'Addresses', 'Agreements', 'Celebrations, ceremonies, functions', 'Conferences', 'Customer service', 'Donations, sponsorships and fundraising', 'Enquiries', 'Evaluation', 'Exhibitions', 'Greetings', 'Joint ventures', 'Liaison', 'Marketing', 'Media relations', 'Planning', 'Policy', 'Procedures', 'Public reaction', 'Reporting', 'Reviewing', 'Submissions', 'Visits'],
     'COMPENSATION' => ['','Advice', 'Claims', 'Compliance', 'Insurance', 'Policy', 'Procedures', 'Reviewing'],
     'CONTRACTING-OUT' => [''],
     'EQUIPMENT & STORES' => ['','Acquisition', 'Agreements', 'Allocation', 'Arrangements', 'Audit', 'Claims', 'Compliance', 'Disposal', 'Evaluation', 'Installation', 'Insurance', 'Leasing', 'Leasing-out', 'Maintenance', 'Policy', 'Procedures', 'Reporting', 'Reviewing', 'Security', 'Stocktake'],
     'ESTABLISHMENT' => ['','Evaluation', 'Planning', 'Policy', 'Procedures', 'Reporting', 'Restructuring', 'Variations'],
     'FINANCIAL MANAGEMENT' => ['','Accounting', 'Advice', 'Agreements', 'Allocation', 'Asset register', 'Audit', 'Authorisation', 'Budgeting', 'Compliance', 'Corruption', 'Evaluation', 'Financial statements', 'Planning', 'Policy', 'Procedures', 'Reporting', 'Reviewing', 'Salaries', 'Treasury management'],
     'FLEET MANAGEMENT' => ['','Accidents', 'Acquisition', 'Arrangements', 'Authorisation', 'Claims', 'Compliance', 'Disposal', 'Infringements', 'Insurance', 'Leasing', 'Leasing-out', 'Maintenance', 'Planning', 'Policy', 'Procedures', 'Reporting', 'Reviewing'],
-    'GOVERNING BODIES' => ['','Advice', 'Agreements', 'Appeals', 'Arrangements', 'Audit', 'Authorisation', 'Authorities', 'Compliance', 'Corruption', 'Meetings', 'Membership', 'Performance management', 'Policy', 'Procedures', 'Training and development'],
+    'GOVERNING AND CORPORATE BODIES' => ['','Advice', 'Agreements', 'Appeals', 'Arrangements', 'Audit', 'Authorisation', 'Authorities', 'Compliance', 'Corruption', 'Meetings', 'Membership', 'Performance management', 'Policy', 'Procedures', 'Training and development'],
     'GOVERNMENT RELATIONS' => ['','Addresses','Advice', 'Agreements', 'Authorisation', 'Compliance', 'Inquiries', 'Legislation', 'Meetings', 'Policy', 'Procedures', 'Reporting', 'Representations', 'Submissions', 'Visits'],
     'INDUSTRIAL RELATIONS' => ['','Agreements', 'Appeals', 'Claims', 'Disputes', 'Grievances', 'Insurance', 'Meetings', 'Planning', 'Policy', 'Procedures', 'Reporting'],
     'INFORMATION MANAGEMENT'=> ['','Acquisition', 'Agreements', 'Appeals', 'Audit', 'Authorisation', 'Cases', 'Compliance', 'Conservation', 'Control', 'Customer service', 'Disposal', 'Distribution', 'Donations', 'Enquiries', 'Evaluation', 'Implementation', 'Intellectual property', 'Inventory', 'Marketing', 'Planning', 'Policy', 'Procedures', 'Reporting', 'Reviewing', 'Security'],
     'LEGAL SERVICES' => ['','Advice', 'Agreements', 'Compliance', 'Litigation', 'Planning', 'Policy', 'Procedures', 'Reporting', 'Research', 'Reviewing'],
     'OCCUPATIONAL HEALTH & SAFETY' => ['','Accidents', 'Appeals', 'Audit', 'Compliance', 'Health promotion', 'Inspections', 'Planning', 'Policy', 'Procedures', 'Reporting', 'Representatives', 'Reviewing', 'Risk management', 'Standards'],
     'PERSONNEL' => ['','Advice' , 'Authorisation' , 'Compliance', 'Employee service history' , 'Grievances' , 'Insurance', 'Leave, attendance and absences' , 'Misconduct' , 'Performance management' , 'Recruitment' ,  'Reporting', 'Representatives' , 'Reviewing', 'Security' , 'Social clubs and groups' , 'Suggestions'],
-    'PROPERTY MANAGEMENT' => ['','Acquisition', 'Arrangements', 'Audit', 'Claims', 'Compliance', 'Conservation', 'Construction', 'Disposal', 'Evaluation', 'Flora and fauna management', 'Inspections', 'Installation', 'Insurance', 'Leasing', 'Leasing-out', 'Maintenance', 'Moving', 'Planning', 'Policy', 'Procedures', 'Reporting', 'Reviewing', 'Risk management', 'Security'],
+    'PROPERTY MANAGEMENT' => ['','Acquisition', 'Arrangements', 'Audit', 'Claims', 'Compliance', 'Conservation', 'Construction', 'Disposal', 'Evaluation', 'Flora and fauna management', 'Inspections', 'Installation', 'Insurance', 'Leasing', 'Leasing-out', 'Maintenance', 'Moving', 'Planning', 'Policy', 'Procedures', 'Reporting', 'Reviewing', 'Risk management', 'Security', 'Traffic management'],
     'PUBLICATION' => ['','Agreements', 'Authorisation', 'Compliance', 'Corporate style', 'Distribution', 'Drafting', 'Enquiries', 'Evaluation', 'Intellectual property', 'Joint ventures', 'Marketing', 'Planning', 'Policy', 'Procedures', 'Production', 'Reporting', 'Reviewing', 'Stocktake'],
     'STAFF DEVELOPMENT'=>['','Acquisition', 'Addresses', 'Audit', 'Conferences', 'Evaluation', 'Planning', 'Policy', 'Procedures', 'Reporting', 'Reviewing', 'Training'],
     'STRATEGIC MANAGEMENT'=> ['','Agreements', 'Audit', 'Authorisation', 'Compliance', 'Corruption', 'Customer service', 'Evaluation', 'Grant funding', 'Implementation', 'Intellectual property', 'Joint ventures', 'Legislation', 'Meetings', 'Planning', 'Policy', 'Procedures', 'Reporting', 'Reviewing', 'Risk management', 'Standards'],
