@@ -456,7 +456,7 @@ class MainWindow < Gtk::Window
     license = File.open('COPYING') {|f| f.read}
     Gtk::AboutDialog.show(self, 
     :name => 'XML Retention and Disposal Authority Editor', 
-    :comments => "This program is a full implementation of State Records New South Wales' XML schema for retention and disposal authorities.",
+    :comments => "This program is a full implementation of State Archives and Records NSW's XML schema for retention and disposal authorities.",
     :version => Domain::PROGRAM_VERSION,
     :copyright => 'Copyright (c) State of New South Wales through the State Records Authority of New South Wales, 2009',
     :license => license,

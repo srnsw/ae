@@ -19,8 +19,8 @@ module Domain
   VALIDATE = true
   # ... or leave VALIDATE true and give a new location to your own custom XML schema
   SCHEMALOCATION = 'data/SRNSW_RDA_permissive.xsd'
-  NAME = 'State Records'
-  SHORTNAME = 'SRNSW'
+  NAME = 'State Archives and Records NSW'
+  SHORTNAME = 'SANSW'
   # The following arrays are the lists that appear in drop downs within the program.
   # Most can be changed without problems (although changing id/rda controls,
   # term types, or disposal actions may cause validation errors).
