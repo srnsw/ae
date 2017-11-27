@@ -568,7 +568,7 @@
           </w:pPr>
           <w:r>
             <w:t>
-              <xsl:text>The custody column in the </xsl:text><xsl:value-of select="$AUTHORITY_TYPE_LC"/><xsl:text> is designed to assist public offices in identifying storage requirements or transfer arrangements for records identified as State archives (ie with a Disposal action of ‘Required as State archives’). The directions in this column are recommendations only and are </xsl:text>
+              <xsl:text>The custody column in the </xsl:text><xsl:value-of select="$AUTHORITY_TYPE_LC"/><xsl:text> is designed to assist public offices in identifying storage requirements or transfer arrangements for records identified as State archives (i.e. with a Disposal action of ‘Required as State archives’). The directions in this column are recommendations only and are </xsl:text>
             </w:t>
           </w:r>
           <w:r>

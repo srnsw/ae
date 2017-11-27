@@ -7,7 +7,7 @@
       </w:pPr>
       <w:r>
         <w:t>
-          <xsl:text>Appraisal Report Part 1</xsl:text>
+          <xsl:text>Board of the State Archives and Records Authority of NSW</xsl:text>
         </w:t>
       </w:r>
     </w:p>
@@ -429,7 +429,7 @@
             <w:p/>
           </w:tc>
         </w:tr>
-        <w:tr>
+        <!--w:tr>
           <w:tblPrEx>
             <w:tblCellMar>
               <w:top w:w="0" w:type="dxa"/>
@@ -480,7 +480,7 @@
               </w:r>
             </w:p>
           </w:tc>
-        </w:tr>
+        </w:tr-->
       </w:tbl>
       <w:p/>
       <w:tbl>

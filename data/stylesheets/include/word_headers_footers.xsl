@@ -267,6 +267,7 @@
       </w:r>
     </w:p>
   </xsl:template>
+  <!-- GA 28 Style header -->
   <xsl:template name="ga28_header_table">
     <w:tbl>
     <w:tblPr>

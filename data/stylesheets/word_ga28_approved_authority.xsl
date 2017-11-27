@@ -6,7 +6,7 @@
   <xsl:include href="include/word_headers_footers.xsl"/>
   <xsl:include href="include/word_approved_frontmatter.xsl"/>
   <xsl:include href="include/word_boilerplate.xsl"/>
-  <xsl:include href="include/render_ga28_word_authority.xsl"/>
+  <xsl:include href="include/render_word_authority_classic.xsl"/>
   <xsl:include href="include/render_word_contents.xsl"/>
   <xsl:variable name="HASCUSTODY">
     <xsl:call-template name="hascustody">
@@ -30,7 +30,14 @@
     </xsl:choose>
   </xsl:variable>
   <xsl:variable name="ORIENTATION">
-    <xsl:value-of select="'portrait'"/>
+    <xsl:choose>
+      <xsl:when test="rda:Authority/rda:LinkedTo[@type='orientation' and .='portrait']">
+        <xsl:value-of select="'portrait'"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="'landscape'"/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:variable>
   <xsl:variable name="ID">
   <xsl:text>Authority number: </xsl:text><xsl:value-of select="$RDANO"/>

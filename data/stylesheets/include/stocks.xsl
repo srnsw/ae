@@ -7,9 +7,6 @@
     <xsl:variable name="MANAGER">
     <xsl:value-of select="'Sally Irvine-Smith'"/>
   </xsl:variable>
-  <xsl:variable name="DEPUTY">
-    <xsl:value-of select="'Jenni Stapleton'"/>
-  </xsl:variable>
   <xsl:variable name="CHAIR">
     <xsl:value-of select="'Anne Henderson'"/>
   </xsl:variable>
