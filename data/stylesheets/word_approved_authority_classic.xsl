@@ -6,7 +6,7 @@
   <xsl:include href="include/word_headers_footers.xsl"/>
   <xsl:include href="include/word_approved_frontmatter.xsl"/>
   <xsl:include href="include/word_boilerplate.xsl"/>
-  <xsl:include href="include/render_word_authority.xsl"/>
+  <xsl:include href="include/render_word_authority_classic.xsl"/>
   <xsl:include href="include/render_word_contents.xsl"/>
   <xsl:variable name="HASCUSTODY">
     <xsl:call-template name="hascustody">
@@ -20,7 +20,6 @@
     <xsl:value-of select="'true'"/>
   </xsl:variable>
   <xsl:variable name="JUSTIFICATION">
-    <!-- never justify an approved class -->
     <xsl:value-of select="'false'"/>
   </xsl:variable>
   <xsl:variable name="COLS">
@@ -35,11 +34,11 @@
   </xsl:variable>
   <xsl:variable name="ORIENTATION">
     <xsl:choose>
-      <xsl:when test="rda:Authority/rda:LinkedTo[@type='orientation' and .='landscape']">
-        <xsl:value-of select="'landscape'"/>
+      <xsl:when test="rda:Authority/rda:LinkedTo[@type='orientation' and .='portrait']">
+        <xsl:value-of select="'portrait'"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:value-of select="'portrait'"/>
+        <xsl:value-of select="'landscape'"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
@@ -85,9 +84,7 @@
       <xsl:text>progid=&quot;Word.Document&quot;</xsl:text>
     </xsl:processing-instruction>
     <w:wordDocument w:embeddedObjPresent="no" w:macrosPresent="no" w:ocxPresent="no" xml:space="preserve">
-      <xsl:call-template name="word_header">
-        <xsl:with-param name="gaadmin" select="'true'"/>
-      </xsl:call-template>
+      <xsl:call-template name="word_header" />
       <w:body>
         <xsl:call-template name="frontmatter_one"/>
         <wx:sect>
@@ -101,9 +98,7 @@
           </xsl:if>
           <xsl:call-template name="render_authority"/>
           <w:sectPr>
-            <xsl:call-template name="headers_footers">
-              <xsl:with-param name="gaadmin" select="'true'"/>
-            </xsl:call-template>
+            <xsl:call-template name="headers_footers" />
             <xsl:if test="$ORIENTATION='portrait'">
               <w:pgSz w:code="9" w:h="16840" w:w="11907"/>
               <w:pgMar w:bottom="1418" w:footer="567" w:gutter="0" w:header="567" w:left="1418" w:right="1418" w:top="1418"/>

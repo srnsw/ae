@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:w="http://schemas.microsoft.com/office/word/2003/wordml" xmlns:wx="http://schemas.microsoft.com/office/word/2003/auxHint" version="1.0">
+<xsl:stylesheet version="1.0" xmlns:w="http://schemas.microsoft.com/office/word/2003/wordml" xmlns:wx="http://schemas.microsoft.com/office/word/2003/auxHint" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:template name="portrait_header_footer">
     <xsl:param name="header_first" select="''"/>
     <xsl:param name="header_text" select="$header_first"/>
@@ -21,13 +21,13 @@
     <w:ftr w:type="even">
       <w:p>
         <w:pPr>
-          <w:framePr w:wrap="around" w:vanchor="text" w:hanchor="margin" w:x-align="right" w:y="1"/>
+          <w:framePr w:hanchor="margin" w:vanchor="text" w:wrap="around" w:x-align="right" w:y="1"/>
         </w:pPr>
         <w:r>
           <w:fldChar w:fldCharType="begin"/>
         </w:r>
         <w:r>
-          <w:instrText> PAGE </w:instrText>
+          <w:instrText>PAGE </w:instrText>
         </w:r>
         <w:r>
           <w:fldChar w:fldCharType="end"/>
@@ -53,8 +53,8 @@
           <w:pStyle w:val="Footer"/>
           <xsl:if test="$tab != ''">
             <w:tabs>
-              <w:tab w:val="clear" w:pos="9072"/>
-              <w:tab w:val="right" w:pos="{$tab}"/>
+              <w:tab w:pos="9072" w:val="clear"/>
+              <w:tab w:pos="{$tab}" w:val="right"/>
             </w:tabs>
           </xsl:if>
         </w:pPr>
@@ -62,7 +62,7 @@
           <w:t>State Archives and Records Authority of New South Wales</w:t>
         </w:r>
         <w:r>
-          <w:tab wx:wTab="4740" wx:tlc="none" wx:cTlc="78"/>
+          <w:tab wx:cTlc="78" wx:tlc="none" wx:wTab="4740"/>
         </w:r>
         <w:r>
           <w:rPr>
@@ -74,7 +74,7 @@
           <w:rPr>
             <w:rStyle w:val="PageNumber"/>
           </w:rPr>
-          <w:instrText> PAGE </w:instrText>
+          <w:instrText>PAGE </w:instrText>
         </w:r>
         <w:r>
           <w:rPr>
@@ -155,18 +155,18 @@
       </xsl:choose>
       <w:p>
         <w:pPr>
-          <w:spacing w:before="0" w:after="0"/>
+          <w:spacing w:after="0" w:before="0"/>
         </w:pPr>
       </w:p>
     </w:hdr>
     <w:ftr w:type="first">
       <xsl:call-template name="main_footer">
         <xsl:with-param name="BIC" select="$BIC"/>
-       </xsl:call-template>
+      </xsl:call-template>
     </w:ftr>
   </xsl:template>
   <xsl:template name="standard_header">
-     <w:p>
+    <w:p>
       <w:pPr>
         <w:pStyle w:val="Subtitle"/>
       </w:pPr>
@@ -181,13 +181,13 @@
         <w:pStyle w:val="Heading4"/>
         <w:tabs>
           <xsl:choose>
-          <xsl:when test="$ORIENTATION='portrait'">
-            <w:tab w:val="right" w:pos="9072"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <w:tab w:val="right" w:pos="14742"/>
-          </xsl:otherwise>
-        </xsl:choose>  
+            <xsl:when test="$ORIENTATION='portrait'">
+              <w:tab w:pos="9072" w:val="right"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <w:tab w:pos="14742" w:val="right"/>
+            </xsl:otherwise>
+          </xsl:choose>
         </w:tabs>
         <w:rPr>
           <w:b-cs/>
@@ -205,7 +205,7 @@
         <w:rPr>
           <w:b-cs/>
         </w:rPr>
-        <w:tab wx:wTab="5910" wx:tlc="none" wx:cTlc="98"/>
+        <w:tab wx:cTlc="98" wx:tlc="none" wx:wTab="5910"/>
         <w:t>
           <xsl:text>Dates of coverage: </xsl:text>
           <xsl:value-of select="$DATE_RANGE"/>
@@ -235,13 +235,13 @@
         <w:pStyle w:val="Heading4"/>
         <w:tabs>
           <xsl:choose>
-          <xsl:when test="$ORIENTATION='portrait'">
-            <w:tab w:val="right" w:pos="9072"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <w:tab w:val="right" w:pos="14742"/>
-          </xsl:otherwise>
-        </xsl:choose>  
+            <xsl:when test="$ORIENTATION='portrait'">
+              <w:tab w:pos="9072" w:val="right"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <w:tab w:pos="14742" w:val="right"/>
+            </xsl:otherwise>
+          </xsl:choose>
         </w:tabs>
         <w:rPr>
           <w:b-cs/>
@@ -259,7 +259,7 @@
         <w:rPr>
           <w:b-cs/>
         </w:rPr>
-        <w:tab wx:wTab="5910" wx:tlc="none" wx:cTlc="98"/>
+        <w:tab wx:cTlc="98" wx:tlc="none" wx:wTab="5910"/>
         <w:t>
           <xsl:text>Dates of coverage: </xsl:text>
           <xsl:value-of select="$DATE_RANGE"/>
@@ -269,23 +269,88 @@
   </xsl:template>
   <!-- GA 28 Style header -->
   <xsl:template name="ga28_header_table">
+    <!-- class number -->
+    <xsl:variable name="size_1">
+      <xsl:choose>
+        <xsl:when test="$ORIENTATION='landscape'">
+          <xsl:text>1100</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>992</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <!-- disposal action | custody -->
+    <xsl:variable name="size_2">
+      <xsl:choose>
+        <xsl:when test="$ORIENTATION='landscape'">
+          <xsl:text>2870</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>2268</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <!-- description wo/ custody-->
+    <xsl:variable name="size_3">
+      <xsl:choose>
+        <xsl:when test="$ORIENTATION='landscape'">
+          <xsl:text>10915</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>5812</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <!-- description w/ custody-->
+    <xsl:variable name="size_4">
+      <xsl:choose>
+        <xsl:when test="$ORIENTATION='landscape'">
+          <xsl:text>8045</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>3544</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <!-- width -->
+    <xsl:variable name="width">
+      <xsl:choose>
+        <xsl:when test="$ORIENTATION='landscape'">
+          <xsl:text>14885</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>9072</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
     <w:tbl>
-    <w:tblPr>
-        <w:tblW w:w="9072" w:type="dxa"/>
+      <w:tblPr>
+        <w:tblW w:type="dxa" w:w="{$width}"/>
         <w:jc w:val="center"/>
         <w:tblBorders>
-          <w:top w:val="single" w:sz="6" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-          <w:left w:val="single" w:sz="6" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-          <w:bottom w:val="single" w:sz="6" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-          <w:right w:val="single" w:sz="6" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-          <w:insideH w:val="single" w:sz="6" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-          <w:insideV w:val="single" w:sz="6" wx:bdrwidth="10" w:space="0" w:color="auto"/>
+          <w:top w:color="auto" w:space="0" w:sz="6" w:val="single" wx:bdrwidth="10"/>
+          <w:left w:color="auto" w:space="0" w:sz="6" w:val="single" wx:bdrwidth="10"/>
+          <w:bottom w:color="auto" w:space="0" w:sz="6" w:val="single" wx:bdrwidth="10"/>
+          <w:right w:color="auto" w:space="0" w:sz="6" w:val="single" wx:bdrwidth="10"/>
+          <w:insideH w:color="auto" w:space="0" w:sz="6" w:val="single" wx:bdrwidth="10"/>
+          <w:insideV w:color="auto" w:space="0" w:sz="6" w:val="single" wx:bdrwidth="10"/>
         </w:tblBorders>
       </w:tblPr>
       <w:tblGrid>
-        <w:gridCol w:w="992"/>
-        <w:gridCol w:w="5812"/>
-        <w:gridCol w:w="2268"/>
+        <w:gridCol w:type="dxa" w:w="{$size_1}"/>
+        <xsl:choose>
+          <xsl:when test="$COLS='c'">
+            <w:gridCol w:type="dxa" w:w="{$size_4}"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <w:gridCol w:type="dxa" w:w="{$size_3}"/>
+          </xsl:otherwise>
+        </xsl:choose>
+        <w:gridCol w:type="dxa" w:w="{$size_2}"/>
+        <xsl:if test="$COLS='c'">
+          <w:gridCol w:type="dxa" w:w="{$size_2}"/>
+        </xsl:if>
       </w:tblGrid>
       <w:tr>
         <w:trPr>
@@ -293,12 +358,12 @@
         </w:trPr>
         <w:tc>
           <w:tcPr>
-            <w:tcW w:w="992" w:type="dxa"/>
-            <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
+            <w:tcW w:type="dxa" w:w="{$size_1}"/>
+            <w:shd w:color="auto" w:fill="auto" w:val="clear"/>
           </w:tcPr>
           <w:p>
             <w:pPr>
-              <w:spacing w:before="100" w:before-autospacing="on" w:after="100" w:after-autospacing="on"/>
+              <w:spacing w:after="100" w:after-autospacing="on" w:before="100" w:before-autospacing="on"/>
               <w:rPr>
                 <w:b/>
                 <w:sz-cs w:val="24"/>
@@ -315,12 +380,19 @@
         </w:tc>
         <w:tc>
           <w:tcPr>
-            <w:tcW w:w="5812" w:type="dxa"/>
-            <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
+            <xsl:choose>
+              <xsl:when test="$COLS='c'">
+                <w:tcW w:type="dxa" w:w="{$size_4}"/>
+              </xsl:when>
+              <xsl:otherwise>
+                <w:tcW w:type="dxa" w:w="{$size_3}"/>
+              </xsl:otherwise>
+            </xsl:choose>
+            <w:shd w:color="auto" w:fill="auto" w:val="clear"/>
           </w:tcPr>
           <w:p>
             <w:pPr>
-              <w:spacing w:before="100" w:before-autospacing="on" w:after="100" w:after-autospacing="on"/>
+              <w:spacing w:after="100" w:after-autospacing="on" w:before="100" w:before-autospacing="on"/>
               <w:rPr>
                 <w:b/>
                 <w:sz-cs w:val="24"/>
@@ -337,12 +409,12 @@
         </w:tc>
         <w:tc>
           <w:tcPr>
-            <w:tcW w:w="2268" w:type="dxa"/>
-            <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
+            <w:tcW w:type="dxa" w:w="{$size_2}"/>
+            <w:shd w:color="auto" w:fill="auto" w:val="clear"/>
           </w:tcPr>
           <w:p>
             <w:pPr>
-              <w:spacing w:before="100" w:before-autospacing="on" w:after="100" w:after-autospacing="on"/>
+              <w:spacing w:after="100" w:after-autospacing="on" w:before="100" w:before-autospacing="on"/>
               <w:rPr>
                 <w:b/>
                 <w:sz-cs w:val="24"/>
@@ -357,121 +429,145 @@
             </w:r>
           </w:p>
         </w:tc>
+        <xsl:if test="$COLS='c'">
+          <w:tc>
+            <w:tcPr>
+              <w:tcW w:type="dxa" w:w="{$size_2}"/>
+              <w:shd w:color="auto" w:fill="auto" w:val="clear"/>
+            </w:tcPr>
+            <w:p>
+              <w:pPr>
+                <w:spacing w:after="100" w:after-autospacing="on" w:before="100" w:before-autospacing="on"/>
+                <w:rPr>
+                  <w:b/>
+                  <w:sz-cs w:val="24"/>
+                </w:rPr>
+              </w:pPr>
+              <w:r>
+                <w:rPr>
+                  <w:b/>
+                  <w:sz-cs w:val="24"/>
+                </w:rPr>
+                <w:t>Custody</w:t>
+              </w:r>
+            </w:p>
+          </w:tc>
+        </xsl:if>
       </w:tr>
     </w:tbl>
   </xsl:template>
   <xsl:template name="header_table">
     <xsl:variable name="size_1">
-    <xsl:text>1100</xsl:text>
-  </xsl:variable>
-  <xsl:variable name="size_2">
-    <xsl:choose>
+      <xsl:text>1100</xsl:text>
+    </xsl:variable>
+    <xsl:variable name="size_2">
+      <xsl:choose>
         <xsl:when test="$ORIENTATION='portrait'">
           <xsl:text>1440</xsl:text>
         </xsl:when>
         <xsl:otherwise>
           <xsl:text>2268</xsl:text>
         </xsl:otherwise>
-    </xsl:choose>  
-  </xsl:variable>
-  <xsl:variable name="size_3">
-    <xsl:choose>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="size_3">
+      <xsl:choose>
         <xsl:when test="$ORIENTATION='portrait'">
           <xsl:text>1967</xsl:text>
         </xsl:when>
         <xsl:otherwise>
           <xsl:text>2870</xsl:text>
         </xsl:otherwise>
-    </xsl:choose>  
-  </xsl:variable>
-  <xsl:variable name="size_4">
-    <xsl:choose>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="size_4">
+      <xsl:choose>
         <xsl:when test="$ORIENTATION='portrait'">
           <xsl:text>2426</xsl:text>
         </xsl:when>
         <xsl:otherwise>
           <xsl:text>4813</xsl:text>
         </xsl:otherwise>
-    </xsl:choose>  
-  </xsl:variable>
-  <xsl:variable name="size_5">
-    <xsl:choose>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="size_5">
+      <xsl:choose>
         <xsl:when test="$ORIENTATION='portrait'">
           <xsl:text>4779</xsl:text>
         </xsl:when>
         <xsl:otherwise>
           <xsl:text>8647</xsl:text>
         </xsl:otherwise>
-    </xsl:choose>  
-  </xsl:variable>
-  <xsl:variable name="size_6">
-    <xsl:choose>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="size_6">
+      <xsl:choose>
         <xsl:when test="$ORIENTATION='portrait'">
           <xsl:text>3339</xsl:text>
         </xsl:when>
         <xsl:otherwise>
           <xsl:text>6379</xsl:text>
         </xsl:otherwise>
-    </xsl:choose>  
-  </xsl:variable>
+      </xsl:choose>
+    </xsl:variable>
     <w:tbl>
       <w:tblPr>
         <xsl:choose>
           <xsl:when test="$ORIENTATION='portrait'">
-            <w:tblW w:w="9286" w:type="dxa"/>
+            <w:tblW w:type="dxa" w:w="9286"/>
           </xsl:when>
           <xsl:otherwise>
-            <w:tblW w:w="14885" w:type="dxa"/>
+            <w:tblW w:type="dxa" w:w="14885"/>
           </xsl:otherwise>
         </xsl:choose>
         <w:tblBorders>
-          <w:top w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-          <w:left w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-          <w:bottom w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-          <w:right w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-          <w:insideH w:val="single" w:sz="6" wx:bdrwidth="15" w:space="0" w:color="auto"/>
-          <w:insideV w:val="single" w:sz="6" wx:bdrwidth="15" w:space="0" w:color="auto"/>
+          <w:top w:color="auto" w:space="0" w:sz="4" w:val="single" wx:bdrwidth="10"/>
+          <w:left w:color="auto" w:space="0" w:sz="4" w:val="single" wx:bdrwidth="10"/>
+          <w:bottom w:color="auto" w:space="0" w:sz="4" w:val="single" wx:bdrwidth="10"/>
+          <w:right w:color="auto" w:space="0" w:sz="4" w:val="single" wx:bdrwidth="10"/>
+          <w:insideH w:color="auto" w:space="0" w:sz="6" w:val="single" wx:bdrwidth="15"/>
+          <w:insideV w:color="auto" w:space="0" w:sz="6" w:val="single" wx:bdrwidth="15"/>
         </w:tblBorders>
         <w:tblLayout w:type="Fixed"/>
         <w:tblCellMar>
-          <w:left w:w="107" w:type="dxa"/>
-          <w:right w:w="107" w:type="dxa"/>
+          <w:left w:type="dxa" w:w="107"/>
+          <w:right w:type="dxa" w:w="107"/>
         </w:tblCellMar>
       </w:tblPr>
       <w:tblGrid>
-         <w:gridCol w:w="{$size_1}" w:type="dxa"/>
-         <xsl:choose>
+        <w:gridCol w:type="dxa" w:w="{$size_1}"/>
+        <xsl:choose>
           <xsl:when test="$COLS='j_c'">
-            <w:gridCol w:w="{$size_2}" w:type="dxa"/>
+            <w:gridCol w:type="dxa" w:w="{$size_2}"/>
           </xsl:when>
           <xsl:otherwise>
-            <w:gridCol w:w="{$size_3}" w:type="dxa"/>
+            <w:gridCol w:type="dxa" w:w="{$size_3}"/>
           </xsl:otherwise>
         </xsl:choose>
         <xsl:choose>
           <xsl:when test="$COLS='j_c'">
-            <w:gridCol w:w="{$size_4}" w:type="dxa"/>
+            <w:gridCol w:type="dxa" w:w="{$size_4}"/>
           </xsl:when>
           <xsl:when test="$COLS='no_j_c'">
-            <w:gridCol w:w="{$size_5}" w:type="dxa"/>
+            <w:gridCol w:type="dxa" w:w="{$size_5}"/>
           </xsl:when>
           <xsl:otherwise>
-            <w:gridCol w:w="{$size_6}" w:type="dxa"/>
+            <w:gridCol w:type="dxa" w:w="{$size_6}"/>
           </xsl:otherwise>
         </xsl:choose>
-        <w:gridCol w:w="{$size_2}" w:type="dxa"/>
+        <w:gridCol w:type="dxa" w:w="{$size_2}"/>
         <xsl:if test="$COLS!='no_j_c'">
-          <w:gridCol w:w="{$size_2}" w:type="dxa"/>
+          <w:gridCol w:type="dxa" w:w="{$size_2}"/>
         </xsl:if>
         <xsl:if test="$COLS='j_c'">
-          <w:gridCol w:w="{$size_2}" w:type="dxa"/>
+          <w:gridCol w:type="dxa" w:w="{$size_2}"/>
         </xsl:if>
       </w:tblGrid>
       <w:tr>
         <w:tblPrEx>
           <w:tblCellMar>
-            <w:top w:w="0" w:type="dxa"/>
-            <w:bottom w:w="0" w:type="dxa"/>
+            <w:top w:type="dxa" w:w="0"/>
+            <w:bottom w:type="dxa" w:w="0"/>
           </w:tblCellMar>
         </w:tblPrEx>
         <w:trPr>
@@ -479,14 +575,14 @@
         </w:trPr>
         <w:tc>
           <w:tcPr>
-            <w:tcW w:w="{$size_1}" w:type="dxa"/>
+            <w:tcW w:type="dxa" w:w="{$size_1}"/>
           </w:tcPr>
           <w:p>
             <w:pPr>
               <w:tabs>
-                <w:tab w:val="left" w:pos="1170"/>
+                <w:tab w:pos="1170" w:val="left"/>
               </w:tabs>
-              <w:spacing w:before="60" w:after="60"/>
+              <w:spacing w:after="60" w:before="60"/>
               <w:jc w:val="center"/>
               <w:rPr>
                 <w:b/>
@@ -508,16 +604,16 @@
           <w:tcPr>
             <xsl:choose>
               <xsl:when test="$COLS='j_c'">
-                <w:tcW w:w="{$size_2}" w:type="dxa"/>
+                <w:tcW w:type="dxa" w:w="{$size_2}"/>
               </xsl:when>
               <xsl:otherwise>
-                <w:tcW w:w="{$size_3}" w:type="dxa"/>
+                <w:tcW w:type="dxa" w:w="{$size_3}"/>
               </xsl:otherwise>
             </xsl:choose>
           </w:tcPr>
           <w:p>
             <w:pPr>
-              <w:spacing w:before="60" w:after="60"/>
+              <w:spacing w:after="60" w:before="60"/>
               <w:jc w:val="center"/>
               <w:rPr>
                 <w:b/>
@@ -539,19 +635,19 @@
           <w:tcPr>
             <xsl:choose>
               <xsl:when test="$COLS='j_c'">
-                <w:tcW w:w="{$size_4}" w:type="dxa"/>
+                <w:tcW w:type="dxa" w:w="{$size_4}"/>
               </xsl:when>
               <xsl:when test="$COLS='no_j_c'">
-                <w:tcW w:w="{$size_5}" w:type="dxa"/>
+                <w:tcW w:type="dxa" w:w="{$size_5}"/>
               </xsl:when>
               <xsl:otherwise>
-                <w:tcW w:w="{$size_6}" w:type="dxa"/>
+                <w:tcW w:type="dxa" w:w="{$size_6}"/>
               </xsl:otherwise>
             </xsl:choose>
           </w:tcPr>
           <w:p>
             <w:pPr>
-              <w:spacing w:before="60" w:after="60"/>
+              <w:spacing w:after="60" w:before="60"/>
               <w:jc w:val="center"/>
               <w:rPr>
                 <w:b/>
@@ -571,11 +667,11 @@
         </w:tc>
         <w:tc>
           <w:tcPr>
-            <w:tcW w:w="{$size_2}" w:type="dxa"/>
+            <w:tcW w:type="dxa" w:w="{$size_2}"/>
           </w:tcPr>
           <w:p>
             <w:pPr>
-              <w:spacing w:before="60" w:after="60"/>
+              <w:spacing w:after="60" w:before="60"/>
               <w:jc w:val="center"/>
               <w:rPr>
                 <w:b/>
@@ -597,11 +693,11 @@
           <xsl:when test="$COLS='j_c' or $COLS='j'">
             <w:tc>
               <w:tcPr>
-                <w:tcW w:w="{$size_2}" w:type="dxa"/>
+                <w:tcW w:type="dxa" w:w="{$size_2}"/>
               </w:tcPr>
               <w:p>
                 <w:pPr>
-                  <w:spacing w:before="60" w:after="60"/>
+                  <w:spacing w:after="60" w:before="60"/>
                   <w:jc w:val="center"/>
                   <w:rPr>
                     <w:b/>
@@ -623,11 +719,11 @@
           <xsl:when test="$COLS='c'">
             <w:tc>
               <w:tcPr>
-                <w:tcW w:w="{$size_2}" w:type="dxa"/>
+                <w:tcW w:type="dxa" w:w="{$size_2}"/>
               </w:tcPr>
               <w:p>
                 <w:pPr>
-                  <w:spacing w:before="60" w:after="60"/>
+                  <w:spacing w:after="60" w:before="60"/>
                   <w:jc w:val="center"/>
                   <w:rPr>
                     <w:b/>
@@ -650,11 +746,11 @@
         <xsl:if test="$COLS='j_c'">
           <w:tc>
             <w:tcPr>
-              <w:tcW w:w="{$size_2}" w:type="dxa"/>
+              <w:tcW w:type="dxa" w:w="{$size_2}"/>
             </w:tcPr>
             <w:p>
               <w:pPr>
-                <w:spacing w:before="60" w:after="60"/>
+                <w:spacing w:after="60" w:before="60"/>
                 <w:jc w:val="center"/>
                 <w:rPr>
                   <w:b/>
@@ -690,7 +786,7 @@
         <w:rPr>
           <w:i/>
         </w:rPr>
-        <w:instrText>STYLEREF  "HIDDEN CHAR" \* MERGEFORMAT</w:instrText>
+        <w:instrText>STYLEREF  &quot;HIDDEN CHAR&quot; \* MERGEFORMAT</w:instrText>
       </w:r>
       <w:r>
         <w:fldChar w:fldCharType="separate"/>
@@ -708,18 +804,18 @@
   </xsl:template>
   <xsl:template name="main_footer">
     <xsl:param name="BIC"/>
-      <xsl:if test="$COLS='c'">
+    <xsl:if test="$COLS='c'">
       <w:p>
         <w:pPr>
           <w:tabs>
             <xsl:choose>
-          <xsl:when test="$ORIENTATION='portrait'">
-            <w:tab w:val="right" w:pos="9072"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <w:tab w:val="right" w:pos="14742"/>
-          </xsl:otherwise>
-        </xsl:choose>
+              <xsl:when test="$ORIENTATION='portrait'">
+                <w:tab w:pos="9072" w:val="right"/>
+              </xsl:when>
+              <xsl:otherwise>
+                <w:tab w:pos="14742" w:val="right"/>
+              </xsl:otherwise>
+            </xsl:choose>
           </w:tabs>
           <w:rPr>
             <w:sz w:val="18"/>
@@ -748,7 +844,7 @@
       <w:p>
         <w:pPr>
           <w:tabs>
-            <w:tab w:val="right" w:pos="14742"/>
+            <w:tab w:pos="14742" w:val="right"/>
           </w:tabs>
           <w:jc w:val="center"/>
           <w:rPr>
@@ -769,14 +865,14 @@
     <w:p>
       <w:pPr>
         <w:tabs>
-        <xsl:choose>
-          <xsl:when test="$ORIENTATION='portrait'">
-            <w:tab w:val="right" w:pos="9072"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <w:tab w:val="right" w:pos="14742"/>
-          </xsl:otherwise>
-        </xsl:choose>  
+          <xsl:choose>
+            <xsl:when test="$ORIENTATION='portrait'">
+              <w:tab w:pos="9072" w:val="right"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <w:tab w:pos="14742" w:val="right"/>
+            </xsl:otherwise>
+          </xsl:choose>
         </w:tabs>
         <w:rPr>
           <w:smallCaps/>
@@ -795,8 +891,8 @@
         <w:rPr>
           <w:sz w:val="18"/>
         </w:rPr>
-        <w:tab wx:wTab="6360" wx:tlc="none" wx:cTlc="105"/>
-         </w:r>
+        <w:tab wx:cTlc="105" wx:tlc="none" wx:wTab="6360"/>
+      </w:r>
       <w:r>
         <w:rPr>
           <w:sz w:val="18"/>
@@ -807,7 +903,7 @@
         <w:rPr>
           <w:sz w:val="18"/>
         </w:rPr>
-        <w:instrText> PAGE </w:instrText>
+        <w:instrText>PAGE </w:instrText>
       </w:r>
       <w:r>
         <w:rPr>
@@ -826,7 +922,7 @@
           <w:sz w:val="18"/>
         </w:rPr>
         <w:t>
-          <xsl:text> of </xsl:text>
+          <xsl:text>of </xsl:text>
         </w:t>
       </w:r>
       <w:r>
@@ -839,7 +935,7 @@
         <w:rPr>
           <w:sz w:val="18"/>
         </w:rPr>
-        <w:instrText> =</w:instrText>
+        <w:instrText>=</w:instrText>
       </w:r>
       <w:r>
         <w:rPr>
@@ -851,7 +947,7 @@
         <w:rPr>
           <w:sz w:val="18"/>
         </w:rPr>
-        <w:instrText> NUMPAGES </w:instrText>
+        <w:instrText>NUMPAGES </w:instrText>
       </w:r>
       <w:r>
         <w:rPr>
@@ -869,7 +965,11 @@
         <w:rPr>
           <w:sz w:val="18"/>
         </w:rPr>
-        <w:instrText> - <xsl:value-of select="$ADJUST_PGNO"/> </w:instrText>
+        <w:instrText>- 
+          
+          
+          
+          <xsl:value-of select="$ADJUST_PGNO"/></w:instrText>
       </w:r>
       <w:r>
         <w:rPr>
@@ -904,29 +1004,29 @@
   <xsl:template name="contents_header_table">
     <w:tbl>
       <w:tblPr>
-        <w:tblW w:w="5000" w:type="pct"/>
+        <w:tblW w:type="pct" w:w="5000"/>
         <w:tblBorders>
-          <w:top w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-          <w:left w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-          <w:bottom w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-          <w:right w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0" w:color="auto"/>
-          <w:insideH w:val="single" w:sz="6" wx:bdrwidth="15" w:space="0" w:color="auto"/>
-          <w:insideV w:val="single" w:sz="6" wx:bdrwidth="15" w:space="0" w:color="auto"/>
+          <w:top w:color="auto" w:space="0" w:sz="4" w:val="single" wx:bdrwidth="10"/>
+          <w:left w:color="auto" w:space="0" w:sz="4" w:val="single" wx:bdrwidth="10"/>
+          <w:bottom w:color="auto" w:space="0" w:sz="4" w:val="single" wx:bdrwidth="10"/>
+          <w:right w:color="auto" w:space="0" w:sz="4" w:val="single" wx:bdrwidth="10"/>
+          <w:insideH w:color="auto" w:space="0" w:sz="6" w:val="single" wx:bdrwidth="15"/>
+          <w:insideV w:color="auto" w:space="0" w:sz="6" w:val="single" wx:bdrwidth="15"/>
         </w:tblBorders>
         <w:tblLayout w:type="Fixed"/>
         <w:tblCellMar>
-          <w:left w:w="107" w:type="dxa"/>
-          <w:right w:w="107" w:type="dxa"/>
+          <w:left w:type="dxa" w:w="107"/>
+          <w:right w:type="dxa" w:w="107"/>
         </w:tblCellMar>
       </w:tblPr>
       <w:tblGrid>
-        <w:gridCol w:w="5000" w:type="pct"/>
+        <w:gridCol w:type="pct" w:w="5000"/>
       </w:tblGrid>
       <w:tr>
         <w:tblPrEx>
           <w:tblCellMar>
-            <w:top w:w="0" w:type="dxa"/>
-            <w:bottom w:w="0" w:type="dxa"/>
+            <w:top w:type="dxa" w:w="0"/>
+            <w:bottom w:type="dxa" w:w="0"/>
           </w:tblCellMar>
         </w:tblPrEx>
         <w:trPr>
@@ -934,11 +1034,11 @@
         </w:trPr>
         <w:tc>
           <w:tcPr>
-            <w:tcW w:w="5000" w:type="pct"/>
+            <w:tcW w:type="pct" w:w="5000"/>
           </w:tcPr>
           <w:p>
             <w:pPr>
-              <w:spacing w:before="60" w:after="60"/>
+              <w:spacing w:after="60" w:before="60"/>
               <w:rPr>
                 <w:b/>
                 <w:sz w:val="16"/>
@@ -959,7 +1059,7 @@
     </w:tbl>
     <w:p>
       <w:pPr>
-        <w:spacing w:before="0" w:after="0"/>
+        <w:spacing w:after="0" w:before="0"/>
       </w:pPr>
     </w:p>
   </xsl:template>
