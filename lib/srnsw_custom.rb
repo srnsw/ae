@@ -8,7 +8,7 @@ CONTEXTTYPES << 'appraisal report' << 'guidelines for use'
 CONTEXTSETS << {
     :menu_text => 'Add appraisal report',
     :type => 'appraisal report',
-    :titles => ['Public office', 'Functions', 'Additional information', 'Justification']
+    :titles => ['Background', 'Issue']
     } << {
     :menu_text => 'Add guidelines for use',
     :type => 'guidelines for use',

@@ -45,7 +45,7 @@ module Domain
   CONTEXTSETS = [{
     :menu_text => 'Add supporting documentation',
     :type => 'supporting documentation',
-    :titles => ['Submission', 'Background', 'Issue']
+    :titles => ['Public Office', 'Functions', 'Additional information', 'Justification']
     },
     {
     :menu_text => 'Add table of commentary',
