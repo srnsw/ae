@@ -11,7 +11,7 @@
     <xsl:value-of select="'Sally Irvine-Smith'"/>
   </xsl:variable>
   <xsl:variable name="CHAIR">
-    <xsl:value-of select="'Anne Henderson'"/>
+    <xsl:value-of select="'Anne Henderson AM'"/>
   </xsl:variable>
   <xsl:variable name="ARNO">
     <xsl:text>AR</xsl:text>

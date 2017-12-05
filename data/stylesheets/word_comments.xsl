@@ -22,7 +22,7 @@
             </w:p>
             <w:p>
               <w:r>
-                <w:t><xsl:text>This document outlines State Records’ feedback on the draft functional retention and disposal authority developed by </xsl:text><xsl:value-of select="$DRAFT_AGENCIES"/><xsl:text>. Please also see the suggested changes in the amended authority.</xsl:text></w:t>
+                <w:t><xsl:text>This document outlines State Archives and Records NSW’s feedback on the draft functional retention and disposal authority developed by </xsl:text><xsl:value-of select="$DRAFT_AGENCIES"/><xsl:text>. Please also see the suggested changes in the amended authority.</xsl:text></w:t>
               </w:r>
             </w:p>
             <xsl:if test="rda:Comment[@author='SRNSW']">
