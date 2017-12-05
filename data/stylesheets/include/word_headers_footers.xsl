@@ -922,7 +922,7 @@
           <w:sz w:val="18"/>
         </w:rPr>
         <w:t>
-          <xsl:text>of </xsl:text>
+          <xsl:text> of </xsl:text>
         </w:t>
       </w:r>
       <w:r>
@@ -965,11 +965,10 @@
         <w:rPr>
           <w:sz w:val="18"/>
         </w:rPr>
-        <w:instrText>- 
-          
-          
-          
-          <xsl:value-of select="$ADJUST_PGNO"/></w:instrText>
+        <w:instrText>
+          <xsl:text>-</xsl:text>
+          <xsl:value-of select="$ADJUST_PGNO"/>
+        </w:instrText>
       </w:r>
       <w:r>
         <w:rPr>

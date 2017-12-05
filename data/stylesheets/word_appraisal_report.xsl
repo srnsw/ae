@@ -4,10 +4,10 @@
   <xsl:include href="include/stocks.xsl"/>
   <xsl:include href="include/word_header.xsl"/>
   <xsl:include href="include/word_headers_footers.xsl"/>
+  <xsl:include href="include/word_ar_headers_footers.xsl"/>
   <xsl:include href="include/render_word_authority.xsl"/>
   <xsl:include href="include/render_word_contents.xsl"/>
   <xsl:include href="include/word_ar1.xsl"/>
-  <xsl:param name="BIC">true</xsl:param>
   <xsl:variable name="SUBMITTED">
     <xsl:for-each select="rda:Authority/rda:Status/rda:Submitted">
       <xsl:if test="position() &gt;1">
@@ -27,6 +27,20 @@
       <xsl:value-of select="rda:Agency"/>
       <xsl:text>)</xsl:text>
     </xsl:for-each>
+  </xsl:variable>
+  <xsl:variable name="SCOPE_TITLE">
+    <xsl:choose>
+      <xsl:when test="rda:Authority/rda:AuthorityTitle">
+        <xsl:call-template name="lower_case">
+          <xsl:with-param name="string" select="rda:Authority/rda:AuthorityTitle"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="lower_case">
+          <xsl:with-param name="string" select="$SCOPE"/>
+        </xsl:call-template>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:variable>
   <xsl:variable name="HASCUSTODY">
     <xsl:value-of select="'false'"/>
@@ -88,10 +102,14 @@
                 <w:smallCaps/>
               </w:rPr>
               <w:sectPr>
-                <xsl:call-template name="portrait_header_footer">
-                  <xsl:with-param name="header_first" select="'Board of the State Records Authority of New South Wales'"/>
-                  <xsl:with-param name="header_text" select="concat('Appraisal Report ', $ARNO)"/>
+                <xsl:call-template name="ar_header_footer">
+                  <xsl:with-param name="header_first" select="'Item '"/>
+                  <xsl:with-param name="header_first_x" select="'x.x'"/>
                   <xsl:with-param name="footer_text" select="'BOARD-IN-CONFIDENCE'"/>
+                  <xsl:with-param name="footer_first_a" select="'Board meeting of '"/>
+                  <xsl:with-param name="footer_first_a_x" select="'xxxx'"/>
+                  <xsl:with-param name="footer_first_b" select="concat('Appraisal Report ', $ARNO)"/>
+                  <xsl:with-param name="footer_first_c" select="concat('File ref. ', $SRFILENOS)"/>
                 </xsl:call-template>
                 <w:pgSz w:code="9" w:h="16840" w:w="11907"/>
                 <w:pgMar w:bottom="1418" w:footer="720" w:gutter="0" w:header="720" w:left="1418" w:right="1418" w:top="1418"/>

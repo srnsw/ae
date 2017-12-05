@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:rda="http://www.records.nsw.gov.au/schemas/RDA" version="1.0">
+<xsl:stylesheet version="1.0" xmlns:rda="http://www.records.nsw.gov.au/schemas/RDA" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:variable name="upperCaseChars" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'"/>
   <xsl:variable name="lowerCaseChars" select="'abcdefghijklmnopqrstuvwxyz'"/>
   <xsl:template name="camel_case">
@@ -20,51 +20,55 @@
     <xsl:variable name="first_up" select="translate($first_letter, $lowerCaseChars, $upperCaseChars)"/>
     <xsl:value-of select="concat($first_up, $rest)"/>
   </xsl:template>
+  <xsl:template name="lower_case">
+    <xsl:param name="string"/>
+    <xsl:value-of select="translate($string, $upperCaseChars, $lowerCaseChars)"/>
+  </xsl:template>
   <!-- turn a month number into a month name -->
   <xsl:template name="monthname">
     <xsl:param name="month"/>
-      <xsl:choose>
-        <xsl:when test="$month = '01'">
-          <xsl:text>January</xsl:text>
-        </xsl:when>
-        <xsl:when test="$month = '02'">
-          <xsl:text>February</xsl:text>
-        </xsl:when>
-        <xsl:when test="$month = '03'">
-          <xsl:text>March</xsl:text>
-        </xsl:when>
-        <xsl:when test="$month = '04'">
-          <xsl:text>April</xsl:text>
-        </xsl:when>
-        <xsl:when test="$month = '05'">
-          <xsl:text>May</xsl:text>
-        </xsl:when>
-        <xsl:when test="$month = '06'">
-          <xsl:text>June</xsl:text>
-        </xsl:when>
-        <xsl:when test="$month = '07'">
-          <xsl:text>July</xsl:text>
-        </xsl:when>
-        <xsl:when test="$month = '08'">
-          <xsl:text>August</xsl:text>
-        </xsl:when>
-        <xsl:when test="$month = '09'">
-          <xsl:text>September</xsl:text>
-        </xsl:when>
-        <xsl:when test="$month = '10'">
-          <xsl:text>October</xsl:text>
-        </xsl:when>
-        <xsl:when test="$month = '11'">
-          <xsl:text>November</xsl:text>
-        </xsl:when>
-        <xsl:when test="$month = '12'">
-          <xsl:text>December</xsl:text>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:value-of select="$month"/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:template>
+    <xsl:choose>
+      <xsl:when test="$month = '01'">
+        <xsl:text>January</xsl:text>
+      </xsl:when>
+      <xsl:when test="$month = '02'">
+        <xsl:text>February</xsl:text>
+      </xsl:when>
+      <xsl:when test="$month = '03'">
+        <xsl:text>March</xsl:text>
+      </xsl:when>
+      <xsl:when test="$month = '04'">
+        <xsl:text>April</xsl:text>
+      </xsl:when>
+      <xsl:when test="$month = '05'">
+        <xsl:text>May</xsl:text>
+      </xsl:when>
+      <xsl:when test="$month = '06'">
+        <xsl:text>June</xsl:text>
+      </xsl:when>
+      <xsl:when test="$month = '07'">
+        <xsl:text>July</xsl:text>
+      </xsl:when>
+      <xsl:when test="$month = '08'">
+        <xsl:text>August</xsl:text>
+      </xsl:when>
+      <xsl:when test="$month = '09'">
+        <xsl:text>September</xsl:text>
+      </xsl:when>
+      <xsl:when test="$month = '10'">
+        <xsl:text>October</xsl:text>
+      </xsl:when>
+      <xsl:when test="$month = '11'">
+        <xsl:text>November</xsl:text>
+      </xsl:when>
+      <xsl:when test="$month = '12'">
+        <xsl:text>December</xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$month"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
   <!--Build an address with an item number e.g. "Function - Activity - Item number"-->
   <xsl:template name="build_address_with_itemno">
     <xsl:param name="node"/>
@@ -72,7 +76,7 @@
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
     <xsl:if test="$node/@itemno">
-      <xsl:text> - </xsl:text>
+      <xsl:text>- </xsl:text>
       <xsl:value-of select="$node/@itemno"/>
     </xsl:if>
   </xsl:template>
@@ -163,7 +167,7 @@
           </xsl:otherwise>
         </xsl:choose>
       </xsl:otherwise>
-    </xsl:choose>  
+    </xsl:choose>
   </xsl:template>
   <!-- this traverses up the node tree and returns the first RDANO found -useful for authorities with multiple RDANOs-->
   <xsl:template name="local_id">
@@ -192,17 +196,17 @@
   <xsl:template name="get_id">
     <xsl:param name="node"/>
     <xsl:choose>
-    <xsl:when test="$node/rda:ID[@control='FA' or @control='GA' or @control='DA' or @control='GDA' or @control='DR']">
+      <xsl:when test="$node/rda:ID[@control='FA' or @control='GA' or @control='DA' or @control='GDA' or @control='DR']">
         <xsl:for-each select="$node/rda:ID[@control='FA' or @control='GA' or @control='DA' or @control='GDA' or @control='DR']">
           <xsl:if test="position() &gt;1">
             <xsl:text>, </xsl:text>
-         </xsl:if>
-         <xsl:value-of select="concat(@control, .)"/>
-      </xsl:for-each>
-    </xsl:when>
-    <xsl:otherwise>
-      <xsl:text>false</xsl:text>
-    </xsl:otherwise>
+          </xsl:if>
+          <xsl:value-of select="concat(@control, .)"/>
+        </xsl:for-each>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:text>false</xsl:text>
+      </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
   <xsl:template name="pad_itemno">
@@ -227,7 +231,7 @@
           </xsl:call-template>
         </xsl:variable>
         <xsl:value-of select="concat($prefix, $padded)"/>
-       </xsl:otherwise>
+      </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
   <xsl:template name="pad_no">
@@ -255,35 +259,35 @@
     </xsl:choose>
   </xsl:template>
   <xsl:template name="make_date_text">
-	  <xsl:param name="date_range"/>
-	   <xsl:for-each select="$date_range">
-          <xsl:choose>
-            <xsl:when test="not(rda:End)">
-              <xsl:if test="rda:Start/@circa='true'">
-                <xsl:text>c.</xsl:text>
-              </xsl:if>
-              <xsl:value-of select="rda:Start"/>
-              <xsl:text>+</xsl:text>
-            </xsl:when>
-            <xsl:when test="not(rda:Start)">
-              <xsl:text>pre-</xsl:text>
-              <xsl:if test="rda:End/@circa='true'">
-                <xsl:text>c.</xsl:text>
-              </xsl:if>
-              <xsl:value-of select="rda:End"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:if test="rda:Start/@circa='true'">
-                <xsl:text>c.</xsl:text>
-              </xsl:if>
-              <xsl:value-of select="rda:Start"/>
-              <xsl:text>-</xsl:text>
-              <xsl:if test="rda:End/@circa='true'">
-               <xsl:text>c.</xsl:text>
-              </xsl:if>
-              <xsl:value-of select="rda:End"/>
-            </xsl:otherwise>
-          </xsl:choose>
-        </xsl:for-each>
+    <xsl:param name="date_range"/>
+    <xsl:for-each select="$date_range">
+      <xsl:choose>
+        <xsl:when test="not(rda:End)">
+          <xsl:if test="rda:Start/@circa='true'">
+            <xsl:text>c.</xsl:text>
+          </xsl:if>
+          <xsl:value-of select="rda:Start"/>
+          <xsl:text>+</xsl:text>
+        </xsl:when>
+        <xsl:when test="not(rda:Start)">
+          <xsl:text>pre-</xsl:text>
+          <xsl:if test="rda:End/@circa='true'">
+            <xsl:text>c.</xsl:text>
+          </xsl:if>
+          <xsl:value-of select="rda:End"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:if test="rda:Start/@circa='true'">
+            <xsl:text>c.</xsl:text>
+          </xsl:if>
+          <xsl:value-of select="rda:Start"/>
+          <xsl:text>-</xsl:text>
+          <xsl:if test="rda:End/@circa='true'">
+            <xsl:text>c.</xsl:text>
+          </xsl:if>
+          <xsl:value-of select="rda:End"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:for-each>
   </xsl:template>
 </xsl:stylesheet>

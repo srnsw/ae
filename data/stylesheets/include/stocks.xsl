@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:rda="http://www.records.nsw.gov.au/schemas/RDA" version="1.0">
+<xsl:stylesheet version="1.0" xmlns:rda="http://www.records.nsw.gov.au/schemas/RDA" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:include href="utils.xsl"/>
   <xsl:variable name="DIRECTOR">
     <xsl:value-of select="'Geoff Hinchcliffe'"/>
   </xsl:variable>
-    <xsl:variable name="MANAGER">
+  <xsl:variable name="MANAGER_ROLE">
+    <xsl:value-of select="'Acting Manager'"/>
+  </xsl:variable>
+  <xsl:variable name="MANAGER">
     <xsl:value-of select="'Sally Irvine-Smith'"/>
   </xsl:variable>
   <xsl:variable name="CHAIR">
     <xsl:value-of select="'Anne Henderson'"/>
   </xsl:variable>
   <xsl:variable name="ARNO">
-    <xsl:text>AR</xsl:text><xsl:value-of select="rda:Authority/rda:ID[@control='AR']"/>
+    <xsl:text>AR</xsl:text>
+    <xsl:value-of select="rda:Authority/rda:ID[@control='AR']"/>
   </xsl:variable>
   <xsl:variable name="RDANO">
     <xsl:choose>
@@ -19,13 +23,13 @@
         <xsl:for-each select="rda:Authority/rda:ID[@control='FA' or @control='GA' or @control='DA' or @control='GDA' or @control='DR']">
           <xsl:if test="position() &gt;1">
             <xsl:text>, </xsl:text>
-         </xsl:if>
-         <xsl:value-of select="concat(@control, .)"/>
-      </xsl:for-each>
-    </xsl:when>
-    <xsl:otherwise>
-      <xsl:text>DRAFT</xsl:text>
-    </xsl:otherwise>
+          </xsl:if>
+          <xsl:value-of select="concat(@control, .)"/>
+        </xsl:for-each>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:text>DRAFT</xsl:text>
+      </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
   <xsl:variable name="SRFILENOS">
@@ -44,7 +48,7 @@
           <xsl:if test="position() &gt;1">
             <xsl:choose>
               <xsl:when test="position()=last()">
-                <xsl:text> and </xsl:text>
+                <xsl:text>and </xsl:text>
               </xsl:when>
               <xsl:otherwise>
                 <xsl:text>, </xsl:text>
@@ -59,7 +63,7 @@
           <xsl:if test="position() &gt;1">
             <xsl:choose>
               <xsl:when test="position()=last()">
-                <xsl:text> and </xsl:text>
+                <xsl:text>and </xsl:text>
               </xsl:when>
               <xsl:otherwise>
                 <xsl:text>, </xsl:text>
@@ -78,7 +82,7 @@
           <xsl:if test="position() &gt;1">
             <xsl:choose>
               <xsl:when test="position()=last()">
-                <xsl:text> and </xsl:text>
+                <xsl:text>and </xsl:text>
               </xsl:when>
               <xsl:otherwise>
                 <xsl:text>, </xsl:text>
@@ -93,7 +97,7 @@
           <xsl:if test="position() &gt;1">
             <xsl:choose>
               <xsl:when test="position()=last()">
-                <xsl:text> and </xsl:text>
+                <xsl:text>and </xsl:text>
               </xsl:when>
               <xsl:otherwise>
                 <xsl:text>, </xsl:text>
@@ -129,9 +133,9 @@
   <xsl:variable name="DATE_RANGE">
     <xsl:choose>
       <xsl:when test="rda:Authority/rda:DateRange">
-         <xsl:call-template name="make_date_text">
-		   <xsl:with-param name="date_range" select="rda:Authority/rda:DateRange"/>
-		 </xsl:call-template>
+        <xsl:call-template name="make_date_text">
+          <xsl:with-param name="date_range" select="rda:Authority/rda:DateRange"/>
+        </xsl:call-template>
       </xsl:when>
       <xsl:otherwise>
         <xsl:choose>
@@ -151,27 +155,27 @@
         <xsl:for-each select="rda:Authority/rda:DateRange">
           <xsl:choose>
             <xsl:when test="not(rda:End)">
-              <xsl:text> from </xsl:text>
+              <xsl:text>from </xsl:text>
               <xsl:if test="rda:Start/@circa='true'">
                 <xsl:text>c.</xsl:text>
               </xsl:if>
               <xsl:value-of select="rda:Start"/>
-              <xsl:text> onwards</xsl:text>
+              <xsl:text>onwards</xsl:text>
             </xsl:when>
             <xsl:when test="not(rda:Start)">
-              <xsl:text> before </xsl:text>
+              <xsl:text>before </xsl:text>
               <xsl:if test="rda:End/@circa='true'">
                 <xsl:text>c.</xsl:text>
               </xsl:if>
               <xsl:value-of select="rda:End"/>
             </xsl:when>
             <xsl:otherwise>
-              <xsl:text> from </xsl:text>
+              <xsl:text>from </xsl:text>
               <xsl:if test="rda:Start/@circa='true'">
-               <xsl:text>c.</xsl:text>
+                <xsl:text>c.</xsl:text>
               </xsl:if>
               <xsl:value-of select="rda:Start"/>
-              <xsl:text> to </xsl:text>
+              <xsl:text>to </xsl:text>
               <xsl:if test="rda:End/@circa='true'">
                 <xsl:text>c.</xsl:text>
               </xsl:if>
@@ -180,9 +184,9 @@
           </xsl:choose>
         </xsl:for-each>
       </xsl:when>
-        <xsl:otherwise>
-          <xsl:text/>
-        </xsl:otherwise>
+      <xsl:otherwise>
+        <xsl:text/>
+      </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
   <xsl:variable name="ISSUE_DATE">
@@ -206,36 +210,36 @@
   </xsl:variable>
   <xsl:variable name="DRAFT_VERSION">
     <xsl:for-each select="rda:Authority/rda:Status/rda:Draft[@version]">
-      <xsl:sort select="@version" order="descending"/>
-        <xsl:if test="position() = 1">
-          <xsl:value-of select="@version"/>
-        </xsl:if>
-      </xsl:for-each>
+      <xsl:sort order="descending" select="@version"/>
+      <xsl:if test="position() = 1">
+        <xsl:value-of select="@version"/>
+      </xsl:if>
+    </xsl:for-each>
   </xsl:variable>
   <xsl:variable name="DRAFT_AGENCIES">
-      <xsl:for-each select="rda:Authority/rda:Status/rda:Draft[@version=$DRAFT_VERSION]">
-        <xsl:if test="position() &gt;1">
-          <xsl:choose>
-            <xsl:when test="position()=last()">
-              <xsl:text> and </xsl:text>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:text>, </xsl:text>
-            </xsl:otherwise>
-          </xsl:choose>
-        </xsl:if>
-        <xsl:value-of select="rda:Agency"/>
-      </xsl:for-each>
-    </xsl:variable>
-    <xsl:variable name="draft_y_m_d">
-      <xsl:value-of select="rda:Authority/rda:Status/rda:Draft[@version=$DRAFT_VERSION]/rda:Date"/>
-    </xsl:variable>
-    <xsl:variable name="draft_month">
-      <xsl:call-template name="monthname">
-        <xsl:with-param name="month" select="substring($draft_y_m_d, 6, 2)"/>
-      </xsl:call-template>
-    </xsl:variable>
-    <xsl:variable name="DRAFT_DATE">
-      <xsl:value-of select="concat($draft_month, ' ', substring($draft_y_m_d, 1, 2))"/>
-    </xsl:variable>
+    <xsl:for-each select="rda:Authority/rda:Status/rda:Draft[@version=$DRAFT_VERSION]">
+      <xsl:if test="position() &gt;1">
+        <xsl:choose>
+          <xsl:when test="position()=last()">
+            <xsl:text>and </xsl:text>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:text>, </xsl:text>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:if>
+      <xsl:value-of select="rda:Agency"/>
+    </xsl:for-each>
+  </xsl:variable>
+  <xsl:variable name="draft_y_m_d">
+    <xsl:value-of select="rda:Authority/rda:Status/rda:Draft[@version=$DRAFT_VERSION]/rda:Date"/>
+  </xsl:variable>
+  <xsl:variable name="draft_month">
+    <xsl:call-template name="monthname">
+      <xsl:with-param name="month" select="substring($draft_y_m_d, 6, 2)"/>
+    </xsl:call-template>
+  </xsl:variable>
+  <xsl:variable name="DRAFT_DATE">
+    <xsl:value-of select="concat($draft_month, ' ', substring($draft_y_m_d, 1, 2))"/>
+  </xsl:variable>
 </xsl:stylesheet>

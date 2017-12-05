@@ -39,7 +39,7 @@
           <w:rPr>
             <w:rFonts w:cs="Arial"/>
           </w:rPr>
-          <w:t>The State Records Authority of NSW (State Records) is responsible for approving the </w:t>
+          <w:t>The State Archives and Records Authority of NSW (State Archives and Records NSW) is responsible for approving the </w:t>
         </w:r>
         <w:r>
           <w:rPr>
@@ -167,7 +167,7 @@
           <w:rPr>
             <w:rFonts w:cs="Arial"/>
           </w:rPr>
-          <w:t>As part of its review of this retention and disposal authority, State Records is seeking feedback from NSW government agencies and other stakeholders who may rely on or have an interest in the records covered by the authority. Stakeholder involvement in the development of retention and disposal authorities helps to ensure that records are retained for as long as they may be required for regulatory, business and community requirements and that the most valuable records are identified for retention as State archives.</w:t>
+          <w:t>As part of its review of this retention and disposal authority, State Archives and Records NSW is seeking feedback from NSW government agencies and other stakeholders who may rely on or have an interest in the records covered by the authority. Stakeholder involvement in the development of retention and disposal authorities helps to ensure that records are retained for as long as they may be required for regulatory, business and community requirements and that the most valuable records are identified for retention as State archives.</w:t>
         </w:r>
       </w:p>
       <w:p>
@@ -210,7 +210,7 @@
           <w:rPr>
             <w:rFonts w:cs="Arial"/>
           </w:rPr>
-          <w:t>State Records’ policy on records appraisal and the </w:t>
+          <w:t>State Archives and Records NSW’s policy on records appraisal and the </w:t>
         </w:r>
         <w:r>
           <w:rPr>
@@ -263,7 +263,7 @@
                 <w:t>Building the archives</w:t>
               </w:r>
               <w:r>
-                <w:t> is available from State Records’ website at &lt;http://www.records.nsw.gov.au/recordkeeping/government-recordkeeping-manual/rules/policies/building-the-archives&gt;.</w:t>
+                <w:t> is available from State Archives and Records NSW’s website at &lt;http://www.records.nsw.gov.au/recordkeeping/government-recordkeeping-manual/rules/policies/building-the-archives&gt;.</w:t>
               </w:r>
             </w:p>
           </w:footnote>
@@ -490,7 +490,7 @@
                 <w:footnoteRef/>
               </w:r>
               <w:r>
-                <w:t> Copies of these authorities are available from State Records' website at &lt;http://www.records.nsw.gov.au/recordkeeping/government-recordkeeping-manual/rules/general-retention-and-disposal-authorities/general-retention-and-disposal-authorities&gt;.</w:t>
+                <w:t> Copies of these authorities are available from State Archives and Records NSW's website at &lt;http://www.records.nsw.gov.au/recordkeeping/government-recordkeeping-manual/rules/general-retention-and-disposal-authorities/general-retention-and-disposal-authorities&gt;.</w:t>
 			</w:r>  
             </w:p>
             </w:footnote>
@@ -857,7 +857,7 @@
           <w:rPr>
             <w:rFonts w:cs="Arial"/>
           </w:rPr>
-          <w:t>Ultimately State Records must balance interests in keeping records with the costs of their management and storage. </w:t>
+          <w:t>Ultimately State Archives and Records NSW must balance interests in keeping records with the costs of their management and storage. </w:t>
         </w:r>
       </w:p>
       <w:p>

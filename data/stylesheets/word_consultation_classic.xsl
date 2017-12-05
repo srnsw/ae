@@ -83,7 +83,7 @@
             </w:rPr>
             <w:sectPr>
               <xsl:call-template name="portrait_header_footer">
-                <xsl:with-param name="header_first" select="'State Records Authority of New South Wales'"/>
+                <xsl:with-param name="header_first" select="'State Archives and Records Authority of New South Wales'"/>
                 <xsl:with-param name="footer_text" select="'CONSULTATION DRAFT'"/>
               </xsl:call-template>
               <w:pgSz w:w="11907" w:h="16840" w:code="9"/>
