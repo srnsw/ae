@@ -87,7 +87,7 @@
     <xsl:value-of select="$ARNO"/>
   </xsl:variable>
   <xsl:variable name="AUTHORITY_HEAD">
-    <xsl:text>Appraisal Report Part 2 - </xsl:text>
+    <xsl:text>Appraisal Report - </xsl:text>
     <xsl:value-of select="$AUTHORITY_TYPE"/>
   </xsl:variable>
   <xsl:variable name="AUTHORITY_TITLE">
