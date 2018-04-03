@@ -21,7 +21,7 @@
         </xsl:choose>
       </xsl:if>
       <xsl:value-of select="rda:Officer"/>
-      <xsl:text>(</xsl:text>
+      <xsl:text> (</xsl:text>
       <xsl:value-of select="rda:Position"/>
       <xsl:text>, </xsl:text>
       <xsl:value-of select="rda:Agency"/>

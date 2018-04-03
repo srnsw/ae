@@ -95,12 +95,13 @@
 						<w:r>
 							<w:t>
 								<xsl:value-of select="$MANAGER_ROLE"/>
-								<xsl:text>, Government Recordkeeping</xsl:text>
 							</w:t>
 						</w:r>
 						<w:r>
 							<w:br/>
-							<w:t>State Archives and Records Authority NSW</w:t>
+							<w:t>
+								<xsl:value-of select="$ORG_SHORT"/>
+							</w:t>
 						</w:r>
 					</w:p>
 				</w:tc>
@@ -220,7 +221,9 @@
 						</w:r>
 						<w:r>
 							<w:br w:clear="all" w:type="text-wrapping"/>
-							<w:t>Chairperson</w:t>
+							<w:t>
+								<xsl:value-of select="$CHAIR_ROLE"/>
+							</w:t>
 						</w:r>
 						<w:r>
 							<w:tab/>
@@ -359,11 +362,11 @@
 						</w:r>
 						<w:r>
 							<w:br w:clear="all" w:type="text-wrapping"/>
-							<w:t>Executive Director</w:t>
+							<w:t><xsl:value-of select="$DIRECTOR_ROLE"/></w:t>
 						</w:r>
 						<w:r>
 							<w:br/>
-							<w:t>State Archives and Records Authority NSW</w:t>
+							<w:t><xsl:value-of select="$ORG_SHORT"/></w:t>
 						</w:r>
 						<w:r>
 							<w:tab/>

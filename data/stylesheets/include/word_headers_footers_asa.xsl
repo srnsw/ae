@@ -1,133 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:w="http://schemas.microsoft.com/office/word/2003/wordml" xmlns:wx="http://schemas.microsoft.com/office/word/2003/auxHint" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-  <xsl:template name="portrait_header_footer">
-    <xsl:param name="header_first" select="''"/>
-    <xsl:param name="header_text" select="$header_first"/>
-    <xsl:param name="footer_text" select="''"/>
-    <xsl:param name="tab" select="''"/>
-    <xsl:param name="gaadmin" select="'false'"/>
-    <w:hdr w:type="odd">
-      <w:p>
-        <w:pPr>
-          <w:pStyle w:val="Header"/>
-        </w:pPr>
-        <w:r>
-          <w:t>
-            <xsl:value-of select="$header_text"/>
-          </w:t>
-        </w:r>
-      </w:p>
-    </w:hdr>
-    <w:ftr w:type="even">
-      <w:p>
-        <w:pPr>
-          <w:framePr w:hanchor="margin" w:vanchor="text" w:wrap="around" w:x-align="right" w:y="1"/>
-        </w:pPr>
-        <w:r>
-          <w:fldChar w:fldCharType="begin"/>
-        </w:r>
-        <w:r>
-          <w:instrText>PAGE </w:instrText>
-        </w:r>
-        <w:r>
-          <w:fldChar w:fldCharType="end"/>
-        </w:r>
-      </w:p>
-    </w:ftr>
-    <w:ftr w:type="odd">
-      <xsl:if test="$footer_text != ''">
-        <w:p>
-          <w:pPr>
-            <w:pStyle w:val="Footer"/>
-            <w:jc w:val="center"/>
-          </w:pPr>
-          <w:r>
-            <w:t>
-              <xsl:value-of select="$footer_text"/>
-            </w:t>
-          </w:r>
-        </w:p>
-      </xsl:if>
-      <w:p>
-        <w:pPr>
-          <w:pStyle w:val="Footer"/>
-          <xsl:if test="$tab != ''">
-            <w:tabs>
-              <w:tab w:pos="9072" w:val="clear"/>
-              <w:tab w:pos="{$tab}" w:val="right"/>
-            </w:tabs>
-          </xsl:if>
-        </w:pPr>
-        <w:r>
-          <w:t><xsl:value-of select="$ORG_FULL"/></w:t>
-        </w:r>
-        <w:r>
-          <w:tab wx:cTlc="78" wx:tlc="none" wx:wTab="4740"/>
-        </w:r>
-        <w:r>
-          <w:rPr>
-            <w:rStyle w:val="PageNumber"/>
-          </w:rPr>
-          <w:fldChar w:fldCharType="begin"/>
-        </w:r>
-        <w:r>
-          <w:rPr>
-            <w:rStyle w:val="PageNumber"/>
-          </w:rPr>
-          <w:instrText>PAGE </w:instrText>
-        </w:r>
-        <w:r>
-          <w:rPr>
-            <w:rStyle w:val="PageNumber"/>
-          </w:rPr>
-          <w:fldChar w:fldCharType="separate"/>
-        </w:r>
-        <w:r>
-          <w:rPr>
-            <w:rStyle w:val="PageNumber"/>
-            <w:noProof/>
-          </w:rPr>
-          <w:t>2</w:t>
-        </w:r>
-        <w:r>
-          <w:rPr>
-            <w:rStyle w:val="PageNumber"/>
-          </w:rPr>
-          <w:fldChar w:fldCharType="end"/>
-        </w:r>
-      </w:p>
-    </w:ftr>
-    <w:hdr w:type="first">
-      <w:p>
-        <w:pPr>
-          <w:pStyle w:val="InternalHeader"/>
-        </w:pPr>
-        <w:r>
-          <w:t>
-            <xsl:value-of select="$header_first"/>
-          </w:t>
-        </w:r>
-      </w:p>
-    </w:hdr>
-    <w:ftr w:type="first">
-      <w:p>
-        <w:pPr>
-          <w:pStyle w:val="Footer"/>
-          <w:jc w:val="center"/>
-        </w:pPr>
-        <w:r>
-          <w:t>
-            <xsl:value-of select="$footer_text"/>
-          </w:t>
-        </w:r>
-      </w:p>
-    </w:ftr>
-  </xsl:template>
+  <!--xsl:template name="portrait_header_footer"><xsl:param name="header_first" select="''"/><xsl:param name="header_text" select="$header_first"/><xsl:param name="footer_text" select="''"/><xsl:param name="tab" select="''"/><w:hdr w:type="odd"><w:p><w:pPr><w:pStyle w:val="Header"/></w:pPr><w:r><w:t><xsl:value-of select="$header_text"/></w:t></w:r></w:p></w:hdr><w:ftr w:type="even"><w:p><w:pPr><w:framePr w:hanchor="margin" w:vanchor="text" w:wrap="around" w:x-align="right" w:y="1"/></w:pPr><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText>PAGE </w:instrText></w:r><w:r><w:fldChar w:fldCharType="end"/></w:r></w:p></w:ftr><w:ftr w:type="odd"><xsl:if test="$footer_text != ''"><w:p><w:pPr><w:pStyle w:val="Footer"/><w:jc w:val="center"/></w:pPr><w:r><w:t><xsl:value-of select="$footer_text"/></w:t></w:r></w:p></xsl:if><w:p><w:pPr><w:pStyle w:val="Footer"/><xsl:if test="$tab != ''"><w:tabs><w:tab w:pos="9072" w:val="clear"/><w:tab w:pos="{$tab}" w:val="right"/></w:tabs></xsl:if></w:pPr><w:r><w:t>Australian Society of Archivists</w:t></w:r><w:r><w:tab wx:cTlc="78" wx:tlc="none" wx:wTab="4740"/></w:r><w:r><w:rPr><w:rStyle w:val="PageNumber"/></w:rPr><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:rPr><w:rStyle w:val="PageNumber"/></w:rPr><w:instrText>PAGE </w:instrText></w:r><w:r><w:rPr><w:rStyle w:val="PageNumber"/></w:rPr><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:rPr><w:rStyle w:val="PageNumber"/><w:noProof/></w:rPr><w:t>2</w:t></w:r><w:r><w:rPr><w:rStyle w:val="PageNumber"/></w:rPr><w:fldChar w:fldCharType="end"/></w:r></w:p></w:ftr><w:hdr w:type="first"><w:p><w:pPr><w:pStyle w:val="InternalHeader"/></w:pPr><w:r><w:t><xsl:value-of select="$header_first"/></w:t></w:r></w:p></w:hdr><w:ftr w:type="first"><w:p><w:pPr><w:pStyle w:val="Footer"/><w:jc w:val="center"/></w:pPr><w:r><w:t><xsl:value-of select="$footer_text"/></w:t></w:r></w:p></w:ftr></xsl:template-->
   <xsl:template name="headers_footers">
     <xsl:param name="BIC"/>
     <xsl:param name="gaadmin" select="'false'"/>
+    <xsl:param name="custown" select="'false'"/>
     <w:hdr w:type="odd">
-      <xsl:call-template name="standard_header"/>
+      <xsl:call-template name="standard_header">
+        <xsl:with-param name="gaadmin" select="$gaadmin"/>
+      </xsl:call-template>
       <xsl:choose>
         <xsl:when test="$gaadmin = 'true'">
           <xsl:call-template name="ga28_header_table"/>
@@ -139,18 +20,23 @@
       <xsl:call-template name="breadcrumb"/>
     </w:hdr>
     <w:ftr w:type="odd">
-      <xsl:call-template name="main_footer">
+      <xsl:call-template name="footer">
         <xsl:with-param name="BIC" select="$BIC"/>
+        <xsl:with-param name="gaadmin" select="$gaadmin"/>
       </xsl:call-template>
     </w:ftr>
     <w:hdr w:type="first">
-      <xsl:call-template name="standard_header_first"/>
+      <xsl:call-template name="standard_header_first">
+        <xsl:with-param name="gaadmin" select="$gaadmin"/>
+      </xsl:call-template>
       <xsl:choose>
         <xsl:when test="$gaadmin = 'true'">
           <xsl:call-template name="ga28_header_table"/>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:call-template name="header_table"/>
+          <xsl:call-template name="header_table">
+            <xsl:with-param name="custown" select="$custown"/>
+          </xsl:call-template>
         </xsl:otherwise>
       </xsl:choose>
       <w:p>
@@ -160,12 +46,14 @@
       </w:p>
     </w:hdr>
     <w:ftr w:type="first">
-      <xsl:call-template name="main_footer">
+      <xsl:call-template name="footer">
         <xsl:with-param name="BIC" select="$BIC"/>
+        <xsl:with-param name="gaadmin" select="$gaadmin"/>
       </xsl:call-template>
     </w:ftr>
   </xsl:template>
   <xsl:template name="standard_header">
+    <xsl:param name="gaadmin" select="'false'"/>
     <w:p>
       <w:pPr>
         <w:pStyle w:val="Subtitle"/>
@@ -181,7 +69,7 @@
         <w:pStyle w:val="Heading4"/>
         <w:tabs>
           <xsl:choose>
-            <xsl:when test="$ORIENTATION='portrait'">
+            <xsl:when test="$gaadmin='true'">
               <w:tab w:pos="9072" w:val="right"/>
             </xsl:when>
             <xsl:otherwise>
@@ -198,7 +86,7 @@
           <w:b-cs/>
         </w:rPr>
         <w:t>
-          <xsl:value-of select="$ID"/>
+          <xsl:value-of select="$LEFT_SUB"/>
         </w:t>
       </w:r>
       <w:r>
@@ -207,13 +95,13 @@
         </w:rPr>
         <w:tab wx:cTlc="98" wx:tlc="none" wx:wTab="5910"/>
         <w:t>
-          <xsl:text>Dates of coverage: </xsl:text>
-          <xsl:value-of select="$DATE_RANGE"/>
+          <xsl:value-of select="$RIGHT_SUB"/>
         </w:t>
       </w:r>
     </w:p>
   </xsl:template>
   <xsl:template name="standard_header_first">
+    <xsl:param name="gaadmin" select="'false'"/>
     <w:p>
       <w:pPr>
         <w:pStyle w:val="Subtitle"/>
@@ -235,7 +123,7 @@
         <w:pStyle w:val="Heading4"/>
         <w:tabs>
           <xsl:choose>
-            <xsl:when test="$ORIENTATION='portrait'">
+            <xsl:when test="$gaadmin='true'">
               <w:tab w:pos="9072" w:val="right"/>
             </xsl:when>
             <xsl:otherwise>
@@ -252,7 +140,7 @@
           <w:b-cs/>
         </w:rPr>
         <w:t>
-          <xsl:value-of select="$ID"/>
+          <xsl:value-of select="$LEFT_SUB"/>
         </w:t>
       </w:r>
       <w:r>
@@ -261,8 +149,7 @@
         </w:rPr>
         <w:tab wx:cTlc="98" wx:tlc="none" wx:wTab="5910"/>
         <w:t>
-          <xsl:text>Dates of coverage: </xsl:text>
-          <xsl:value-of select="$DATE_RANGE"/>
+          <xsl:value-of select="$RIGHT_SUB"/>
         </w:t>
       </w:r>
     </w:p>
@@ -270,63 +157,9 @@
   <!-- GA 28 Style header -->
   <xsl:template name="ga28_header_table">
     <!-- class number -->
-    <xsl:variable name="size_1">
-      <xsl:choose>
-        <xsl:when test="$ORIENTATION='landscape'">
-          <xsl:text>1100</xsl:text>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:text>992</xsl:text>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
-    <!-- disposal action | custody -->
-    <xsl:variable name="size_2">
-      <xsl:choose>
-        <xsl:when test="$ORIENTATION='landscape'">
-          <xsl:text>2870</xsl:text>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:text>2268</xsl:text>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
-    <!-- description wo/ custody-->
-    <xsl:variable name="size_3">
-      <xsl:choose>
-        <xsl:when test="$ORIENTATION='landscape'">
-          <xsl:text>10915</xsl:text>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:text>5812</xsl:text>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
-    <!-- description w/ custody-->
-    <xsl:variable name="size_4">
-      <xsl:choose>
-        <xsl:when test="$ORIENTATION='landscape'">
-          <xsl:text>8045</xsl:text>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:text>3544</xsl:text>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
-    <!-- width -->
-    <xsl:variable name="width">
-      <xsl:choose>
-        <xsl:when test="$ORIENTATION='landscape'">
-          <xsl:text>14885</xsl:text>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:text>9072</xsl:text>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
     <w:tbl>
       <w:tblPr>
-        <w:tblW w:type="dxa" w:w="{$width}"/>
+        <w:tblW w:type="dxa" w:w="9072"/>
         <w:jc w:val="center"/>
         <w:tblBorders>
           <w:top w:color="auto" w:space="0" w:sz="6" w:val="single" wx:bdrwidth="10"/>
@@ -338,19 +171,9 @@
         </w:tblBorders>
       </w:tblPr>
       <w:tblGrid>
-        <w:gridCol w:type="dxa" w:w="{$size_1}"/>
-        <xsl:choose>
-          <xsl:when test="$COLS='c'">
-            <w:gridCol w:type="dxa" w:w="{$size_4}"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <w:gridCol w:type="dxa" w:w="{$size_3}"/>
-          </xsl:otherwise>
-        </xsl:choose>
-        <w:gridCol w:type="dxa" w:w="{$size_2}"/>
-        <xsl:if test="$COLS='c'">
-          <w:gridCol w:type="dxa" w:w="{$size_2}"/>
-        </xsl:if>
+        <w:gridCol w:w="992"/>
+        <w:gridCol w:w="5812"/>
+        <w:gridCol w:w="2268"/>
       </w:tblGrid>
       <w:tr>
         <w:trPr>
@@ -358,7 +181,7 @@
         </w:trPr>
         <w:tc>
           <w:tcPr>
-            <w:tcW w:type="dxa" w:w="{$size_1}"/>
+            <w:tcW w:type="dxa" w:w="992"/>
             <w:shd w:color="auto" w:fill="auto" w:val="clear"/>
           </w:tcPr>
           <w:p>
@@ -380,14 +203,7 @@
         </w:tc>
         <w:tc>
           <w:tcPr>
-            <xsl:choose>
-              <xsl:when test="$COLS='c'">
-                <w:tcW w:type="dxa" w:w="{$size_4}"/>
-              </xsl:when>
-              <xsl:otherwise>
-                <w:tcW w:type="dxa" w:w="{$size_3}"/>
-              </xsl:otherwise>
-            </xsl:choose>
+            <w:tcW w:type="dxa" w:w="5812"/>
             <w:shd w:color="auto" w:fill="auto" w:val="clear"/>
           </w:tcPr>
           <w:p>
@@ -409,7 +225,7 @@
         </w:tc>
         <w:tc>
           <w:tcPr>
-            <w:tcW w:type="dxa" w:w="{$size_2}"/>
+            <w:tcW w:type="dxa" w:w="2268"/>
             <w:shd w:color="auto" w:fill="auto" w:val="clear"/>
           </w:tcPr>
           <w:p>
@@ -429,97 +245,64 @@
             </w:r>
           </w:p>
         </w:tc>
-        <xsl:if test="$COLS='c'">
-          <w:tc>
-            <w:tcPr>
-              <w:tcW w:type="dxa" w:w="{$size_2}"/>
-              <w:shd w:color="auto" w:fill="auto" w:val="clear"/>
-            </w:tcPr>
-            <w:p>
-              <w:pPr>
-                <w:spacing w:after="100" w:after-autospacing="on" w:before="100" w:before-autospacing="on"/>
-                <w:rPr>
-                  <w:b/>
-                  <w:sz-cs w:val="24"/>
-                </w:rPr>
-              </w:pPr>
-              <w:r>
-                <w:rPr>
-                  <w:b/>
-                  <w:sz-cs w:val="24"/>
-                </w:rPr>
-                <w:t>Custody</w:t>
-              </w:r>
-            </w:p>
-          </w:tc>
-        </xsl:if>
       </w:tr>
     </w:tbl>
   </xsl:template>
   <xsl:template name="header_table">
+    <xsl:param name="custown" select="'false'"/>
     <xsl:variable name="size_1">
-      <xsl:text>1100</xsl:text>
+      <xsl:choose>
+        <xsl:when test="$custown='true'">
+          <xsl:text>994</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>1100</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:variable>
     <xsl:variable name="size_2">
       <xsl:choose>
-        <xsl:when test="$ORIENTATION='portrait'">
-          <xsl:text>1440</xsl:text>
+        <xsl:when test="$custown='true'">
+          <xsl:text>2126</xsl:text>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:text>2268</xsl:text>
+          <xsl:text>2551</xsl:text>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
     <xsl:variable name="size_3">
       <xsl:choose>
-        <xsl:when test="$ORIENTATION='portrait'">
-          <xsl:text>1967</xsl:text>
+        <xsl:when test="$custown='true'">
+          <xsl:text>4252</xsl:text>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:text>2870</xsl:text>
+          <xsl:text>5020</xsl:text>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
     <xsl:variable name="size_4">
       <xsl:choose>
-        <xsl:when test="$ORIENTATION='portrait'">
-          <xsl:text>2426</xsl:text>
+        <xsl:when test="$custown='true'">
+          <xsl:text>2551</xsl:text>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:text>4813</xsl:text>
+          <xsl:text>2551</xsl:text>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
     <xsl:variable name="size_5">
       <xsl:choose>
-        <xsl:when test="$ORIENTATION='portrait'">
-          <xsl:text>4779</xsl:text>
+        <xsl:when test="$custown='true'">
+          <xsl:text>2551</xsl:text>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:text>8647</xsl:text>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
-    <xsl:variable name="size_6">
-      <xsl:choose>
-        <xsl:when test="$ORIENTATION='portrait'">
-          <xsl:text>3339</xsl:text>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:text>6379</xsl:text>
+          <xsl:text>3804</xsl:text>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
     <w:tbl>
       <w:tblPr>
-        <xsl:choose>
-          <xsl:when test="$ORIENTATION='portrait'">
-            <w:tblW w:type="dxa" w:w="9286"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <w:tblW w:type="dxa" w:w="14885"/>
-          </xsl:otherwise>
-        </xsl:choose>
+        <w:tblW w:type="dxa" w:w="14885"/>
         <w:tblBorders>
           <w:top w:color="auto" w:space="0" w:sz="4" w:val="single" wx:bdrwidth="10"/>
           <w:left w:color="auto" w:space="0" w:sz="4" w:val="single" wx:bdrwidth="10"/>
@@ -535,32 +318,14 @@
         </w:tblCellMar>
       </w:tblPr>
       <w:tblGrid>
-        <w:gridCol w:type="dxa" w:w="{$size_1}"/>
-        <xsl:choose>
-          <xsl:when test="$COLS='j_c'">
-            <w:gridCol w:type="dxa" w:w="{$size_2}"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <w:gridCol w:type="dxa" w:w="{$size_3}"/>
-          </xsl:otherwise>
-        </xsl:choose>
-        <xsl:choose>
-          <xsl:when test="$COLS='j_c'">
-            <w:gridCol w:type="dxa" w:w="{$size_4}"/>
-          </xsl:when>
-          <xsl:when test="$COLS='no_j_c'">
-            <w:gridCol w:type="dxa" w:w="{$size_5}"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <w:gridCol w:type="dxa" w:w="{$size_6}"/>
-          </xsl:otherwise>
-        </xsl:choose>
-        <w:gridCol w:type="dxa" w:w="{$size_2}"/>
-        <xsl:if test="$COLS!='no_j_c'">
-          <w:gridCol w:type="dxa" w:w="{$size_2}"/>
-        </xsl:if>
-        <xsl:if test="$COLS='j_c'">
-          <w:gridCol w:type="dxa" w:w="{$size_2}"/>
+        <w:gridCol w:w="{$size_1}"/>
+        <w:gridCol w:w="{$size_2}"/>
+        <w:gridCol w:w="{$size_3}"/>
+        <w:gridCol w:w="{$size_4}"/>
+        <w:gridCol w:w="{$size_5}"/>
+        <xsl:if test="$custown='true'">
+          <w:gridCol w:w="1276"/>
+          <w:gridCol w:w="1276"/>
         </xsl:if>
       </w:tblGrid>
       <w:tr>
@@ -602,14 +367,7 @@
         </w:tc>
         <w:tc>
           <w:tcPr>
-            <xsl:choose>
-              <xsl:when test="$COLS='j_c'">
-                <w:tcW w:type="dxa" w:w="{$size_2}"/>
-              </xsl:when>
-              <xsl:otherwise>
-                <w:tcW w:type="dxa" w:w="{$size_3}"/>
-              </xsl:otherwise>
-            </xsl:choose>
+            <w:tcW w:type="dxa" w:w="{$size_2}"/>
           </w:tcPr>
           <w:p>
             <w:pPr>
@@ -626,24 +384,14 @@
                 <w:sz w:val="16"/>
               </w:rPr>
               <w:t>
-                <xsl:text>Function/Activity</xsl:text>
+                <xsl:text>Term</xsl:text>
               </w:t>
             </w:r>
           </w:p>
         </w:tc>
         <w:tc>
           <w:tcPr>
-            <xsl:choose>
-              <xsl:when test="$COLS='j_c'">
-                <w:tcW w:type="dxa" w:w="{$size_4}"/>
-              </xsl:when>
-              <xsl:when test="$COLS='no_j_c'">
-                <w:tcW w:type="dxa" w:w="{$size_5}"/>
-              </xsl:when>
-              <xsl:otherwise>
-                <w:tcW w:type="dxa" w:w="{$size_6}"/>
-              </xsl:otherwise>
-            </xsl:choose>
+            <w:tcW w:type="dxa" w:w="{$size_3}"/>
           </w:tcPr>
           <w:p>
             <w:pPr>
@@ -667,7 +415,7 @@
         </w:tc>
         <w:tc>
           <w:tcPr>
-            <w:tcW w:type="dxa" w:w="{$size_2}"/>
+            <w:tcW w:type="dxa" w:w="{$size_4}"/>
           </w:tcPr>
           <w:p>
             <w:pPr>
@@ -689,64 +437,34 @@
             </w:r>
           </w:p>
         </w:tc>
-        <xsl:choose>
-          <xsl:when test="$COLS='j_c' or $COLS='j'">
-            <w:tc>
-              <w:tcPr>
-                <w:tcW w:type="dxa" w:w="{$size_2}"/>
-              </w:tcPr>
-              <w:p>
-                <w:pPr>
-                  <w:spacing w:after="60" w:before="60"/>
-                  <w:jc w:val="center"/>
-                  <w:rPr>
-                    <w:b/>
-                    <w:sz w:val="16"/>
-                  </w:rPr>
-                </w:pPr>
-                <w:r>
-                  <w:rPr>
-                    <w:b/>
-                    <w:sz w:val="16"/>
-                  </w:rPr>
-                  <w:t>
-                    <xsl:text>Justification</xsl:text>
-                  </w:t>
-                </w:r>
-              </w:p>
-            </w:tc>
-          </xsl:when>
-          <xsl:when test="$COLS='c'">
-            <w:tc>
-              <w:tcPr>
-                <w:tcW w:type="dxa" w:w="{$size_2}"/>
-              </w:tcPr>
-              <w:p>
-                <w:pPr>
-                  <w:spacing w:after="60" w:before="60"/>
-                  <w:jc w:val="center"/>
-                  <w:rPr>
-                    <w:b/>
-                    <w:sz w:val="16"/>
-                  </w:rPr>
-                </w:pPr>
-                <w:r>
-                  <w:rPr>
-                    <w:b/>
-                    <w:sz w:val="16"/>
-                  </w:rPr>
-                  <w:t>
-                    <xsl:text>Custody*</xsl:text>
-                  </w:t>
-                </w:r>
-              </w:p>
-            </w:tc>
-          </xsl:when>
-        </xsl:choose>
-        <xsl:if test="$COLS='j_c'">
+        <w:tc>
+          <w:tcPr>
+            <w:tcW w:type="dxa" w:w="{$size_5}"/>
+          </w:tcPr>
+          <w:p>
+            <w:pPr>
+              <w:spacing w:after="60" w:before="60"/>
+              <w:jc w:val="center"/>
+              <w:rPr>
+                <w:b/>
+                <w:sz w:val="16"/>
+              </w:rPr>
+            </w:pPr>
+            <w:r>
+              <w:rPr>
+                <w:b/>
+                <w:sz w:val="16"/>
+              </w:rPr>
+              <w:t>
+                <xsl:text>Examples</xsl:text>
+              </w:t>
+            </w:r>
+          </w:p>
+        </w:tc>
+        <xsl:if test="$custown='true'">
           <w:tc>
             <w:tcPr>
-              <w:tcW w:type="dxa" w:w="{$size_2}"/>
+              <w:tcW w:type="dxa" w:w="1276"/>
             </w:tcPr>
             <w:p>
               <w:pPr>
@@ -764,6 +482,30 @@
                 </w:rPr>
                 <w:t>
                   <xsl:text>Custody</xsl:text>
+                </w:t>
+              </w:r>
+            </w:p>
+          </w:tc>
+          <w:tc>
+            <w:tcPr>
+              <w:tcW w:type="dxa" w:w="1276"/>
+            </w:tcPr>
+            <w:p>
+              <w:pPr>
+                <w:spacing w:after="60" w:before="60"/>
+                <w:jc w:val="center"/>
+                <w:rPr>
+                  <w:b/>
+                  <w:sz w:val="16"/>
+                </w:rPr>
+              </w:pPr>
+              <w:r>
+                <w:rPr>
+                  <w:b/>
+                  <w:sz w:val="16"/>
+                </w:rPr>
+                <w:t>
+                  <xsl:text>Owner</xsl:text>
                 </w:t>
               </w:r>
             </w:p>
@@ -802,71 +544,13 @@
       </w:r>
     </w:p>
   </xsl:template>
-  <xsl:template name="main_footer">
-    <xsl:param name="BIC"/>
-    <xsl:if test="$COLS='c'">
-      <w:p>
-        <w:pPr>
-          <w:tabs>
-            <xsl:choose>
-              <xsl:when test="$ORIENTATION='portrait'">
-                <w:tab w:pos="9072" w:val="right"/>
-              </xsl:when>
-              <xsl:otherwise>
-                <w:tab w:pos="14742" w:val="right"/>
-              </xsl:otherwise>
-            </xsl:choose>
-          </w:tabs>
-          <w:rPr>
-            <w:sz w:val="18"/>
-          </w:rPr>
-        </w:pPr>
-        <w:r>
-          <w:rPr>
-            <w:sz w:val="18"/>
-          </w:rPr>
-          <w:t>
-            <xsl:text>* see </xsl:text>
-          </w:t>
-        </w:r>
-        <w:r>
-          <w:rPr>
-            <w:i/>
-            <w:sz w:val="18"/>
-          </w:rPr>
-          <w:t>
-            <xsl:text>About the functional retention and disposal authority</xsl:text>
-          </w:t>
-        </w:r>
-      </w:p>
-    </xsl:if>
-    <xsl:if test="$BIC='true'">
-      <w:p>
-        <w:pPr>
-          <w:tabs>
-            <w:tab w:pos="14742" w:val="right"/>
-          </w:tabs>
-          <w:jc w:val="center"/>
-          <w:rPr>
-            <w:sz w:val="18"/>
-          </w:rPr>
-        </w:pPr>
-        <w:r>
-          <w:rPr>
-            <w:sz w:val="18"/>
-          </w:rPr>
-          <w:t>BOARD-IN-CONFIDENCE</w:t>
-        </w:r>
-      </w:p>
-    </xsl:if>
-    <xsl:call-template name="footer"/>
-  </xsl:template>
   <xsl:template name="footer">
+    <xsl:param name="gaadmin" select="'false'"/>
     <w:p>
       <w:pPr>
         <w:tabs>
           <xsl:choose>
-            <xsl:when test="$ORIENTATION='portrait'">
+            <xsl:when test="$gaadmin='true'">
               <w:tab w:pos="9072" w:val="right"/>
             </xsl:when>
             <xsl:otherwise>
@@ -884,7 +568,7 @@
           <w:sz w:val="18"/>
         </w:rPr>
         <w:t>
-          <xsl:value-of select="$ORG_FULL"/>
+          <xsl:text>© Australian Society of Archivists Inc.</xsl:text>
         </w:t>
       </w:r>
       <w:r>
@@ -1049,7 +733,7 @@
                 <w:sz w:val="16"/>
               </w:rPr>
               <w:t>
-                <xsl:text>List of Functions and Activities covered</xsl:text>
+                <xsl:text>List of Functions and Classes</xsl:text>
               </w:t>
             </w:r>
           </w:p>

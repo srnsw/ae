@@ -25,7 +25,7 @@
             <w:sz-cs w:val="32"/>
           </w:rPr>
           <w:t>
-            <xsl:text>State Archives and Records Authority of New South Wales</xsl:text>
+            <xsl:value-of select="$ORG_FULL"/>
           </w:t>
         </w:r>
       </w:p>
@@ -2047,7 +2047,7 @@
               </w:rPr>
               <w:br/>
               <w:t>
-                <xsl:text>Executive Director</xsl:text>
+                <xsl:value-of select="$DIRECTOR_ROLE"/>
               </w:t>
             </w:r>
             <w:r>
@@ -2056,7 +2056,7 @@
               </w:rPr>
               <w:br/>
               <w:t>
-                <xsl:text>State Archives and Records Authority of New South Wales</xsl:text>
+                <xsl:value-of select="$ORG_FULL"/>
               </w:t>
             </w:r>
           </w:p>

@@ -129,6 +129,14 @@
       <text>Approved authority (classic)</text>
       <file>word_approved_authority_classic.xsl</file>
     </stylesheet>
+    <!--stylesheet>
+      <text>ASA RRDS</text>
+      <file>word_asa_rrds.xsl</file>
+    </stylesheet>
+    <stylesheet>
+      <text>ASA RRDS (classic)</text>
+      <file>word_asa_rrds_classic.xsl</file>
+    </stylesheet-->
   </word_transform_menu>
   <export_transform_menu>
     <stylesheet>

@@ -8,7 +8,8 @@
       </w:pPr>
       <w:r>
         <w:t>
-          <xsl:text>Board of the State Archives and Records Authority of NSW</xsl:text>
+          <xsl:text>Board of the </xsl:text>
+          <xsl:value-of select="$ORG_LONG"/>
         </w:t>
       </w:r>
     </w:p>
@@ -30,7 +31,7 @@
         </w:t>
       </w:r>
     </w:p>
-    <xsl:if test="$SUBMITTED !=''">
+    <!--xsl:if test="$SUBMITTED !=''">
       <w:p>
       <w:pPr>
         <w:pStyle w:val="ARH1"/>
@@ -49,7 +50,7 @@
         </w:t>
       </w:r>
     </w:p>
-    </xsl:if>
+    </xsl:if-->
     <xsl:apply-templates select="rda:Context[@type='appraisal report']"/>
     <w:p>
       <w:pPr>

@@ -76,7 +76,7 @@
     <xsl:variable name="breadcrumb">
       <xsl:for-each select="ancestor-or-self::rda:Term">
         <xsl:if test="parent::rda:Term">
-          <xsl:text>- </xsl:text>
+          <xsl:text> - </xsl:text>
         </xsl:if>
         <xsl:value-of select="rda:TermTitle"/>
       </xsl:for-each>
@@ -121,9 +121,6 @@
       </w:r>
       <aml:annotation aml:id="{$number}" w:type="Word.Bookmark.End"/>
     </w:p>
-    <xsl:if test="not(rda:TermDescription)">
-      <w:p/>
-    </xsl:if>
     <xsl:for-each select="rda:TermDescription">
       <xsl:apply-templates/>
     </xsl:for-each>
@@ -145,7 +142,7 @@
     <xsl:variable name="breadcrumb">
       <xsl:for-each select="ancestor::rda:Term">
         <xsl:if test="parent::rda:Term">
-          <xsl:text>- </xsl:text>
+          <xsl:text> - </xsl:text>
         </xsl:if>
         <xsl:value-of select="rda:TermTitle"/>
       </xsl:for-each>

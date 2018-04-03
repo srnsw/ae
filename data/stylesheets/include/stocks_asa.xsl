@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:rda="http://www.records.nsw.gov.au/schemas/RDA" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:include href="utils.xsl"/>
-  <xsl:variable name="ORG_SHORT">
-    <xsl:value-of select="'NSW State Archives and Records'"/>
+    <xsl:variable name="AUTHORITY_HEAD">
+    <xsl:text>Australian Society of Archivists</xsl:text>
   </xsl:variable>
-  <xsl:variable name="ORG_LONG">
-    <xsl:value-of select="'State Archives and Records Authority of NSW'"/>
+  <xsl:variable name="AUTHORITY_TITLE">
+    <xsl:text>Records Retention &amp; Disposal Schedule for Non-Government Schools</xsl:text>
   </xsl:variable>
-  <xsl:variable name="ORG_FULL">
-    <xsl:value-of select="'State Archives and Records Authority of New South Wales'"/>
+  <xsl:variable name="SHORT_TITLE">
+    <xsl:text>ASA RRDS for Non-Government Schools</xsl:text>
+  </xsl:variable>
+  <xsl:variable name="LEFT_SUB">
+    <xsl:text>Version 2</xsl:text>
+  </xsl:variable>
+  <xsl:variable name="RIGHT_SUB">
+    <xsl:text>April 2018</xsl:text>
   </xsl:variable>
   <xsl:variable name="DIRECTOR">
-    <xsl:value-of select="'Theresa Fairman'"/>
-  </xsl:variable>
-  <xsl:variable name="DIRECTOR_ROLE">
-    <xsl:value-of select="'Acting Executive Director'"/>
-  </xsl:variable>
-  <xsl:variable name="MANAGER">
-    <xsl:value-of select="'Emma Harris'"/>
+    <xsl:value-of select="'Geoff Hinchcliffe'"/>
   </xsl:variable>
   <xsl:variable name="MANAGER_ROLE">
-    <xsl:value-of select="'Acting Manager, Government Recordkeeping'"/>
+    <xsl:value-of select="'Acting Manager'"/>
+  </xsl:variable>
+  <xsl:variable name="MANAGER">
+    <xsl:value-of select="'Sally Irvine-Smith'"/>
   </xsl:variable>
   <xsl:variable name="CHAIR">
     <xsl:value-of select="'Anne Henderson AM'"/>
   </xsl:variable>
-  <xsl:variable name="CHAIR_ROLE">
-    <xsl:value-of select="'Chairperson'"/>
-  </xsl:variable> 
   <xsl:variable name="ARNO">
     <xsl:text>AR</xsl:text>
     <xsl:value-of select="rda:Authority/rda:ID[@control='AR']"/>
