@@ -17,10 +17,10 @@
     <xsl:value-of select="'Acting Executive Director'"/>
   </xsl:variable>
   <xsl:variable name="MANAGER">
-    <xsl:value-of select="'Emma Harris'"/>
+    <xsl:value-of select="'Andrew Pickles'"/>
   </xsl:variable>
   <xsl:variable name="MANAGER_ROLE">
-    <xsl:value-of select="'Acting Manager, Government Recordkeeping'"/>
+    <xsl:value-of select="'Manager Government Recordkeeping'"/>
   </xsl:variable>
   <xsl:variable name="CHAIR">
     <xsl:value-of select="'Anne Henderson AM'"/>
